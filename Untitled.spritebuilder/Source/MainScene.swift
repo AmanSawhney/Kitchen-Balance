@@ -27,8 +27,10 @@ class MainScene: CCNode {
     currentTouch = touch
   }
   override func update(delta: CCTime) {
-    if pin.rotation > 120 {
-      
+    println(Int(pin.rotation))
+    if Int(pin.rotation) <= -220 || (Int(pin.rotation) >= 30) {
+      var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
+      CCDirector.sharedDirector().replaceScene(mainScene)
     }
     if currentTouch != nil {
       var random = arc4random_uniform(300)
