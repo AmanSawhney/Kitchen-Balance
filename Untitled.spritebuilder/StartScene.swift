@@ -29,7 +29,7 @@ class StartScene: CCScene {
         animationManager.runAnimationsForSequenceNamed("Stats Timeline")
     }
     func leaderBoard() {
-        
+        animationManager.runAnimationsForSequenceNamed("LeaderBoard Timeline")
     }
     func facebook() {
         
