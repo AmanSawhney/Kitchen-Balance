@@ -21,7 +21,7 @@ class StartScene: CCScene {
     func play() {
         animationManager.runAnimationsForSequenceNamed("Play Timeline")
         delay(1.5) {
-            var difficultLevel : CCScene =  CCBReader.loadAsScene("DifficultLevel")
+            var difficultLevel : CCScene =  CCBReader.loadAsScene("PickYourPoison")
             CCDirector.sharedDirector().replaceScene(difficultLevel)
         }
     }

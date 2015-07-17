@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>3</integer>
+	<integer>1</integer>
 	<key>docDimensionsType</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -421,7 +421,7 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>3.5</real>
 							<real>0.69999998807907104</real>
 							<false/>
 							<integer>0</integer>
@@ -713,8 +713,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.69999998807907104</real>
+							<real>0.31200000643730164</real>
+							<real>0.31200000643730164</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -1090,8 +1090,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>1</real>
+							<real>1</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -1605,8 +1605,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.0</real>
-									<real>0.0</real>
+									<real>0.69999998807907104</real>
+									<real>0.69999998807907104</real>
 									<true/>
 									<integer>0</integer>
 								</array>
@@ -2209,8 +2209,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.0</real>
-									<real>0.0</real>
+									<real>0.69999998807907104</real>
+									<real>0.69999998807907104</real>
 									<true/>
 									<integer>0</integer>
 								</array>
@@ -2813,8 +2813,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.0</real>
-									<real>0.0</real>
+									<real>0.69999998807907104</real>
+									<real>0.69999998807907104</real>
 									<true/>
 									<integer>0</integer>
 								</array>
@@ -3417,8 +3417,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.0</real>
-									<real>0.0</real>
+									<real>0.69999998807907104</real>
+									<real>0.69999998807907104</real>
 									<true/>
 									<integer>0</integer>
 								</array>
@@ -4395,8 +4395,8 @@
 														<string>ScaleLock</string>
 														<key>value</key>
 														<array>
-															<real>0.0</real>
-															<real>0.0</real>
+															<real>0.20000000298023224</real>
+															<real>0.20000000298023224</real>
 															<true/>
 															<integer>0</integer>
 														</array>
@@ -4409,7 +4409,7 @@
 														<key>type</key>
 														<string>Degrees</string>
 														<key>value</key>
-														<real>-20</real>
+														<real>0.0</real>
 													</dict>
 													<dict>
 														<key>name</key>
@@ -5367,8 +5367,8 @@
 														<string>ScaleLock</string>
 														<key>value</key>
 														<array>
-															<real>0.0</real>
-															<real>0.0</real>
+															<real>0.20000000298023224</real>
+															<real>0.20000000298023224</real>
 															<true/>
 															<integer>0</integer>
 														</array>
@@ -5381,7 +5381,7 @@
 														<key>type</key>
 														<string>Degrees</string>
 														<key>value</key>
-														<real>-20</real>
+														<real>0.0</real>
 													</dict>
 													<dict>
 														<key>name</key>
@@ -6249,8 +6249,8 @@
 														<string>ScaleLock</string>
 														<key>value</key>
 														<array>
-															<real>7</real>
-															<real>7</real>
+															<real>0.20000000298023224</real>
+															<real>0.20000000298023224</real>
 															<true/>
 															<integer>0</integer>
 														</array>
@@ -6263,7 +6263,7 @@
 														<key>type</key>
 														<string>Degrees</string>
 														<key>value</key>
-														<real>-180</real>
+														<real>0.0</real>
 													</dict>
 													<dict>
 														<key>name</key>
@@ -7089,7 +7089,7 @@
 							<real>0.0</real>
 							<real>0.0</real>
 							<real>0.0</real>
-							<real>1</real>
+							<real>0.0</real>
 						</array>
 					</dict>
 					<dict>
@@ -7100,7 +7100,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>1</real>
+						<real>0.0</real>
 					</dict>
 				</array>
 				<key>selected</key>
@@ -7246,7 +7246,7 @@
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
-			<real>0.10313129425048828</real>
+			<real>0.0</real>
 			<key>position</key>
 			<real>0.0</real>
 			<key>resolution</key>

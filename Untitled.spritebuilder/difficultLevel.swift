@@ -12,18 +12,18 @@ class DifficultLevel: CCScene {
     }
     func easy() {
         
-        var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
+        var mainScene : CCScene =  CCBReader.loadAsScene("Easy")
         CCDirector.sharedDirector().replaceScene(mainScene)
         
     }
     func hard() {
         
-        var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
+        var mainScene : CCScene =  CCBReader.loadAsScene("Hard")
         CCDirector.sharedDirector().replaceScene(mainScene)
     }
     func hell() {
         
-        var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
+        var mainScene : CCScene =  CCBReader.loadAsScene("Hell")
         CCDirector.sharedDirector().replaceScene(mainScene)
     }
 }

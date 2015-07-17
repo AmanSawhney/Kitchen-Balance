@@ -1,14 +1,15 @@
 import Foundation
 
-class MainScene: CCNode {
+class Easy: CCNode {
   weak var pin: CCSprite!
   weak var hand: CCSprite!
   weak var gamePhysicsNode: CCPhysicsNode!
   weak var currentTouch: CCTouch!
   var hard = false
   var hell = false
+  var easy = false
   func didLoadFromCCB() {
-    gamePhysicsNode.debugDraw = true
+    //gamePhysicsNode.debugDraw = true
     userInteractionEnabled = true
   }
   
@@ -32,7 +33,7 @@ class MainScene: CCNode {
   override func update(delta: CCTime) {
     println(Int(pin.rotation))
     if Int(pin.rotation) <= -220 || (Int(pin.rotation) >= 30) {
-      var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
+      var mainScene : CCScene =  CCBReader.loadAsScene("Easy")
       CCDirector.sharedDirector().replaceScene(mainScene)
     }
     if currentTouch != nil {
