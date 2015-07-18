@@ -82,7 +82,9 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
   
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, object: CCNode!, coin: Coin!) -> Bool {
     if !coin.collected{
-      coinNode.updateLabel(1)
+      var coins = NSUserDefaults.standardUserDefaults().integerForKey("Coins") + 1
+      NSUserDefaults.standardUserDefaults().setInteger(coins, forKey: "Coins")
+      coinNode.updateLabel(coins)
       coin.collect()
     }
     return false
