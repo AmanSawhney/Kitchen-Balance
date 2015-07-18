@@ -7,23 +7,24 @@
 //
 
 import Foundation
+
 class DifficultLevel: CCScene {
     func didLoadFromCCB() {
     }
     func easy() {
-        
-        var mainScene : CCScene =  CCBReader.loadAsScene("Easy")
+        object = .RollingPin
+        var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
         
     }
     func hard() {
-        
-        var mainScene : CCScene =  CCBReader.loadAsScene("Hard")
+        object = .Pan
+        var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
     }
     func hell() {
-        
-        var mainScene : CCScene =  CCBReader.loadAsScene("Hell")
+        object = .Plate
+        var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
     }
 }

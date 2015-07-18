@@ -1002,7 +1002,7 @@ p0ison</string>
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>447</real>
+									<real>154</real>
 									<real>28.5</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1795,7 +1795,7 @@ p0ison</string>
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>447</real>
+									<real>154</real>
 									<real>118.5</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2273,8 +2273,8 @@ p0ison</string>
 											<integer>4</integer>
 											<key>value</key>
 											<array>
-												<real>0.31200000643730164</real>
-												<real>0.31200000643730164</real>
+												<real>1</real>
+												<real>1</real>
 											</array>
 										</dict>
 									</array>
@@ -2606,8 +2606,8 @@ p0ison</string>
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>447</real>
-									<real>235.5</real>
+									<real>154</real>
+									<real>199</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2636,8 +2636,8 @@ p0ison</string>
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.31200000643730164</real>
-									<real>0.31200000643730164</real>
+									<real>1</real>
+									<real>1</real>
 									<true/>
 									<integer>0</integer>
 								</array>
@@ -2670,8 +2670,8 @@ p0ison</string>
 								<string>Size</string>
 								<key>value</key>
 								<array>
-									<real>894</real>
-									<real>111</real>
+									<real>304</real>
+									<real>38</real>
 									<integer>0</integer>
 									<integer>0</integer>
 								</array>
@@ -2914,6 +2914,8 @@ p0ison</string>
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 						<key>seqExpanded</key>
 						<true/>
 					</dict>
@@ -3377,8 +3379,6 @@ p0ison</string>
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

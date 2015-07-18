@@ -78,6 +78,20 @@
 			<key>previewFolderHidden</key>
 			<true/>
 		</dict>
+		<key>Assets</key>
+		<dict/>
+		<key>Assets/Sprites</key>
+		<dict>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
+		<key>Assets/UI</key>
+		<dict/>
+		<key>Assets/UI/Start</key>
+		<dict>
+			<key>isDirty</key>
+			<true/>
+		</dict>
 		<key>MainScene.ccbi</key>
 		<dict/>
 		<key>Sprites</key>

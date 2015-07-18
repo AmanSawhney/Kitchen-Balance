@@ -684,8 +684,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1.0333333015441895</real>
-									<real>1.0333333015441895</real>
+									<real>1</real>
+									<real>1</real>
 									<true/>
 									<integer>0</integer>
 								</array>
@@ -698,7 +698,7 @@
 								<key>type</key>
 								<string>Degrees</string>
 								<key>value</key>
-								<real>-4.93194580078125</real>
+								<real>0.0</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -962,6 +962,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 						<key>seqExpanded</key>
 						<true/>
 					</dict>
@@ -1491,7 +1493,7 @@
 								<key>type</key>
 								<string>Degrees</string>
 								<key>value</key>
-								<real>-13.333333015441895</real>
+								<real>0.0</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2270,8 +2272,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.80000001192092896</real>
-									<real>0.80000001192092896</real>
+									<real>1</real>
+									<real>1</real>
 									<true/>
 									<integer>0</integer>
 								</array>
@@ -2284,7 +2286,7 @@
 								<key>type</key>
 								<string>Degrees</string>
 								<key>value</key>
-								<real>5.8520822525024414</real>
+								<real>0.0</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3306,7 +3308,7 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>1</real>
 							<real>1</real>
 							<false/>
 							<integer>0</integer>
@@ -3356,8 +3358,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -3655,7 +3655,7 @@
 							<real>0.0</real>
 							<real>0.0</real>
 							<real>0.0</real>
-							<real>0.28888890147209167</real>
+							<real>0.0</real>
 						</array>
 					</dict>
 					<dict>
@@ -3666,7 +3666,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.28888890147209167</real>
+						<real>0.0</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -3884,7 +3884,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.43333333730697632</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

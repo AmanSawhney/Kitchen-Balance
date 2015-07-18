@@ -9,6 +9,9 @@
 import Foundation
 
 class StartScene: CCScene {
+    func didLoadFromCCB() {
+        object = .RollingPin
+    }
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
             dispatch_time(
@@ -16,6 +19,9 @@ class StartScene: CCScene {
                 Int64(delay * Double(NSEC_PER_SEC))
             ),
             dispatch_get_main_queue(), closure)
+    }
+    func switchLeft() {
+        
     }
     
     func play() {
