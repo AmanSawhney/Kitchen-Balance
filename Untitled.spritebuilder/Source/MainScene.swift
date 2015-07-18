@@ -37,6 +37,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
   func didLoadFromCCB() {
     gamePhysicsNode.collisionDelegate = self
     userInteractionEnabled = true
+    schedule("spawnCoin", interval: 1, repeat: UInt(100000), delay: 0.1)
   }
   
   override func onEnter() {
@@ -105,9 +106,20 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
       if !done {
         done = true
         pivot.invalidate()
+        unschedule("spawnCoin")
       }
     }
 
+  }
+  
+  func spawnCoin(){
+    var coin = CCBReader.load("Coin")
+    var coinPositionXOffset = CGFloat(arc4random_uniform(UInt32(screenWidth / 4)) + UInt32(screenWidth/5))
+    let coinPositionX = CGFloat(arc4random_uniform(2) == 1 ? screenWidth/2 + coinPositionXOffset : screenWidth/2 - coinPositionXOffset)
+    let coinPositionY = CGFloat(arc4random_uniform(UInt32(screenHeight * 0.55)) + UInt32(screenHeight * 0.18))
+    
+    coin.position = ccp(coinPositionX, coinPositionY)
+    gamePhysicsNode.addChild(coin)
   }
   
   func restart(){
