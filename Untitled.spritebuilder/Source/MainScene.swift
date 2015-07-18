@@ -46,8 +46,8 @@ class MainScene: CCNode {
       }
     } else {
       object = CCBReader.load("Objects/RollingPin") as! CCSprite
+
     }
-    
 
     hand = CCBReader.load("Objects/Hand")
     hand.scale = 0.75
@@ -62,7 +62,6 @@ class MainScene: CCNode {
     pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(object.position.x/4,0))
     pivot.collideBodies = false
     object.physicsBody.applyImpulse(ccp(0,10))
-    
     
   }
   
