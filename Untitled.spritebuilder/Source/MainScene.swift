@@ -6,7 +6,7 @@ enum typeOfObject {
 }
 var whichObject: typeOfObject!
 
-class MainScene: CCNode {
+class MainScene: CCNode, CCPhysicsCollisionDelegate {
   weak var hand: CCNode!
   weak var object: CCSprite!
   weak var gamePhysicsNode: CCPhysicsNode!
@@ -18,7 +18,7 @@ class MainScene: CCNode {
       scoreLabel.string = "\(Int(score))"
     }
   }
-  let scorePerUpdate = 32.0
+  let scorePerUpdate = 31.0
 //  var 
   var rotationMultiplier: Double = 1
   var done = false {
@@ -34,8 +34,7 @@ class MainScene: CCNode {
   var screenHeight = UIScreen.mainScreen().bounds.height
   
   func didLoadFromCCB() {
-    
-//    gamePhysicsNode.debugDraw = true
+    gamePhysicsNode.collisionDelegate = self
     userInteractionEnabled = true
   }
   
@@ -62,7 +61,6 @@ class MainScene: CCNode {
     hand = CCBReader.load("Objects/Hand")
     hand.scale = 0.6
     hand.position = ccp(screenWidth/2, 0)
-//    hand.physicsBody.type = CCPhysicsBodyType(rawValue: UInt(1))!
     object.position = ccp(screenWidth/2, hand.contentSizeInPoints.height * CGFloat(hand.scale) * (CGFloat(1) - hand.anchorPoint.y))
     
     hand.zOrder = 2
@@ -72,13 +70,19 @@ class MainScene: CCNode {
     gamePhysicsNode.addChild(object)
     
     pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(20, 0))
-//    pivot = CCPhysicsJoint(distanceJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(0,0), anchorB: object.position, minDistance: CGFloat(0), maxDistance: CGFloat(0))
     pivot.collideBodies = false
     
     var randomRotation = Double(arc4random_uniform(2)) + 1.0
     object.rotation = Float(arc4random_uniform(2) == 1 ? randomRotation : -randomRotation)
 //    println(object.rotation)
     
+  }
+  
+  func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, object: CCNode!, coin: Coin!) -> Bool {
+    if !coin.collected{
+      coin.collect()
+    }
+    return false
   }
   
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -89,29 +93,19 @@ class MainScene: CCNode {
     currentTouchLocation = touch.locationInWorld()
   }
   override func update(delta: CCTime) {
-    hand.position.y = 0
-//    object.physicsBody.velocity.y = 0
+    hand.position.y = 0 //DO NOT DELETE THIS LINE. It makes hand a kinematic body and keeps pivot joint in line
     
+    if !done{
+      score += rotationMultiplier * scorePerUpdate
+    }
     
-    score += rotationMultiplier * scorePerUpdate
-    
-    //        println(Int(pin.rotation))
-    if Int(object.rotation) <= -130 || (Int(object.rotation) >= 110) {
+    if abs(object.rotation) > 80 {
       if !done {
         done = true
         pivot.invalidate()
       }
-      //      var mainScene : CCScene =  CCBReader.loadAsScene("Easy")
-      //      CCDirector.sharedDirector().replaceScene(mainScene)
     }
-//    if currentTouchLocation != nil {
-//      var random = arc4random_uniform(300)
-//      if hand.position.x > CCDirector.sharedDirector().viewSize().width/2 {
-//        object.physicsBody.applyImpulse(ccp(-CGFloat(random),0))
-//      } else if hand.position.x < CCDirector.sharedDirector().viewSize().width/2 {
-//        object.physicsBody.applyImpulse(ccp(CGFloat(random),0))
-//      }
-//    }
+
   }
   
   func restart(){

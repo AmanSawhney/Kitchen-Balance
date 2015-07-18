@@ -96,6 +96,7 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
+		CCF74B351B5AF1BB002267E2 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B341B5AF1BB002267E2 /* Coin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,7 @@
 		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
+		CCF74B341B5AF1BB002267E2 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -441,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
+				CCF74B341B5AF1BB002267E2 /* Coin.swift */,
 				049BDBFC1B598BB10020C07D /* ShitScreen.swift */,
 				049BDBEA1B586CAD0020C07D /* StartScene.swift */,
 				049BDBEE1B586D910020C07D /* DifficultLevel.swift */,
@@ -827,6 +830,7 @@
 				049BDBFD1B598BB10020C07D /* ShitScreen.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */,
+				CCF74B351B5AF1BB002267E2 /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
