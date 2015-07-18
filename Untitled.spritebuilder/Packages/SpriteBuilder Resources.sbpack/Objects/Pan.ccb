@@ -118,7 +118,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Pan.png</string>
+							<string>Art/Objects/Pan.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -154,6 +154,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -477,8 +479,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

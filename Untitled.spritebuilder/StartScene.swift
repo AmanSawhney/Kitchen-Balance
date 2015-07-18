@@ -10,7 +10,7 @@ import Foundation
 
 class StartScene: CCScene {
     func didLoadFromCCB() {
-        object = .RollingPin
+        whichObject = .RollingPin
     }
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
@@ -27,8 +27,8 @@ class StartScene: CCScene {
     func play() {
         animationManager.runAnimationsForSequenceNamed("Play Timeline")
         delay(1.5) {
-            var difficultLevel : CCScene =  CCBReader.loadAsScene("PickYourPoison")
-            CCDirector.sharedDirector().replaceScene(difficultLevel)
+          var playScene = CCBReader.loadAsScene("MainScene")
+          CCDirector.sharedDirector().replaceScene(playScene)
         }
     }
     func stats() {

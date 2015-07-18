@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>3</integer>
+	<integer>1</integer>
 	<key>docDimensionsType</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -110,7 +110,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>pixel6.png</string>
+							<string>Art/pixel6.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -478,7 +478,7 @@
 									<key>value</key>
 									<array>
 										<real>0.0</real>
-										<real>0.5</real>
+										<real>0.31200000643730164</real>
 									</array>
 								</dict>
 								<dict>
@@ -490,7 +490,7 @@
 									<key>name</key>
 									<string>scale</string>
 									<key>time</key>
-									<real>0.56666666269302368</real>
+									<real>0.40000000596046448</real>
 									<key>type</key>
 									<integer>4</integer>
 									<key>value</key>
@@ -545,7 +545,7 @@
 									<key>value</key>
 									<array>
 										<real>0.0</real>
-										<real>0.5</real>
+										<real>0.69999998807907104</real>
 									</array>
 								</dict>
 							</array>
@@ -594,7 +594,7 @@
 									<key>value</key>
 									<array>
 										<real>0.0</real>
-										<real>0.5</real>
+										<real>0.69999998807907104</real>
 									</array>
 								</dict>
 							</array>
@@ -643,7 +643,7 @@
 									<key>value</key>
 									<array>
 										<real>0.0</real>
-										<real>0.5</real>
+										<real>0.69999998807907104</real>
 									</array>
 								</dict>
 							</array>
@@ -727,7 +727,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>RollingPin.png</string>
+							<string>Art/Objects/RollingPin.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1675,7 +1675,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui041.png</string>
+									<string>Art/Buttons/ui041.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1686,7 +1686,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui041.png</string>
+									<string>Art/Buttons/ui041.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1710,7 +1710,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui041.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1729,7 +1729,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui041.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2279,7 +2279,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui042.png</string>
+									<string>Art/Buttons/ui042.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2290,7 +2290,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui042.png</string>
+									<string>Art/Buttons/ui042.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2314,7 +2314,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui042.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2333,7 +2333,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui042.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2883,7 +2883,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui0401.png</string>
+									<string>Art/Buttons/ui0401.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2894,7 +2894,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui0401.png</string>
+									<string>Art/Buttons/ui0401.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2918,7 +2918,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui0401.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2937,7 +2937,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui0401.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -3487,7 +3487,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui040.png</string>
+									<string>Art/Buttons/ui040.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -3498,7 +3498,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui043.png</string>
+									<string>Art/Buttons/ui040.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -3522,7 +3522,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui040.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -3541,7 +3541,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui041.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -3685,8 +3685,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 						<key>seqExpanded</key>
 						<true/>
 					</dict>
@@ -4477,7 +4475,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ui058.png</string>
+															<string>Art/Buttons/ui058.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -4488,7 +4486,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ui058.png</string>
+															<string>Art/Buttons/ui058.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -4512,7 +4510,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ccbResources/ccbButtonNormal.png</string>
+															<string>Art/Buttons/ui058.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -4531,7 +4529,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ccbResources/ccbButtonNormal.png</string>
+															<string>Art/Buttons/ui058.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -4675,6 +4673,8 @@
 														</array>
 													</dict>
 												</array>
+												<key>selected</key>
+												<true/>
 												<key>seqExpanded</key>
 												<true/>
 											</dict>
@@ -5449,7 +5449,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ui04.png</string>
+															<string>Art/Buttons/ui04.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -5460,7 +5460,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ui04.png</string>
+															<string>Art/Buttons/ui04.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -5484,7 +5484,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ccbResources/ccbButtonNormal.png</string>
+															<string>Art/Buttons/ui04.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -5503,7 +5503,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ccbResources/ccbButtonNormal.png</string>
+															<string>Art/Buttons/ui04.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -6331,7 +6331,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ui03.png</string>
+															<string>Art/Buttons/ui03.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -6342,7 +6342,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ui03.png</string>
+															<string>Art/Buttons/ui03.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -6366,7 +6366,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ccbResources/ccbButtonNormal.png</string>
+															<string>Art/Buttons/ui03.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -6385,7 +6385,7 @@
 														<key>value</key>
 														<array>
 															<string></string>
-															<string>ccbResources/ccbButtonNormal.png</string>
+															<string>Art/Buttons/ui03.png</string>
 														</array>
 													</dict>
 													<dict>
@@ -7248,7 +7248,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.89999997615814209</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
@@ -7320,7 +7320,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>1.5</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
@@ -7356,7 +7356,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>1.5</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

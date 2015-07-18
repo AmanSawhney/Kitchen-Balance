@@ -884,7 +884,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui049.png</string>
+									<string>Art/Buttons/ui049.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -895,7 +895,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonHighlighted.png</string>
+									<string>Art/Buttons/ui049.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -919,7 +919,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui049.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -938,7 +938,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui049.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1385,7 +1385,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ui010.png</string>
+									<string>Art/Buttons/ui010.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1396,7 +1396,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonHighlighted.png</string>
+									<string>Art/Buttons/ui010.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1420,7 +1420,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui010.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1439,7 +1439,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>Art/Buttons/ui010.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1583,6 +1583,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 						<key>seqExpanded</key>
 						<true/>
 					</dict>
@@ -1663,8 +1665,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

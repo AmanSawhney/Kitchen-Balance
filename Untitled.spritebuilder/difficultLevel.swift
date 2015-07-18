@@ -12,18 +12,18 @@ class DifficultLevel: CCScene {
     func didLoadFromCCB() {
     }
     func easy() {
-        object = .RollingPin
+        whichObject = .RollingPin
         var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
         
     }
     func hard() {
-        object = .Pan
+        whichObject = .Pan
         var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
     }
     func hell() {
-        object = .Plate
+        whichObject = .Plate
         var mainScene : CCScene =  CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
     }
