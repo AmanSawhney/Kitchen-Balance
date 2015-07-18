@@ -13,7 +13,7 @@ class MainScene: CCNode {
     var done = false {
         didSet {
             var shitScreen = CCBReader.load("ShitScreen") as! ShitScreen
-            shitScreen.position.x = -self.contentSize.width
+            shitScreen.position.x = -self.contentSize.width/2
             self.addChild(shitScreen)
         }
     }
@@ -40,7 +40,7 @@ class MainScene: CCNode {
             gamePhysicsNode.addChild(pin)
             gamePhysicsNode.addChild(hand)
         }
-        gamePhysicsNode.debugDraw = true
+        //gamePhysicsNode.debugDraw = true
         userInteractionEnabled = true
     }
     
