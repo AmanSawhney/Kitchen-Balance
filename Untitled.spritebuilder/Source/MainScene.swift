@@ -37,7 +37,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
   func didLoadFromCCB() {
     gamePhysicsNode.collisionDelegate = self
     userInteractionEnabled = true
-    schedule("spawnCoin", interval: 1, repeat: UInt(100000), delay: 0.1)
+    schedule("spawnCoin", interval: 8, repeat: UInt(100000), delay: 2)
   }
   
   override func onEnter() {
