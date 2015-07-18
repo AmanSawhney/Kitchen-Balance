@@ -98,6 +98,7 @@
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		CCF74B351B5AF1BB002267E2 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B341B5AF1BB002267E2 /* Coin.swift */; };
 		CCF74B391B5AF70E002267E2 /* CoinLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */; };
+		CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +221,7 @@
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
 		CCF74B341B5AF1BB002267E2 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinLabelNode.swift; sourceTree = "<group>"; };
+		CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreNode.swift; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -445,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
+				CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */,
 				CCF74B341B5AF1BB002267E2 /* Coin.swift */,
 				CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */,
 				049BDBFC1B598BB10020C07D /* ShitScreen.swift */,
@@ -829,6 +832,7 @@
 			files = (
 				CCF74B391B5AF70E002267E2 /* CoinLabelNode.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */,
 				049BDBEF1B586D910020C07D /* DifficultLevel.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				049BDBFD1B598BB10020C07D /* ShitScreen.swift in Sources */,
