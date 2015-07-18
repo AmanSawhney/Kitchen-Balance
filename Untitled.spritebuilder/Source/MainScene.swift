@@ -7,6 +7,7 @@ enum typeOfObject {
 var whichObject: typeOfObject!
 
 class MainScene: CCNode, CCPhysicsCollisionDelegate {
+  weak var coinNode: CoinLabelNode!
   weak var hand: CCNode!
   weak var object: CCSprite!
   weak var gamePhysicsNode: CCPhysicsNode!
@@ -80,6 +81,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
   
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, object: CCNode!, coin: Coin!) -> Bool {
     if !coin.collected{
+      coinNode.updateLabel(1)
       coin.collect()
     }
     return false
