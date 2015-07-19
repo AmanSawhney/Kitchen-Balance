@@ -51,7 +51,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         object = CCBReader.load("Objects/RollingPin") as! CCSprite
       }
     } else {
-      object = CCBReader.load("Objects/RollingPin") as! CCSprite
+      object = CCBReader.load("Objects/Plate") as! CCSprite
 
     }
 
