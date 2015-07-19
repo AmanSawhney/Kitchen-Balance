@@ -97,6 +97,7 @@
 		CCD645081B5C3EE100F06596 /* iAdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD645071B5C3EE100F06596 /* iAdHelper.m */; };
 		CCD6450C1B5C461A00F06596 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD6450B1B5C461A00F06596 /* GameKit.framework */; };
 		CCD6450E1B5C46E500F06596 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD6450D1B5C46E500F06596 /* StoreKit.framework */; };
+		CCD645111B5C526100F06596 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD645101B5C526100F06596 /* GameCenterHelper.swift */; };
 		CCF74B351B5AF1BB002267E2 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B341B5AF1BB002267E2 /* Coin.swift */; };
 		CCF74B391B5AF70E002267E2 /* CoinLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */; };
 		CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */; };
@@ -224,6 +225,7 @@
 		CCD6450B1B5C461A00F06596 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		CCD6450D1B5C46E500F06596 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CCD6450F1B5C46EF00F06596 /* offbalance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = offbalance.entitlements; sourceTree = "<group>"; };
+		CCD645101B5C526100F06596 /* GameCenterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		CCF74B341B5AF1BB002267E2 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinLabelNode.swift; sourceTree = "<group>"; };
 		CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreNode.swift; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 		CCD645001B5C3A7B00F06596 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CCD645101B5C526100F06596 /* GameCenterHelper.swift */,
 				CCD645061B5C3EE100F06596 /* iAdHelper.h */,
 				CCD645071B5C3EE100F06596 /* iAdHelper.m */,
 			);
@@ -855,6 +858,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCF74B391B5AF70E002267E2 /* CoinLabelNode.swift in Sources */,
+				CCD645111B5C526100F06596 /* GameCenterHelper.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */,
 				049BDBEF1B586D910020C07D /* DifficultLevel.swift in Sources */,

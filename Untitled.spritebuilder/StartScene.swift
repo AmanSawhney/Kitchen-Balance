@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import GameKit
 
 class StartScene: CCScene {
     var swipable = false
@@ -18,6 +20,8 @@ class StartScene: CCScene {
     weak var hand1: CCButton!
     weak var hand2: CCButton!
     func didLoadFromCCB() {
+      
+        GameCenterHelper.sharedInstance.authenticationCheck()
       
         iAdHelper.sharedHelper()
         iAdHelper.setBannerPosition(TOP)
@@ -74,7 +78,8 @@ class StartScene: CCScene {
         animationManager.runAnimationsForSequenceNamed("Stats Timeline")
     }
     func leaderBoard() {
-        animationManager.runAnimationsForSequenceNamed("LeaderBoard Timeline")
+//        animationManager.runAnimationsForSequenceNamed("LeaderBoard Timeline")
+      showLeaderboard()
     }
     func facebook() {
         
@@ -103,4 +108,24 @@ class StartScene: CCScene {
         }
         
     }
+}
+
+// MARK: Game Center Handling
+
+extension StartScene: GKGameCenterControllerDelegate {
+  
+  func showLeaderboard() {
+    
+    var viewController = CCDirector.sharedDirector().parentViewController!
+    var gameCenterViewController = GKGameCenterViewController()
+    gameCenterViewController.gameCenterDelegate = self
+    viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
+    
+  }
+  
+  // Delegate methods
+  func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+    gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+  }
+  
 }

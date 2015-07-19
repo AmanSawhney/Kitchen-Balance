@@ -111,12 +111,17 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     
     if abs(object.rotation) > 80 {
       if !done {
-        done = true
-        pivot.invalidate()
-        unschedule("spawnCoin")
+        gameOver()
       }
     }
 
+  }
+  
+  func gameOver(){
+    done = true
+    pivot.invalidate()
+    unschedule("spawnCoin")
+    GameCenterHelper.sharedInstance.saveHighScore(score)
   }
   
   func spawnCoin(){
