@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-               BuildableName = "Untitled.app"
+               BuildableName = "offbalance.app"
                BlueprintName = "Untitled iOS"
                ReferencedContainer = "container:Untitled.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-            BuildableName = "Untitled.app"
+            BuildableName = "offbalance.app"
             BlueprintName = "Untitled iOS"
             ReferencedContainer = "container:Untitled.xcodeproj">
          </BuildableReference>
@@ -48,11 +48,12 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-            BuildableName = "Untitled.app"
+            BuildableName = "offbalance.app"
             BlueprintName = "Untitled iOS"
             ReferencedContainer = "container:Untitled.xcodeproj">
          </BuildableReference>
@@ -66,11 +67,12 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-            BuildableName = "Untitled.app"
+            BuildableName = "offbalance.app"
             BlueprintName = "Untitled iOS"
             ReferencedContainer = "container:Untitled.xcodeproj">
          </BuildableReference>
