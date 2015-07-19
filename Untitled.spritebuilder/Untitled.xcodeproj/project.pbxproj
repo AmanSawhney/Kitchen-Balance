@@ -98,6 +98,7 @@
 		CCD6450C1B5C461A00F06596 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD6450B1B5C461A00F06596 /* GameKit.framework */; };
 		CCD6450E1B5C46E500F06596 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD6450D1B5C46E500F06596 /* StoreKit.framework */; };
 		CCD645111B5C526100F06596 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD645101B5C526100F06596 /* GameCenterHelper.swift */; };
+		CCD645131B5C630400F06596 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCD645121B5C630300F06596 /* Images.xcassets */; };
 		CCF74B351B5AF1BB002267E2 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B341B5AF1BB002267E2 /* Coin.swift */; };
 		CCF74B391B5AF70E002267E2 /* CoinLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */; };
 		CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */; };
@@ -226,6 +227,7 @@
 		CCD6450D1B5C46E500F06596 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CCD6450F1B5C46EF00F06596 /* offbalance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = offbalance.entitlements; sourceTree = "<group>"; };
 		CCD645101B5C526100F06596 /* GameCenterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
+		CCD645121B5C630300F06596 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Source/libs/cocos2d-iphone/external/SSZipArchive/Images.xcassets"; sourceTree = "<group>"; };
 		CCF74B341B5AF1BB002267E2 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinLabelNode.swift; sourceTree = "<group>"; };
 		CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreNode.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				CCD6450F1B5C46EF00F06596 /* offbalance.entitlements */,
+				CCD645121B5C630300F06596 /* Images.xcassets */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
 				9222E2B918734FF800A246C7 /* libs */,
@@ -770,6 +773,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
+				CCD645131B5C630400F06596 /* Images.xcassets in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
@@ -1148,6 +1152,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1183,6 +1189,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
