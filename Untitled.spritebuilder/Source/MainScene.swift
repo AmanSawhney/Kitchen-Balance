@@ -7,6 +7,7 @@ enum typeOfObject {
 var whichObject: typeOfObject!
 
 class MainScene: CCNode, CCPhysicsCollisionDelegate {
+  weak var scoreNode: ScoreNode!
   weak var coinNode: CoinLabelNode!
   weak var hand: CCNode!
   weak var object: CCSprite!
@@ -14,14 +15,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
   weak var scoreLabel: CCLabelTTF!
   var currentTouchLocation: CGPoint!
   var pivot: CCPhysicsJoint!
-  var score: Double = 0 {
-    didSet{
-      scoreLabel.string = "\(Int(score))"
-    }
-  }
-  let scorePerUpdate = 31.0
-//  var 
-  var rotationMultiplier: Double = 1
+  var score: Double = 0
+  let scorePerUpdate = 1.0
   var done = false {
     didSet {
       var shitScreen = CCBReader.load("ShitScreen", owner:self) as! ShitScreen
@@ -76,7 +71,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     
     var randomRotation = Double(arc4random_uniform(2)) + 1.0
     object.rotation = Float(arc4random_uniform(2) == 1 ? randomRotation : -randomRotation)
-//    println(object.rotation)
     
   }
   
@@ -98,10 +92,15 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     currentTouchLocation = touch.locationInWorld()
   }
   override func update(delta: CCTime) {
+    
+
+    
     hand.position.y = 0 //DO NOT DELETE THIS LINE. It makes hand a kinematic body and keeps pivot joint in line
     
     if !done{
-      score += rotationMultiplier * scorePerUpdate
+      score += scoreNode.state.rawValue * scorePerUpdate
+      scoreNode.displayRotation(object.rotation)
+      scoreNode.updateScore(score)
     }
     
     if abs(object.rotation) > 80 {
