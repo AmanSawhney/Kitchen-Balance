@@ -88,9 +88,13 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     currentTouchLocation = touch.locationInWorld()
   }
   override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-    hand.position.x = CGFloat(clampf(Float(hand.position.x - (currentTouchLocation.x - touch.locationInWorld().x)), Float(0.0), Float(screenWidth)))
-    currentTouchLocation = touch.locationInWorld()
+    if !done{
+      hand.position.x = CGFloat(clampf(Float(hand.position.x - (currentTouchLocation.x - touch.locationInWorld().x)), Float(0.0), Float(screenWidth)))
+      currentTouchLocation = touch.locationInWorld()
+    }
+
   }
+  
   override func update(delta: CCTime) {
     
 
