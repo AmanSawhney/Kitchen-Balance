@@ -18,6 +18,10 @@ class StartScene: CCScene {
     weak var hand1: CCButton!
     weak var hand2: CCButton!
     func didLoadFromCCB() {
+      
+        iAdHelper.sharedHelper()
+        iAdHelper.setBannerPosition(TOP)
+      
         objects.append(object1)
         objects.append(object2)
         objects.append(object3)
@@ -60,7 +64,7 @@ class StartScene: CCScene {
     }
     
     func play() {
-        animationManager.runAnimationsForSequenceNamed("Play Timeline")
+//        animationManager.runAnimationsForSequenceNamed("Play Timeline")
         delay(1.5) {
             var playScene = CCBReader.loadAsScene("MainScene")
             CCDirector.sharedDirector().replaceScene(playScene)

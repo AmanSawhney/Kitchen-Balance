@@ -30,6 +30,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
   var screenHeight = UIScreen.mainScreen().bounds.height
   
   func didLoadFromCCB() {
+
+    
     gamePhysicsNode.collisionDelegate = self
     userInteractionEnabled = true
     schedule("spawnCoin", interval: 8, repeat: UInt(100000), delay: 2)
@@ -129,6 +131,11 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
   
   func restart(){
     var playScene = CCBReader.loadAsScene("MainScene")
+    CCDirector.sharedDirector().replaceScene(playScene)
+  }
+  
+  func home(){
+    var playScene = CCBReader.loadAsScene("Start")
     CCDirector.sharedDirector().replaceScene(playScene)
   }
   
