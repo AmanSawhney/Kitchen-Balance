@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Off Balance</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -37,7 +37,7 @@
 		<string>Icon-Small@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>org.cocos2d.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.gunteamstudios.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -55,6 +55,8 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<dict>
 		<key>accelerometer</key>
+		<true/>
+		<key>gamekit</key>
 		<true/>
 		<key>opengles-2</key>
 		<true/>
