@@ -690,7 +690,7 @@
 						CreatedOnToolsVersion = 6.0.1;
 					};
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = D36MJMGE9L;
+						DevelopmentTeam = 6TK8Q4KD6G;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
