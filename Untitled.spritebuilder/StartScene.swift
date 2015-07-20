@@ -68,7 +68,7 @@ class StartScene: CCScene {
     }
     
     func play() {
-        //        animationManager.runAnimationsForSequenceNamed("Play Timeline")
+        animationManager.runAnimationsForSequenceNamed("ButtonPress Timeline")
         delay(1.5) {
             var playScene = CCBReader.loadAsScene("MainScene")
             CCDirector.sharedDirector().replaceScene(playScene)

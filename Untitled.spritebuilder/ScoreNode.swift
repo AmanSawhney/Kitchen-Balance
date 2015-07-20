@@ -62,5 +62,10 @@ class ScoreNode: CCNode {
   
   func updateScore(score: Double){
     scoreLabel.string = "\(Int(score))"
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var highscore = defaults.doubleForKey("highscore")
+    if score > highscore {
+        defaults.setDouble(score, forKey: "highscore")
+    }
   }
 }
