@@ -20,12 +20,12 @@ class StartScene: CCScene {
     weak var hand1: CCButton!
     weak var hand2: CCButton!
     func didLoadFromCCB() {
-      
+        
         GameCenterHelper.sharedInstance.authenticationCheck()
-      
+        
         iAdHelper.sharedHelper()
         iAdHelper.setBannerPosition(TOP)
-      
+        
         objects.append(object1)
         objects.append(object2)
         objects.append(object3)
@@ -68,7 +68,7 @@ class StartScene: CCScene {
     }
     
     func play() {
-//        animationManager.runAnimationsForSequenceNamed("Play Timeline")
+        //        animationManager.runAnimationsForSequenceNamed("Play Timeline")
         delay(1.5) {
             var playScene = CCBReader.loadAsScene("MainScene")
             CCDirector.sharedDirector().replaceScene(playScene)
@@ -78,8 +78,8 @@ class StartScene: CCScene {
         animationManager.runAnimationsForSequenceNamed("Stats Timeline")
     }
     func leaderBoard() {
-//        animationManager.runAnimationsForSequenceNamed("LeaderBoard Timeline")
-      showLeaderboard()
+        //        animationManager.runAnimationsForSequenceNamed("LeaderBoard Timeline")
+        showLeaderboard()
     }
     func facebook() {
         
@@ -91,18 +91,35 @@ class StartScene: CCScene {
         
     }
     override func update(delta: CCTime) {
-        println(whichObject.hashValue)
+        
         for object in objects {
-            println(object.position.x)
-            println(CCDirector.sharedDirector().viewSize().width/2)
-            println(abs(object.position.x - CCDirector.sharedDirector().viewSize().width/2) == object.contentSize.width)
             
-                if object1.position.x == 0.5{
-                    whichObject = .RollingPin
-                } else if object2.position.x == 0.5 {
-                    whichObject = .Plate
-                } else if object3.position.x == 0.5 {
-                    whichObject = .Pan
+            if object1.position.x == 0.5{
+                whichObject = .RollingPin
+                if hand1.animationManager.runningSequenceName != "GoAway Timeline" && hand1.animationManager.runningSequenceName != "Done Timeline"{
+                    hand1.animationManager.runAnimationsForSequenceNamed("GoAway Timeline")
+                }
+                if hand2.animationManager.runningSequenceName != "ComeBack Timeline" && hand2.animationManager.runningSequenceName != "Default Timeline"{
+                    hand2.animationManager.runAnimationsForSequenceNamed("Default Timeline")
+                }
+
+            } else if object2.position.x == 0.5 {
+                if hand1.animationManager.runningSequenceName != "ComeBack Timeline" && hand1.animationManager.runningSequenceName != "Default Timeline"{
+                    hand1.animationManager.runAnimationsForSequenceNamed("Default Timeline")
+                }
+
+                if hand2.animationManager.runningSequenceName != "ComeBack Timeline" && hand2.animationManager.runningSequenceName != "Default Timeline"{
+                    hand2.animationManager.runAnimationsForSequenceNamed("Default Timeline")
+                }
+                whichObject = .Plate
+            } else if object3.position.x == 0.5 {
+                if hand1.animationManager.runningSequenceName != "ComeBack Timeline" && hand1.animationManager.runningSequenceName != "Default Timeline"{
+                    hand1.animationManager.runAnimationsForSequenceNamed("Default Timeline")
+                }
+                if hand2.animationManager.runningSequenceName != "GoAway Timeline" && hand2.animationManager.runningSequenceName != "Done Timeline"{
+                    hand2.animationManager.runAnimationsForSequenceNamed("GoAway Timeline")
+                }
+                whichObject = .Pan
                 
             }
         }
@@ -113,19 +130,19 @@ class StartScene: CCScene {
 // MARK: Game Center Handling
 
 extension StartScene: GKGameCenterControllerDelegate {
-  
-  func showLeaderboard() {
     
-    var viewController = CCDirector.sharedDirector().parentViewController!
-    var gameCenterViewController = GKGameCenterViewController()
-    gameCenterViewController.gameCenterDelegate = self
-    viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
+    func showLeaderboard() {
+        
+        var viewController = CCDirector.sharedDirector().parentViewController!
+        var gameCenterViewController = GKGameCenterViewController()
+        gameCenterViewController.gameCenterDelegate = self
+        viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
+        
+    }
     
-  }
-  
-  // Delegate methods
-  func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
-    gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
-  }
-  
+    // Delegate methods
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }
