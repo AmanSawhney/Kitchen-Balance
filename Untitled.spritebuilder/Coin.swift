@@ -16,8 +16,6 @@ class Coin: CCNode {
   
   func collect(){
     collected = true
-    var audio = OALSimpleAudio.sharedInstance()
-    audio.playEffect("Source/Resources/Sounds/coins/coin1")
     animationManager.runAnimationsForSequenceNamed("Collect")
 
     

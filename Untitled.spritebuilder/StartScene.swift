@@ -82,7 +82,7 @@ class StartScene: CCScene {
         showLeaderboard()
     }
     func facebook() {
-        
+        SharingHandler.sharedInstance.postToFacebook(urlToPost: "inserturlhere")
     }
     func twitter() {
         
