@@ -14,7 +14,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     weak var gamePhysicsNode: CCPhysicsNode!
     weak var scoreLabel: CCLabelTTF!
     weak var levelUpLabel: CCLabelTTF!
-    var complements = ["Much Wow", "Such Skill", "You're \n Beautiful", "So balanced!", "Lookin' Good", "Chicken fries \n are back \n :D", "You Make \n Aman Proud", "Strong finger!", "Soft touch"]
+    var complements = ["Much Wow", "Such Skill", "You're \n Beautiful", "So balance!", "Lookin' Good", "Chicken fries \n are back \n :D", "You Make \n Aman Proud", "Strong finger!", "Soft touch"]
     var currentTouchLocation: CGPoint!
     var pivot: CCPhysicsJoint!
     var score: Double = 0
