@@ -9,6 +9,7 @@
 import Foundation
 
 class ShitScreen: CCNode {
+    
     weak var lable: CCLabelTTF!
     weak var lable2: CCLabelTTF!
     var cuses = ["#@!%","@#!%","##@!","@*&%","&@%$"]

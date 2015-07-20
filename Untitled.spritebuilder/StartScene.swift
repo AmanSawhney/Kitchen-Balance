@@ -83,10 +83,10 @@ class StartScene: CCScene {
         showLeaderboard()
     }
     func facebook() {
-        SharingHandler.sharedInstance.postToFacebook(postWithScreenshot: false)
+        SharingHandler.sharedInstance.postToFacebook(postWithScreenshot: true)
     }
     func twitter() {
-        
+         SharingHandler.sharedInstance.postToTwitter(stringToPost: "", postWithScreenshot: false)
     }
     func info() {
         

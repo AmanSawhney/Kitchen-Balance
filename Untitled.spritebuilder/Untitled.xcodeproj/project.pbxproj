@@ -10,6 +10,7 @@
 		04023B991B5D7107008328A8 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 04023B981B5D7107008328A8 /* Podfile */; };
 		04023BB11B5D76DB008328A8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04023BB01B5D76DB008328A8 /* Social.framework */; };
 		04023BCB1B5D920B008328A8 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04023BCA1B5D920B008328A8 /* Share.swift */; };
+		04023BE21B5DA44A008328A8 /* 8bits in Resources */ = {isa = PBXBuildFile; fileRef = 04023BE11B5DA44A008328A8 /* 8bits */; };
 		049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEA1B586CAD0020C07D /* StartScene.swift */; };
 		049BDBEF1B586D910020C07D /* DifficultLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEE1B586D910020C07D /* DifficultLevel.swift */; };
 		049BDBFD1B598BB10020C07D /* ShitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBFC1B598BB10020C07D /* ShitScreen.swift */; };
@@ -164,6 +165,7 @@
 		04023B981B5D7107008328A8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		04023BB01B5D76DB008328A8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		04023BCA1B5D920B008328A8 /* Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
+		04023BE11B5DA44A008328A8 /* 8bits */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 8bits; sourceTree = "<group>"; };
 		049BDBEA1B586CAD0020C07D /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		049BDBEE1B586D910020C07D /* DifficultLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultLevel.swift; sourceTree = "<group>"; };
 		049BDBFC1B598BB10020C07D /* ShitScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShitScreen.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				04023BE11B5DA44A008328A8 /* 8bits */,
 				CCD645001B5C3A7B00F06596 /* Helpers */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */,
@@ -678,7 +681,7 @@
 						CreatedOnToolsVersion = 6.0.1;
 					};
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = D36MJMGE9L;
+						DevelopmentTeam = X93K6M4D6X;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -812,6 +815,7 @@
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
+				04023BE21B5DA44A008328A8 /* 8bits in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
