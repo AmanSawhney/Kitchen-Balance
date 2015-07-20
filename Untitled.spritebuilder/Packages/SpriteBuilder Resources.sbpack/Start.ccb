@@ -880,8 +880,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.20000000298023224</real>
-							<real>0.20000000298023224</real>
+							<real>0.0</real>
+							<real>0.0</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -894,7 +894,7 @@
 						<key>type</key>
 						<string>Degrees</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>-90</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1440,8 +1440,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.20000000298023224</real>
-							<real>0.20000000298023224</real>
+							<real>0.21249999105930328</real>
+							<real>0.21249999105930328</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -2000,8 +2000,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>-0.20000000298023224</real>
-							<real>0.20000000298023224</real>
+							<real>-0.13333335518836975</real>
+							<real>0.13333335518836975</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -2014,7 +2014,7 @@
 						<key>type</key>
 						<string>Degrees</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>41.999992370605469</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -2768,7 +2768,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>Art/Buttons/ui041.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -3159,8 +3159,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.80000001192092896</real>
-							<real>0.80000001192092896</real>
+							<real>1</real>
+							<real>1</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -3629,8 +3629,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.80000001192092896</real>
-							<real>0.80000001192092896</real>
+							<real>0.30000001192092896</real>
+							<real>0.30000001192092896</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -4099,8 +4099,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.80000001192092896</real>
-							<real>0.80000001192092896</real>
+							<real>0.0</real>
+							<real>0.0</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -5964,8 +5964,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.20000000298023224</real>
-							<real>-0.20000000298023224</real>
+							<real>0.17307692766189575</real>
+							<real>-0.17307692766189575</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -5978,7 +5978,7 @@
 						<key>type</key>
 						<string>Degrees</string>
 						<key>value</key>
-						<real>90</real>
+						<real>18.000007629394531</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -6373,7 +6373,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1.3666666746139526</real>
+			<real>0.60000002384185791</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

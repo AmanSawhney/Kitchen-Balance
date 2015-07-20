@@ -21,6 +21,7 @@ class StartScene: CCScene {
     weak var hand2: CCButton!
     func didLoadFromCCB() {
         
+    
         GameCenterHelper.sharedInstance.authenticationCheck()
         
         iAdHelper.sharedHelper()
@@ -82,7 +83,7 @@ class StartScene: CCScene {
         showLeaderboard()
     }
     func facebook() {
-        SharingHandler.sharedInstance.postToFacebook(urlToPost: "inserturlhere")
+        SharingHandler.sharedInstance.postToFacebook(postWithScreenshot: false)
     }
     func twitter() {
         

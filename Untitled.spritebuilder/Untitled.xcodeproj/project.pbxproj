@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04023B891B5D6A56008328A8 /* SharingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04023B881B5D6A56008328A8 /* SharingHandler.swift */; };
 		04023B991B5D7107008328A8 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 04023B981B5D7107008328A8 /* Podfile */; };
 		04023BB11B5D76DB008328A8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04023BB01B5D76DB008328A8 /* Social.framework */; };
+		04023BC11B5D8275008328A8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04023BC01B5D8275008328A8 /* FBSDKLoginKit.framework */; };
+		04023BC51B5D827C008328A8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04023BC41B5D827C008328A8 /* FBSDKCoreKit.framework */; };
+		04023BC71B5D8286008328A8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04023BC61B5D8286008328A8 /* FBSDKShareKit.framework */; };
+		04023BC91B5D8B1A008328A8 /* SharingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04023BC81B5D8B1A008328A8 /* SharingHandler.swift */; };
 		049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEA1B586CAD0020C07D /* StartScene.swift */; };
 		049BDBEF1B586D910020C07D /* DifficultLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEE1B586D910020C07D /* DifficultLevel.swift */; };
 		049BDBFD1B598BB10020C07D /* ShitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBFC1B598BB10020C07D /* ShitScreen.swift */; };
@@ -161,9 +164,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04023B881B5D6A56008328A8 /* SharingHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingHandler.swift; sourceTree = "<group>"; };
-		04023B981B5D7107008328A8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		04023B981B5D7107008328A8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		04023BB01B5D76DB008328A8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		04023BC01B5D8275008328A8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		04023BC41B5D827C008328A8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		04023BC61B5D8286008328A8 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		04023BC81B5D8B1A008328A8 /* SharingHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharingHandler.swift; path = "../../../Downloads/cocos2d-swift-sharingHandler-master/SharingHandler.swift"; sourceTree = "<group>"; };
 		049BDBEA1B586CAD0020C07D /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		049BDBEE1B586D910020C07D /* DifficultLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultLevel.swift; sourceTree = "<group>"; };
 		049BDBFC1B598BB10020C07D /* ShitScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShitScreen.swift; sourceTree = "<group>"; };
@@ -286,6 +292,8 @@
 			files = (
 				04023BB11B5D76DB008328A8 /* Social.framework in Frameworks */,
 				7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */,
+				04023BC71B5D8286008328A8 /* FBSDKShareKit.framework in Frameworks */,
+				04023BC11B5D8275008328A8 /* FBSDKLoginKit.framework in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				CCD6450C1B5C461A00F06596 /* GameKit.framework in Frameworks */,
@@ -296,6 +304,7 @@
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				CCD6450E1B5C46E500F06596 /* StoreKit.framework in Frameworks */,
+				04023BC51B5D827C008328A8 /* FBSDKCoreKit.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
 				99F74FA4C8D5B0B725BC0DF0 /* libPods.a in Frameworks */,
 			);
@@ -478,12 +487,12 @@
 			children = (
 				CCD645001B5C3A7B00F06596 /* Helpers */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
-				04023B881B5D6A56008328A8 /* SharingHandler.swift */,
 				CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */,
 				CCF74B341B5AF1BB002267E2 /* Coin.swift */,
 				CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */,
 				049BDBFC1B598BB10020C07D /* ShitScreen.swift */,
 				049BDBEA1B586CAD0020C07D /* StartScene.swift */,
+				04023BC81B5D8B1A008328A8 /* SharingHandler.swift */,
 				049BDBEE1B586D910020C07D /* DifficultLevel.swift */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				D352B48019EC608A00829775 /* MetalShaders */,
@@ -540,6 +549,9 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04023BC61B5D8286008328A8 /* FBSDKShareKit.framework */,
+				04023BC41B5D827C008328A8 /* FBSDKCoreKit.framework */,
+				04023BC01B5D8275008328A8 /* FBSDKLoginKit.framework */,
 				04023BB01B5D76DB008328A8 /* Social.framework */,
 				04023B981B5D7107008328A8 /* Podfile */,
 				CCD6450D1B5C46E500F06596 /* StoreKit.framework */,
@@ -920,8 +932,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04023BC91B5D8B1A008328A8 /* SharingHandler.swift in Sources */,
 				CCF74B391B5AF70E002267E2 /* CoinLabelNode.swift in Sources */,
-				04023B891B5D6A56008328A8 /* SharingHandler.swift in Sources */,
 				CCD645111B5C526100F06596 /* GameCenterHelper.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */,
@@ -1220,6 +1232,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/gagandeepsawhney/Documents/FacebookSDK,
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
@@ -1258,6 +1274,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/gagandeepsawhney/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
