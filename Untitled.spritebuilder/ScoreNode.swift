@@ -35,12 +35,12 @@ class ScoreNode: CCNode {
       case .Fair:
         color = CCColor(ccColor3b: ccColor3B(r: 0, g: 166, b: 237))
         OALSimpleAudio.sharedInstance().stopAllEffects()
-         OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", loop: true)
+         OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", loop: true)
         rotationLabel.string = "Ok! x 1"
       case .Poor:
         color = CCColor(ccColor3b: ccColor3B(r: 246, g: 81, b: 29))
         OALSimpleAudio.sharedInstance().stopAllEffects()
-        OALSimpleAudio.sharedInstance().playEffect("8bits/badSound.mp3", loop: false)
+        OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", loop: true)
         rotationLabel.string = "Uh-oh! x 0.75"
       }
     }
