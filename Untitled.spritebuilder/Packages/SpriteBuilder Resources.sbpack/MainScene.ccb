@@ -448,6 +448,8 @@
 								<string>Art/perfectPixel.png</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -570,7 +572,7 @@
 								<string>FloatVar</string>
 								<key>value</key>
 								<array>
-									<real>0.5</real>
+									<real>1</real>
 									<real>0.25</real>
 								</array>
 							</dict>
@@ -637,16 +639,16 @@
 								<key>value</key>
 								<array>
 									<array>
-										<real>1</real>
-										<real>0.40000000596046448</real>
-										<real>1</real>
+										<real>0.4332282543182373</real>
+										<real>0.031372550874948502</real>
+										<real>0.72549021244049072</real>
 										<real>1</real>
 									</array>
 									<array>
 										<real>0.97381943464279175</real>
 										<real>0.99834984540939331</real>
 										<real>0.9627642035484314</real>
-										<real>0.039999999105930328</real>
+										<real>0.0</real>
 									</array>
 								</array>
 							</dict>
@@ -658,10 +660,10 @@
 								<key>value</key>
 								<array>
 									<array>
-										<real>0.40000000596046448</real>
 										<real>1</real>
 										<real>1</real>
 										<real>1</real>
+										<real>0.0</real>
 									</array>
 									<array>
 										<real>0.0</real>
@@ -743,8 +745,6 @@
 								<string>Art/perfectPixel.png</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>

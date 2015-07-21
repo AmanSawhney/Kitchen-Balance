@@ -10,7 +10,7 @@ enum particles {
 }
 var whichObject: typeOfObject!
 var particleSetUp: particles!
-
+var streakMultiplierSorce = 1
 class MainScene: CCNode, CCPhysicsCollisionDelegate {
     weak var currentScore: CCLabelTTF!
     weak var leftParticle: CCParticleSystem!
@@ -57,6 +57,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     func didLoadFromCCB() {
         //hand.visible = true
         //gamePhysicsNode.debugDraw = true
+        streakMultiplierSorce = 1
         particleArray.append(leftParticle)
         particleArray.append(rightParticle)
         levelUp()
@@ -201,9 +202,10 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         hand.position.y = 0 //DO NOT DELETE THIS LINE. It makes hand a kinematic body and keeps pivot joint in line
         
         if !done{
-            score += scoreNode.state.rawValue * scorePerUpdate
+            score += scoreNode.state.rawValue * scorePerUpdate * Double(streakMultiplierSorce)
             scoreNode.displayRotation(object.rotation)
             scoreNode.updateScore(score)
+            
         }
         
         if abs(object.rotation) > 80 {
