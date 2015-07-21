@@ -17,7 +17,5 @@ class Coin: CCNode {
   func collect(){
     collected = true
     animationManager.runAnimationsForSequenceNamed("Collect")
-
-    
   }
 }
