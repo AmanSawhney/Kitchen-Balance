@@ -5,16 +5,11 @@ import GameKit
 enum typeOfObject {
     case RollingPin, Pan, Plate, Sward, Gun
 }
-enum particles {
-    case Off, On
-}
+
 var whichObject: typeOfObject!
-var particleSetUp: particles!
 var streakMultiplierSorce = 1
 class MainScene: CCNode, CCPhysicsCollisionDelegate {
     weak var currentScore: CCLabelTTF!
-    weak var leftParticle: CCParticleSystem!
-    weak var rightParticle: CCParticleSystem!
     weak var highScore: CCLabelTTF!
     weak var scoreNode: ScoreNode!
     weak var coinNode: CoinLabelNode!
@@ -23,7 +18,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     weak var gamePhysicsNode: CCPhysicsNode!
     weak var scoreLabel: CCLabelTTF!
     weak var levelUpLabel: CCLabelTTF!
-    var particleArray:[CCParticleSystem!] = []
     var complements = ["Much Wow", "Such Skill", "You're \n Beautiful", "So balance!", "Lookin' Good", "Chicken fries \n are back \n :D", "You Make \n Aman Proud", "Strong finger!", "Soft touch"]
     var currentTouchLocation: CGPoint!
     var pivot: CCPhysicsJoint!
@@ -58,15 +52,12 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         //hand.visible = true
         //gamePhysicsNode.debugDraw = true
         streakMultiplierSorce = 1
-        particleArray.append(leftParticle)
-        particleArray.append(rightParticle)
         levelUp()
         schedule("levelUp", interval: 10)
         gamePhysicsNode.collisionDelegate = self
         userInteractionEnabled = true
         schedule("compliement", interval: 5)
         schedule("spawnCoin", interval: 8, repeat: UInt(100000), delay: 2)
-        schedule("particle", interval: 2)
     }
     
     override func onEnter() {
@@ -181,21 +172,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         }
         
     }
-    func particle() {
-        if let particleSetUp = particleSetUp{
-            switch particleSetUp {
-            case .On:
-                for particle in particleArray {
-                    particle.resetSystem()
-                }
-            case .Off:
-                for particle in particleArray {
-                    particle.stopSystem()
-                }
-                
-            }
-        }
-    }
+    
     override func update(delta: CCTime) {
         
         
@@ -233,7 +210,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     }
     
     func gameOver(){
-        unschedule("particle")
+        
         unschedule("levelUp")
         unschedule("compliement")
         

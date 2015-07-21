@@ -24,35 +24,33 @@ class ScoreNode: CCNode {
                 color = CCColor(ccColor3b: ccColor3B(r: 49, g: 203, b: 0))
                 OALSimpleAudio.sharedInstance().stopAllEffects()
                 schedule("streak", interval: 1)
-                particleSetUp = .Off
                 OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", loop: true)
             case .Good:
-                particleSetUp = .Off
                 color = CCColor(ccColor3b: ccColor3B(r: 1, g: 23, b: 104))
                 OALSimpleAudio.sharedInstance().stopAllEffects()
                 OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", loop: true)
-                rotationLabel.string = "Good! x 3 x Streak of \(streakMultiplierSorce)"
+                rotationLabel.string = "Good x\(streakMultiplierSorce * 3)"
             case .Fair:
                 streakMultiplierSorce = 1
                 color = CCColor(ccColor3b: ccColor3B(r: 0, g: 166, b: 237))
                 OALSimpleAudio.sharedInstance().stopAllEffects()
                 OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", loop: true)
-                rotationLabel.string = "Ok! x 1"
+                rotationLabel.string = "Ok x1"
             case .Poor:
                 color = CCColor(ccColor3b: ccColor3B(r: 246, g: 81, b: 29))
                 OALSimpleAudio.sharedInstance().stopAllEffects()
                 OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", loop: true)
-                rotationLabel.string = "Uh-oh! x 0.75"
+                rotationLabel.string = "Uh-oh! x0.75"
             }
         }
     }
     
     override func update(delta: CCTime) {
         if state == .Perfect {
-        rotationLabel.string = "Perfect! x 5 x Streak of \(streakMultiplierSorce)"
+        rotationLabel.string = "Perfect! x\(streakMultiplierSorce * 5)"
         }
         if state == .Good {
-             rotationLabel.string = "Good x 3 x Streak of \(streakMultiplierSorce)"
+             rotationLabel.string = "Good x\(streakMultiplierSorce * 3)"
         }
 
     }
