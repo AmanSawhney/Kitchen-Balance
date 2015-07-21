@@ -26,6 +26,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
   var level = 0
   var done = false {
     didSet {
+      AudioServicesPlaySystemSound(1352)
       var shitScreen = CCBReader.load("ShitScreen", owner:self) as! ShitScreen
       shitScreen.position.x = -self.contentSize.width
       self.addChild(shitScreen)
@@ -34,9 +35,9 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
       }
       
       let defaults = NSUserDefaults.standardUserDefaults()
-      var highScoreNumber = defaults.doubleForKey("highscore")
+      var highScoreNumber = Int(defaults.doubleForKey("highscore"))
       highScore.string = "\(highScoreNumber)"
-      currentScore.string = "\(score)"
+      currentScore.string = "\(Int(score))"
       hand.visible = false
       
     }
@@ -115,7 +116,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
   }
   func retry() {
     audio.playEffect("8bits/coin2.wav")
-    //animationManager.runAnimationsForSequenceNamed("ButtonPress Timeline")
+    animationManager.runAnimationsForSequenceNamed("ButtonPress Timeline")
     delay(1.5) {
       var playScene = CCBReader.loadAsScene("MainScene")
       CCDirector.sharedDirector().replaceScene(playScene)

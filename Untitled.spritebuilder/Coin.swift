@@ -15,6 +15,7 @@ class Coin: CCNode {
   }
   
   func collect(){
+    AudioServicesPlaySystemSound(1352)
     collected = true
     animationManager.runAnimationsForSequenceNamed("Collect")
 
