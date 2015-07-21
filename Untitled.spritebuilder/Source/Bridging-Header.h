@@ -15,4 +15,5 @@
 #import "libs/cocos2d-iphone/external/ObjectAL/ObjectAL/ObjectAL/AudioTrack/OALAudioTracks.h"
 #import "libs/cocos2d-iphone/external/ObjectAL/ObjectAL/ObjectAL/Session/OALAudioSession.h"
 #import "iAdHelper.h"
+#import "Mixpanel.h"
 
