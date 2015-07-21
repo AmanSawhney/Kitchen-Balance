@@ -24,6 +24,7 @@ class ScoreNode: CCNode {
       case .Perfect:
         color = CCColor(ccColor3b: ccColor3B(r: 49, g: 203, b: 0))
         rotationLabel.string = "Perfect! x 5"
+        
         OALSimpleAudio.sharedInstance().stopAllEffects()
 
         OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", loop: true)

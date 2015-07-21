@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -50,9 +50,9 @@
 		<key>physicsBody</key>
 		<dict>
 			<key>affectedByGravity</key>
-			<false/>
+			<true/>
 			<key>allowsRotation</key>
-			<false/>
+			<true/>
 			<key>bodyShape</key>
 			<integer>0</integer>
 			<key>collisionCategories</key>
@@ -60,13 +60,13 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-			<string></string>
+			<string>object</string>
 			<key>cornerRadius</key>
 			<real>0.0</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
-			<false/>
+			<true/>
 			<key>elasticity</key>
 			<real>0.30000001192092896</real>
 			<key>friction</key>
@@ -79,14 +79,38 @@
 				</array>
 				<array>
 					<real>0.0</real>
-					<real>313</real>
+					<real>778</real>
 				</array>
 				<array>
-					<real>190</real>
-					<real>313</real>
+					<real>40.433334350585938</real>
+					<real>778</real>
 				</array>
 				<array>
-					<real>190</real>
+					<real>40.433334350585938</real>
+					<real>693.066650390625</real>
+				</array>
+				<array>
+					<real>84.599998474121094</real>
+					<real>690.566650390625</real>
+				</array>
+				<array>
+					<real>84.599998474121094</real>
+					<real>369.73330688476562</real>
+				</array>
+				<array>
+					<real>122.93332672119141</real>
+					<real>369.73330688476562</real>
+				</array>
+				<array>
+					<real>123</real>
+					<real>241.39999389648438</real>
+				</array>
+				<array>
+					<real>83.76666259765625</real>
+					<real>241.39999389648438</real>
+				</array>
+				<array>
+					<real>83.76666259765625</real>
 					<real>0.0</real>
 				</array>
 			</array>
@@ -94,20 +118,74 @@
 			<array>
 				<array>
 					<array>
-						<real>190</real>
-						<real>0.0</real>
+						<real>40.433334350585938</real>
+						<real>693.066650390625</real>
 					</array>
 					<array>
-						<real>190</real>
-						<real>313</real>
-					</array>
-					<array>
-						<real>0.0</real>
-						<real>313</real>
+						<real>40.433334350585938</real>
+						<real>778</real>
 					</array>
 					<array>
 						<real>0.0</real>
+						<real>778</real>
+					</array>
+				</array>
+				<array>
+					<array>
 						<real>0.0</real>
+						<real>778</real>
+					</array>
+					<array>
+						<real>0.0</real>
+						<real>0.0</real>
+					</array>
+					<array>
+						<real>83.76666259765625</real>
+						<real>0.0</real>
+					</array>
+					<array>
+						<real>83.76666259765625</real>
+						<real>241.39999389648438</real>
+					</array>
+					<array>
+						<real>40.433334350585938</real>
+						<real>693.066650390625</real>
+					</array>
+				</array>
+				<array>
+					<array>
+						<real>83.76666259765625</real>
+						<real>241.39999389648438</real>
+					</array>
+					<array>
+						<real>123</real>
+						<real>241.39999389648438</real>
+					</array>
+					<array>
+						<real>122.93332672119141</real>
+						<real>369.73330688476562</real>
+					</array>
+					<array>
+						<real>84.599998474121094</real>
+						<real>369.73330688476562</real>
+					</array>
+				</array>
+				<array>
+					<array>
+						<real>84.599998474121094</real>
+						<real>369.73330688476562</real>
+					</array>
+					<array>
+						<real>84.599998474121094</real>
+						<real>690.566650390625</real>
+					</array>
+					<array>
+						<real>40.433334350585938</real>
+						<real>693.066650390625</real>
+					</array>
+					<array>
+						<real>83.76666259765625</real>
+						<real>241.39999389648438</real>
 					</array>
 				</array>
 			</array>
@@ -143,8 +221,8 @@
 				<string>Point</string>
 				<key>value</key>
 				<array>
-					<real>0.36000001430511475</real>
-					<real>0.41999998688697815</real>
+					<real>0.15000000596046448</real>
+					<real>0.05000000074505806</real>
 				</array>
 			</dict>
 			<dict>
@@ -168,7 +246,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>Art/Objects/Hand.png</string>
+					<string>Art/Objects/Knife.png</string>
 				</array>
 			</dict>
 			<dict>
@@ -197,6 +275,17 @@
 			</dict>
 			<dict>
 				<key>name</key>
+				<string>flip</string>
+				<key>type</key>
+				<string>Flip</string>
+				<key>value</key>
+				<array>
+					<false/>
+					<true/>
+				</array>
+			</dict>
+			<dict>
+				<key>name</key>
 				<string>effects</string>
 				<key>type</key>
 				<string>EffectControl</string>
@@ -204,6 +293,8 @@
 				<array/>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -280,6 +371,6 @@
 	<key>stageBorder</key>
 	<integer>3</integer>
 	<key>stageColor</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

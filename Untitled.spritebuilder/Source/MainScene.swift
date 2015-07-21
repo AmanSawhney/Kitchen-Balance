@@ -2,7 +2,7 @@
 import Foundation
 
 enum typeOfObject {
-    case RollingPin, Pan, Plate
+    case RollingPin, Pan, Plate, Sward, Gun
 }
 var whichObject: typeOfObject!
 
@@ -33,7 +33,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     var screenHeight = UIScreen.mainScreen().bounds.height
     
     func didLoadFromCCB() {
-        
+        //gamePhysicsNode.debugDraw = true
         levelUp()
         schedule("levelUp", interval: 10)
         gamePhysicsNode.collisionDelegate = self
@@ -48,6 +48,13 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         if let whichObject = whichObject{
             
             switch whichObject{
+            case .Gun:
+                object = CCBReader.load("Objects/Gun") as! CCSprite
+                object.scale = 0.5
+            case .Sward:
+                object = CCBReader.load("Objects/Sward") as! CCSprite
+                object.scale = 0.4
+                
             case .RollingPin:
                 object = CCBReader.load("Objects/RollingPin") as! CCSprite
             case .Plate:
@@ -72,8 +79,11 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         
         gamePhysicsNode.addChild(hand)
         gamePhysicsNode.addChild(object)
-        
-        pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(20, 0))
+        if whichObject != .Gun {
+            pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(object.contentSize.width/2 * CGFloat(object.scaleX), 0))
+        } else {
+            pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(object.position.x/2, 0))
+        }
         pivot.collideBodies = false
         
         var randomRotation = Double(arc4random_uniform(2)) + 1.0
@@ -125,12 +135,14 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         var random = Int(arc4random_uniform(UInt32(complements.count - 1)))
         levelUpLabel.string = "\(complements[random])"
         self.animationManager.runAnimationsForSequenceNamed("LevelUp Timeline")
-
+        
     }
     
     func levelUp() {
         level++
-        gamePhysicsNode.gravity.y -= CGFloat(50)
+        if level != 1 {
+            gamePhysicsNode.gravity.y -= CGFloat(300)
+        }
         levelUpLabel.string = "Level \(level)"
         self.animationManager.runAnimationsForSequenceNamed("LevelUp Timeline")
         
