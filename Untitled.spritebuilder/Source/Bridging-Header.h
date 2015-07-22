@@ -17,4 +17,10 @@
 #import "iAdHelper.h"
 #import "Mixpanel.h"
 #import "AudioToolbox/AudioServices.h"
+#import "Flurry.h"
+#import "FlurryAds.h"
+#import "FlurryAdInterstitial.h"
+#import "FlurryAdInterstitialDelegate.h"
+
+
 

@@ -9,7 +9,10 @@ enum typeOfObject {
 
 var whichObject: typeOfObject!
 var streakMultiplierSorce = 1
-class MainScene: CCNode, CCPhysicsCollisionDelegate  {
+class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegate  {
+    let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
+    var interstitialAdView: UIViewController = UIViewController()
+    let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad");
     weak var currentScore: CCLabelTTF!
     weak var highScore: CCLabelTTF!
     weak var scoreNode: ScoreNode!
@@ -28,8 +31,12 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     var level = 0
     var done = false {
         didSet {
-            
-
+            //showInterstitial()
+            if adInterstitial.ready {
+                adInterstitial.presentWithViewController(view)
+            } else {
+                adInterstitial.fetchAd()
+            }
             AudioServicesPlaySystemSound(1352)
             var shitScreen = CCBReader.load("ShitScreen", owner:self) as! ShitScreen
             shitScreen.position.x = -self.contentSize.width
@@ -47,12 +54,33 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         }
     }
     
+    func spaceDidDismiss(adSpace: NSString, interstitial: Bool) {
+        if (interstitial) { // Resume app state
+            // [[SimpleAudioEngine sharedEngine] resume];
+            CCDirector.sharedDirector().resume()
+        }
+        
+    }
+    override func onExit() {
+        super.onExit()
+        FlurryAds.setAdDelegate(nil)
+    }
+    
+    
+    func spaceShouldDisplay(adSpace: NSString, interstitial: Bool) -> Bool{
+        if (interstitial) { //pause state
+            // [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+            CCDirector.sharedDirector().pause()
+        }
+        // Continue ad display
+        return true
+    }
     
     var screenWidth = UIScreen.mainScreen().bounds.width
     var screenHeight = UIScreen.mainScreen().bounds.height
     
     func didLoadFromCCB() {
-
+        
         //hand.visible = true
         //gamePhysicsNode.debugDraw = true
         streakMultiplierSorce = 1
@@ -63,10 +91,16 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         schedule("compliement", interval: 5)
         schedule("spawnCoin", interval: 8, repeat: UInt(100000), delay: 2)
     }
-    
+    func showInterstitial() {
+        if FlurryAds.adReadyForSpace("FullScreen Ad") {
+            FlurryAds.displayAdForSpace("FullScreen Ad", onView: CCDirector.sharedDirector().view, viewControllerForPresentation: CCDirector.sharedDirector().parentViewController!)
+        }
+    }
     override func onEnter() {
         super.onEnter()
-        
+        adInterstitial.fetchAd();
+        FlurryAds.setAdDelegate(self)
+        FlurryAds.fetchAdForSpace("ADSPACE", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
         if let whichObject = whichObject{
             
             switch whichObject{
@@ -233,7 +267,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         coin.position = ccp(coinPositionX, coinPositionY)
         gamePhysicsNode.addChild(coin)
     }
-
+    
     
     func restart(){
         var playScene = CCBReader.loadAsScene("MainScene")

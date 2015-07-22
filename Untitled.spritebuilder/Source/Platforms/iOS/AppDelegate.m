@@ -24,14 +24,18 @@
  */
 
 #import "cocos2d.h"
-
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
+#import "Flurry.h"
+#import "FlurryAds.h"
 
 @implementation AppController
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Flurry setCrashReportingEnabled:YES];
+    [Flurry startSession:@"PK7JBJ24NQWVC3CMSBZB"];
+    [FlurryAds enableTestAds:YES];
     // Configure Cocos2d with the options set in SpriteBuilder
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
     configPath = [configPath stringByAppendingPathComponent:@"configCocos2d.plist"];
