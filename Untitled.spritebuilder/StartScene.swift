@@ -103,6 +103,7 @@ class StartScene: CCScene  {
                 alert.addButtonWithTitle("Cancel")
                 alert.addButtonWithTitle("Purchase")
                 alert.addButtonWithTitle("Restore Previous Purchase")
+                alert.delegate = self
                 alert.show()
                 
                 break;
@@ -112,8 +113,10 @@ class StartScene: CCScene  {
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 {
             buyProduct()
-
+        } else if buttonIndex == 2 {
+            SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
         }
+        
     }
     
     func play() {

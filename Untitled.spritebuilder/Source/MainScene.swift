@@ -43,7 +43,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
             highScore.string = "\(highScoreNumber)"
             currentScore.string = "\(Int(score))"
             hand.visible = false
-            iAdHandler.sharedInstance.displayInterstitialAd()
             
         }
     }
@@ -53,7 +52,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     var screenHeight = UIScreen.mainScreen().bounds.height
     
     func didLoadFromCCB() {
-        iAdHandler.sharedInstance.loadInterstitialAd()
 
         //hand.visible = true
         //gamePhysicsNode.debugDraw = true
