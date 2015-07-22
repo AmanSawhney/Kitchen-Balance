@@ -96,9 +96,23 @@ class StartScene: CCScene  {
             var prodID = product.productIdentifier
             if(prodID == "com.gunteamstudios.offbalance.removeAds") {
                 p = product
-                buyProduct()
+
+                var alert = UIAlertView()
+                alert.title = "\(p.localizedTitle)"
+                alert.message = "\(p.localizedDescription)"
+                alert.addButtonWithTitle("Cancel")
+                alert.addButtonWithTitle("Purchase")
+                alert.addButtonWithTitle("Restore Previous Purchase")
+                alert.show()
+                
                 break;
             }
+        }
+    }
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            buyProduct()
+
         }
     }
     
@@ -197,13 +211,7 @@ extension StartScene: SKProductsRequestDelegate, SKPaymentTransactionObserver {
         var pay = SKPayment(product: p)
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         SKPaymentQueue.defaultQueue().addPayment(pay as SKPayment)
-//        var alert = UIAlertView()
-//        alert.title = "\(p.localizedTitle)"
-//        alert.message = "\(p.localizedDescription)"
-//        alert.addButtonWithTitle("Cancel")
-//        alert.addButtonWithTitle("Purchase")
-//        alert.addButtonWithTitle("Restore Previous Purchase")
-//        alert.show()
+        
         
     }
     
@@ -294,22 +302,22 @@ extension StartScene: SKProductsRequestDelegate, SKPaymentTransactionObserver {
         
     }
 }
-    // MARK: Game Center Handling
+// MARK: Game Center Handling
+
+extension StartScene: GKGameCenterControllerDelegate {
     
-    extension StartScene: GKGameCenterControllerDelegate {
+    func showLeaderboard() {
         
-        func showLeaderboard() {
-            
-            var viewController = CCDirector.sharedDirector().parentViewController!
-            var gameCenterViewController = GKGameCenterViewController()
-            gameCenterViewController.gameCenterDelegate = self
-            viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
-            
-        }
+        var viewController = CCDirector.sharedDirector().parentViewController!
+        var gameCenterViewController = GKGameCenterViewController()
+        gameCenterViewController.gameCenterDelegate = self
+        viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
         
-        // Delegate methods
-        func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
-            gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
-        }
-        
+    }
+    
+    // Delegate methods
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }
