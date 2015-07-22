@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 import GameKit
-
-class StartScene: CCScene {
+import StoreKit
+class StartScene: CCScene  {
+    var ads = false
     var swipable = false
     weak var object1: CCSprite!
     weak var object2: CCSprite!
@@ -21,9 +22,11 @@ class StartScene: CCScene {
     var objects: [CCSprite] = []
     weak var hand1: CCButton!
     weak var hand2: CCButton!
+    var list = [SKProduct]()
+    var p = SKProduct()
     var audio = OALSimpleAudio.sharedInstance()
     func didLoadFromCCB() {
-        
+        iAdHandler.sharedInstance.loadAds(bannerPosition: .Top)
         
         GameCenterHelper.sharedInstance.authenticationCheck()
         
@@ -37,6 +40,22 @@ class StartScene: CCScene {
         objects.append(object5)
         whichObject = .RollingPin
         userInteractionEnabled = true
+    }
+    
+    override func onEnter() {
+        super.onEnter()
+        
+        // Set IAPS
+        if(SKPaymentQueue.canMakePayments()) {
+            println("IAP is enabled, loading")
+            var productID:NSSet = NSSet(objects: "com.gunteamstudios.offbalance.removeAds")
+            var request: SKProductsRequest = SKProductsRequest(productIdentifiers: productID as Set<NSObject>)
+            request.delegate = self
+            request.start()
+        } else {
+            println("please enable IAPS")
+        }
+        
     }
     func right() {
         audio.playEffect("8bits/coin2.wav")
@@ -71,6 +90,16 @@ class StartScene: CCScene {
                 Int64(delay * Double(NSEC_PER_SEC))
             ),
             dispatch_get_main_queue(), closure)
+    }
+    func iads() {
+        for product in list {
+            var prodID = product.productIdentifier
+            if(prodID == "seemu.iap.removeads") {
+                p = product
+                buyProduct()
+                break;
+            }
+        }
     }
     
     func play() {
@@ -158,22 +187,121 @@ class StartScene: CCScene {
     }
 }
 
-// MARK: Game Center Handling
-
-extension StartScene: GKGameCenterControllerDelegate {
+// Mark: StoreKit
+extension StartScene: SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
-    func showLeaderboard() {
-        
-        var viewController = CCDirector.sharedDirector().parentViewController!
-        var gameCenterViewController = GKGameCenterViewController()
-        gameCenterViewController.gameCenterDelegate = self
-        viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
-        
+    
+    // 2
+    func buyProduct() {
+        println("buy " + p.productIdentifier)
+        var pay = SKPayment(product: p)
+        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        SKPaymentQueue.defaultQueue().addPayment(pay as SKPayment)
     }
     
-    // Delegate methods
-    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
-        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+    //3
+    func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
+        println("product request")
+        var myProduct = response.products
+        
+        for product in myProduct {
+            println("product added")
+            println(product.productIdentifier)
+            println(product.localizedTitle)
+            println(product.localizedDescription)
+            println(product.price)
+            
+            list.append(product as! SKProduct)
+        }
     }
     
+    // 4
+    func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue!) {
+        println("transactions restored")
+        
+        var purchasedItemIDS = []
+        for transaction in queue.transactions {
+            var t: SKPaymentTransaction = transaction as! SKPaymentTransaction
+            
+            let prodID = t.payment.productIdentifier as String
+            
+            switch prodID {
+            case "com.gunteamstudios.offbalance.removeAds":
+                println("remove ads")
+            default:
+                println("IAP not setup")
+            }
+            
+        }
+    }
+    
+    // 5
+    func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
+        println("add paymnet")
+        
+        for transaction:AnyObject in transactions {
+            var trans = transaction as! SKPaymentTransaction
+            println(trans.error)
+            
+            switch trans.transactionState {
+                
+            case .Purchased:
+                println("buy, ok unlock iap here")
+                println(p.productIdentifier)
+                
+                let prodID = p.productIdentifier as String
+                switch prodID {
+                case "com.gunteamstudios.offbalance.removeAds":
+                    println("remove ads")
+                    
+                default:
+                    println("IAP not setup")
+                }
+                
+                queue.finishTransaction(trans)
+                break;
+            case .Failed:
+                println("buy error")
+                queue.finishTransaction(trans)
+                break;
+            default:
+                println("default")
+                break;
+                
+            }
+        }
+        
+        // 6
+        func finishTransaction(trans:SKPaymentTransaction)
+        {
+            println("finish trans")
+            SKPaymentQueue.defaultQueue().finishTransaction(trans)
+        }
+        
+        //7
+        func paymentQueue(queue: SKPaymentQueue!, removedTransactions transactions: [AnyObject]!)
+        {
+            println("remove trans")
+        }
+        
+    }
+}
+    // MARK: Game Center Handling
+    
+    extension StartScene: GKGameCenterControllerDelegate {
+        
+        func showLeaderboard() {
+            
+            var viewController = CCDirector.sharedDirector().parentViewController!
+            var gameCenterViewController = GKGameCenterViewController()
+            gameCenterViewController.gameCenterDelegate = self
+            viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
+            
+        }
+        
+        // Delegate methods
+        func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+            gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
 }

@@ -1,6 +1,7 @@
 
 import Foundation
 import GameKit
+import StoreKit
 
 enum typeOfObject {
     case RollingPin, Pan, Plate, Sward, Gun
@@ -8,7 +9,7 @@ enum typeOfObject {
 
 var whichObject: typeOfObject!
 var streakMultiplierSorce = 1
-class MainScene: CCNode, CCPhysicsCollisionDelegate {
+class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     weak var currentScore: CCLabelTTF!
     weak var highScore: CCLabelTTF!
     weak var scoreNode: ScoreNode!
@@ -229,6 +230,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         coin.position = ccp(coinPositionX, coinPositionY)
         gamePhysicsNode.addChild(coin)
     }
+
     
     func restart(){
         var playScene = CCBReader.loadAsScene("MainScene")

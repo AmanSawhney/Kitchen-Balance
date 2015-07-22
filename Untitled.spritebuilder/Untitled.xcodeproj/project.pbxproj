@@ -11,6 +11,8 @@
 		04023BB11B5D76DB008328A8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04023BB01B5D76DB008328A8 /* Social.framework */; };
 		04023BCB1B5D920B008328A8 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04023BCA1B5D920B008328A8 /* Share.swift */; };
 		04023BE21B5DA44A008328A8 /* 8bits in Resources */ = {isa = PBXBuildFile; fileRef = 04023BE11B5DA44A008328A8 /* 8bits */; };
+		0442D44C1B5FDA2F007A2272 /* Iads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D44B1B5FDA2E007A2272 /* Iads.swift */; };
+		048EBABC1B5F57D800378039 /* InAppPurchaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EBABB1B5F57D800378039 /* InAppPurchaseScene.m */; };
 		049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEA1B586CAD0020C07D /* StartScene.swift */; };
 		049BDBEF1B586D910020C07D /* DifficultLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEE1B586D910020C07D /* DifficultLevel.swift */; };
 		049BDBFD1B598BB10020C07D /* ShitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBFC1B598BB10020C07D /* ShitScreen.swift */; };
@@ -167,6 +169,9 @@
 		04023BB01B5D76DB008328A8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		04023BCA1B5D920B008328A8 /* Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
 		04023BE11B5DA44A008328A8 /* 8bits */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 8bits; sourceTree = "<group>"; };
+		0442D44B1B5FDA2E007A2272 /* Iads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Iads.swift; sourceTree = "<group>"; };
+		048EBABA1B5F57D800378039 /* InAppPurchaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InAppPurchaseScene.h; path = ../../ScribbleStroids/ScribbleStroids.spritebuilder/InAppPurchaseScene.h; sourceTree = "<group>"; };
+		048EBABB1B5F57D800378039 /* InAppPurchaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InAppPurchaseScene.m; path = ../../ScribbleStroids/ScribbleStroids.spritebuilder/InAppPurchaseScene.m; sourceTree = "<group>"; };
 		049BDBEA1B586CAD0020C07D /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		049BDBEE1B586D910020C07D /* DifficultLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultLevel.swift; sourceTree = "<group>"; };
 		049BDBFC1B598BB10020C07D /* ShitScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShitScreen.swift; sourceTree = "<group>"; };
@@ -489,6 +494,8 @@
 				CCF74B341B5AF1BB002267E2 /* Coin.swift */,
 				CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */,
 				049BDBFC1B598BB10020C07D /* ShitScreen.swift */,
+				048EBABA1B5F57D800378039 /* InAppPurchaseScene.h */,
+				048EBABB1B5F57D800378039 /* InAppPurchaseScene.m */,
 				049BDBEA1B586CAD0020C07D /* StartScene.swift */,
 				049BDBEE1B586D910020C07D /* DifficultLevel.swift */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
@@ -608,6 +615,7 @@
 				CCD645061B5C3EE100F06596 /* iAdHelper.h */,
 				CCD645071B5C3EE100F06596 /* iAdHelper.m */,
 				04023BCA1B5D920B008328A8 /* Share.swift */,
+				0442D44B1B5FDA2E007A2272 /* Iads.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -935,11 +943,13 @@
 				CCD645111B5C526100F06596 /* GameCenterHelper.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */,
+				0442D44C1B5FDA2F007A2272 /* Iads.swift in Sources */,
 				049BDBEF1B586D910020C07D /* DifficultLevel.swift in Sources */,
 				CCD645081B5C3EE100F06596 /* iAdHelper.m in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				049BDBFD1B598BB10020C07D /* ShitScreen.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				048EBABC1B5F57D800378039 /* InAppPurchaseScene.m in Sources */,
 				049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */,
 				04023BCB1B5D920B008328A8 /* Share.swift in Sources */,
 				CCF74B351B5AF1BB002267E2 /* Coin.swift in Sources */,
