@@ -12,6 +12,7 @@
 		04023BCB1B5D920B008328A8 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04023BCA1B5D920B008328A8 /* Share.swift */; };
 		04023BE21B5DA44A008328A8 /* 8bits in Resources */ = {isa = PBXBuildFile; fileRef = 04023BE11B5DA44A008328A8 /* 8bits */; };
 		0442D44C1B5FDA2F007A2272 /* Iads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D44B1B5FDA2E007A2272 /* Iads.swift */; };
+		0442D4521B5FE4E0007A2272 /* close.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 0442D4511B5FE4E0007A2272 /* close.PNG */; };
 		048EBABC1B5F57D800378039 /* InAppPurchaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EBABB1B5F57D800378039 /* InAppPurchaseScene.m */; };
 		049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEA1B586CAD0020C07D /* StartScene.swift */; };
 		049BDBEF1B586D910020C07D /* DifficultLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEE1B586D910020C07D /* DifficultLevel.swift */; };
@@ -170,6 +171,7 @@
 		04023BCA1B5D920B008328A8 /* Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
 		04023BE11B5DA44A008328A8 /* 8bits */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 8bits; sourceTree = "<group>"; };
 		0442D44B1B5FDA2E007A2272 /* Iads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Iads.swift; sourceTree = "<group>"; };
+		0442D4511B5FE4E0007A2272 /* close.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.PNG; sourceTree = "<group>"; };
 		048EBABA1B5F57D800378039 /* InAppPurchaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InAppPurchaseScene.h; path = ../../ScribbleStroids/ScribbleStroids.spritebuilder/InAppPurchaseScene.h; sourceTree = "<group>"; };
 		048EBABB1B5F57D800378039 /* InAppPurchaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InAppPurchaseScene.m; path = ../../ScribbleStroids/ScribbleStroids.spritebuilder/InAppPurchaseScene.m; sourceTree = "<group>"; };
 		049BDBEA1B586CAD0020C07D /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0442D4511B5FE4E0007A2272 /* close.PNG */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				5B12100D197483EE004C1E1D /* res */,
 				B73789911807667A0076A88C /* Icons */,
@@ -818,6 +821,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0442D4521B5FE4E0007A2272 /* close.PNG in Resources */,
 				04023B991B5D7107008328A8 /* Podfile in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				CCD645131B5C630400F06596 /* Images.xcassets in Resources */,

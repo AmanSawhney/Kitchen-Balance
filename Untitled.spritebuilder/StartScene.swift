@@ -94,7 +94,7 @@ class StartScene: CCScene  {
     func iads() {
         for product in list {
             var prodID = product.productIdentifier
-            if(prodID == "seemu.iap.removeads") {
+            if(prodID == "com.gunteamstudios.offbalance.removeAds") {
                 p = product
                 buyProduct()
                 break;
@@ -197,6 +197,14 @@ extension StartScene: SKProductsRequestDelegate, SKPaymentTransactionObserver {
         var pay = SKPayment(product: p)
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         SKPaymentQueue.defaultQueue().addPayment(pay as SKPayment)
+//        var alert = UIAlertView()
+//        alert.title = "\(p.localizedTitle)"
+//        alert.message = "\(p.localizedDescription)"
+//        alert.addButtonWithTitle("Cancel")
+//        alert.addButtonWithTitle("Purchase")
+//        alert.addButtonWithTitle("Restore Previous Purchase")
+//        alert.show()
+        
     }
     
     //3

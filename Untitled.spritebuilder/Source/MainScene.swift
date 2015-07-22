@@ -28,6 +28,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     var level = 0
     var done = false {
         didSet {
+            
+
             AudioServicesPlaySystemSound(1352)
             var shitScreen = CCBReader.load("ShitScreen", owner:self) as! ShitScreen
             shitScreen.position.x = -self.contentSize.width
@@ -41,6 +43,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
             highScore.string = "\(highScoreNumber)"
             currentScore.string = "\(Int(score))"
             hand.visible = false
+            iAdHandler.sharedInstance.displayInterstitialAd()
             
         }
     }
@@ -50,6 +53,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     var screenHeight = UIScreen.mainScreen().bounds.height
     
     func didLoadFromCCB() {
+        iAdHandler.sharedInstance.loadInterstitialAd()
+
         //hand.visible = true
         //gamePhysicsNode.debugDraw = true
         streakMultiplierSorce = 1
