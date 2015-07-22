@@ -100,7 +100,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
         super.onEnter()
         adInterstitial.fetchAd();
         FlurryAds.setAdDelegate(self)
-        FlurryAds.fetchAdForSpace("ADSPACE", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
+        FlurryAds.fetchAdForSpace("FullScreen Ad", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
         if let whichObject = whichObject{
             
             switch whichObject{
