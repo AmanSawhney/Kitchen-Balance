@@ -4,7 +4,7 @@ import GameKit
 import StoreKit
 
 enum typeOfObject {
-  case RollingPin, Pan, Plate, Sward, Gun
+  case RollingPin, Pan, Plate, Sword, Gun
 }
 
 var whichObject: typeOfObject!
@@ -15,7 +15,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
   var interstitialAdView: UIViewController = UIViewController()
   let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad");
-  let watch = FlurryAdInterstitial(space:"WatchForCoins");
   weak var currentScore: CCLabelTTF!
   weak var highScore: CCLabelTTF!
   weak var scoreNode: ScoreNode!
@@ -72,7 +71,10 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     schedule("compliement", interval: 5)
     schedule("spawnCoin", interval: 8, repeat: UInt(100000), delay: 2)
   }
-  
+  func adInterstitialVideoDidFinish(interstitialAd: FlurryAdInterstitial!) {
+    
+    
+  }
   func showInterstitial() {
     if FlurryAds.adReadyForSpace("FullScreen Ad") {
       FlurryAds.displayAdForSpace("FullScreen Ad", onView: CCDirector.sharedDirector().view, viewControllerForPresentation: CCDirector.sharedDirector().parentViewController!)
@@ -87,20 +89,12 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
       adInterstitial.fetchAd()
     }
   }
-    func presentVideo(){
-        //logic so they aren't bombarded with ads every time
-        if watch.ready {
-            watch.presentWithViewController(view)
-        } else {
-            watch.fetchAd()
-        }
-    }
   
+
   override func onEnter() {
     super.onEnter()
     adInterstitial.fetchAd()
     FlurryAds.setAdDelegate(self)
-    FlurryAds.fetchAdForSpace("WatchForCoins", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
     FlurryAds.fetchAdForSpace("FullScreen Ad", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
     if let whichObject = whichObject{
       
@@ -108,7 +102,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
       case .Gun:
         object = CCBReader.load("Objects/Gun") as! CCSprite
         object.scale = 0.5
-      case .Sward:
+      case .Sword:
         object = CCBReader.load("Objects/Sword") as! CCSprite
         object.scale = 0.4
         
@@ -247,7 +241,9 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     self.animationManager.runAnimationsForSequenceNamed("LevelUp Timeline")
     
   }
-  
+  func adInterstitial(interstitialAd: FlurryAdInterstitial!, adError: FlurryAdError, errorDescription: NSError!) {
+    println(errorDescription)
+  }
   func gameOver(){
     
     done = true
