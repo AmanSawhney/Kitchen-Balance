@@ -78,7 +78,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     }
   }
   
-  func showInterstitial(){
+  func presentInterstitial(){
     //logic so they aren't bombarded with ads every time
     if adInterstitial.ready {
       adInterstitial.presentWithViewController(view)
@@ -240,7 +240,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   func gameOver(){
     
     done = true
-    
+    presentInterstitial()
     unschedule("levelUp")
     unschedule("compliement")
     unschedule("spawnCoin")
