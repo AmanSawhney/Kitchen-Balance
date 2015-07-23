@@ -15,6 +15,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
   var interstitialAdView: UIViewController = UIViewController()
   let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad");
+  let watch = FlurryAdInterstitial(space:"WatchForCoins");
   weak var currentScore: CCLabelTTF!
   weak var highScore: CCLabelTTF!
   weak var scoreNode: ScoreNode!
@@ -86,12 +87,20 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
       adInterstitial.fetchAd()
     }
   }
-  
+    func presentVideo(){
+        //logic so they aren't bombarded with ads every time
+        if watch.ready {
+            watch.presentWithViewController(view)
+        } else {
+            watch.fetchAd()
+        }
+    }
   
   override func onEnter() {
     super.onEnter()
     adInterstitial.fetchAd()
     FlurryAds.setAdDelegate(self)
+    FlurryAds.fetchAdForSpace("WatchForCoins", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
     FlurryAds.fetchAdForSpace("FullScreen Ad", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
     if let whichObject = whichObject{
       
@@ -202,6 +211,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     }
     
   }
+    
+    
   
   override func update(delta: CCTime) {
     

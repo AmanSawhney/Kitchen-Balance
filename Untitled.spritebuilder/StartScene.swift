@@ -13,6 +13,11 @@ import StoreKit
 class StartScene: CCScene  {
     var ads = false
     var swipable = false
+    let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
+    var interstitialAdView: UIViewController = UIViewController()
+    let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad");
+    let watch = FlurryAdInterstitial(space:"WatchForCoins");
+    weak var currentScore: CCLabelTTF!
     weak var object1: CCSprite!
     weak var object2: CCSprite!
     weak var object3: CCSprite!
@@ -41,10 +46,18 @@ class StartScene: CCScene  {
         whichObject = .RollingPin
         userInteractionEnabled = true
     }
-    
+    func watchForCoins() {
+        FlurryAds.fetchAdForSpace("WatchForCoins", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
+        presentInterstitial()
+    }
     override func onEnter() {
         super.onEnter()
         
+        FlurryAds.setAdDelegate(self)
+        FlurryAds.fetchAdForSpace("WatchForCoins", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
+        FlurryAds.fetchAdForSpace("FullScreen Ad", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
+        adInterstitial.fetchAd()
+        watch.fetchAd()
         // Set IAPS
         if(SKPaymentQueue.canMakePayments()) {
             println("IAP is enabled, loading")
@@ -57,6 +70,29 @@ class StartScene: CCScene  {
         }
         
     }
+    func showInterstitial() {
+        if FlurryAds.adReadyForSpace("FullScreen Ad") {
+            FlurryAds.displayAdForSpace("FullScreen Ad", onView: CCDirector.sharedDirector().view, viewControllerForPresentation: CCDirector.sharedDirector().parentViewController!)
+        }
+    }
+    
+    func presentInterstitial(){
+        //logic so they aren't bombarded with ads every time
+        if adInterstitial.ready {
+            adInterstitial.presentWithViewController(view)
+        } else {
+            adInterstitial.fetchAd()
+        }
+    }
+    func presentVideo(){
+        //logic so they aren't bombarded with ads every time
+        if watch.ready {
+            watch.presentWithViewController(view)
+        } else {
+            watch.fetchAd()
+        }
+    }
+
     func right() {
         audio.playEffect("8bits/coin2.wav")
         if whichObject != .Gun {
