@@ -72,11 +72,11 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     schedule("spawnCoin", interval: 8, repeat: UInt(100000), delay: 2)
   }
   
-//  func showInterstitial() {
-//    if FlurryAds.adReadyForSpace("FullScreen Ad") {
-//      FlurryAds.displayAdForSpace("FullScreen Ad", onView: CCDirector.sharedDirector().view, viewControllerForPresentation: CCDirector.sharedDirector().parentViewController!)
-//    }
-//  }
+  func showInterstitial() {
+    if FlurryAds.adReadyForSpace("FullScreen Ad") {
+      FlurryAds.displayAdForSpace("FullScreen Ad", onView: CCDirector.sharedDirector().view, viewControllerForPresentation: CCDirector.sharedDirector().parentViewController!)
+    }
+  }
   
   func showInterstitial(){
     //logic so they aren't bombarded with ads every time
