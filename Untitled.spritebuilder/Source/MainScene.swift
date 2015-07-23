@@ -11,6 +11,7 @@ var whichObject: typeOfObject!
 var streakMultiplierSorce = 1
 
 class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegate  {
+  
   let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
   var interstitialAdView: UIViewController = UIViewController()
   let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad");
@@ -211,7 +212,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
       score += scoreNode.state.rawValue * scorePerUpdate * Double(streakMultiplierSorce)
       scoreNode.displayRotation(object.rotation)
       scoreNode.updateScore(score)
-      
     }
     
     if abs(object.rotation) > 80 && !done{
