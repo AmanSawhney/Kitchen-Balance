@@ -96,29 +96,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     adInterstitial.fetchAd()
     FlurryAds.setAdDelegate(self)
     FlurryAds.fetchAdForSpace("FullScreen Ad", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
-    if let whichObject = whichObject{
-      
-      switch whichObject{
-      case .Gun:
-        object = CCBReader.load("Objects/Gun") as! CCSprite
-        object.scale = 0.5
-      case .Sword:
-        object = CCBReader.load("Objects/Sword") as! CCSprite
-        object.scale = 0.4
-        
-      case .RollingPin:
-        object = CCBReader.load("Objects/RollingPin") as! CCSprite
-      case .Plate:
-        object = CCBReader.load("Objects/Plate") as! CCSprite
-      case .Pan:
-        object = CCBReader.load("Objects/Pan") as! CCSprite
-      default:
-        object = CCBReader.load("Objects/RollingPin") as! CCSprite
-      }
-    } else {
-      object = CCBReader.load("Objects/Plate") as! CCSprite
-      
-    }
+    
+    object = CCBReader.load("Objects/\(objectString())") as! CCSprite
     
     hand = CCBReader.load("Objects/Hand")
     hand.scale = 0.6
@@ -141,21 +120,25 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     object.rotation = Float(arc4random_uniform(2) == 1 ? randomRotation : -randomRotation)
     
   }
-  func delay(delay:Double, closure:()->()) {
-    dispatch_after(
-      dispatch_time(
-        DISPATCH_TIME_NOW,
-        Int64(delay * Double(NSEC_PER_SEC))
-      ),
-      dispatch_get_main_queue(), closure)
-  }
+//  func delay(delay:Double, closure:()->()) {
+//    dispatch_after(
+//      dispatch_time(
+//        DISPATCH_TIME_NOW,
+//        Int64(delay * Double(NSEC_PER_SEC))
+//      ),
+//      dispatch_get_main_queue(), closure)
+//  }
   func retry() {
     audio.playEffect("8bits/coin2.wav")
     animationManager.runAnimationsForSequenceNamed("ButtonPress Timeline")
-    delay(1.5) {
-      var playScene = CCBReader.loadAsScene("MainScene")
-      CCDirector.sharedDirector().replaceScene(playScene)
-    }
+    
+    
+    var playScene = CCBReader.loadAsScene("MainScene")
+    
+    var delay = CCActionDelay(duration: 1.5)
+    var presentScene = CCActionCallBlock(block: {CCDirector.sharedDirector().replaceScene(playScene)})
+    runAction(CCActionSequence(array: [delay, presentScene]))
+    
   }
   func menu() {
     var menu = CCBReader.loadAsScene("Start")
@@ -290,6 +273,28 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     CCDirector.sharedDirector().replaceScene(playScene)
   }
   
+}
+
+//This should go in a singleton, but will go here for now because it's easiest. This is the function which sets the correct object string based upon the index
+extension MainScene{
+  func objectString() -> String{
+    var saveString : String
+    switch NSUserDefaults.standardUserDefaults().integerForKey("objectIndex"){
+    case 0:
+      saveString = "RollingPin"
+    case 1:
+      saveString = "Pan"
+    case 2:
+      saveString = "Plate"
+    case 3:
+      saveString = "Sword"
+    case 4:
+      saveString = "Gun"
+    default:
+      saveString = "RollingPin"
+    }
+    return saveString
+  }
 }
 
 extension MainScene: GKGameCenterControllerDelegate {

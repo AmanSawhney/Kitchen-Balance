@@ -10,36 +10,59 @@ import Foundation
 import UIKit
 import GameKit
 import StoreKit
+
 class StartScene: CCScene, FlurryAdInterstitialDelegate  {
+  
   let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
   var interstitialAdView: UIViewController = UIViewController()
-  let adInterstitial = FlurryAdInterstitial(space:"WatchForCoins");
+  let adInterstitial = FlurryAdInterstitial(space:"WatchForCoins")
   var ads = false
-  var swipable = false
+  
   weak var currentScore: CCLabelTTF!
+  
   weak var object1: CCSprite!
   weak var object2: CCSprite!
   weak var object3: CCSprite!
   weak var object4: CCSprite!
   weak var object5: CCSprite!
-  var moveright = false
   var objects: [CCSprite] = []
+  var objectsInPosition = true
+
   weak var hand1: CCButton!
   weak var hand2: CCButton!
+  
+  var currentIndex : Int = 0 {
+    didSet{
+      if currentIndex >= objects.count{
+        currentIndex = objects.count - 1
+      } else if currentIndex < 0{
+        currentIndex = 0
+      }
+      
+      moveSpritesToPosition()
+      
+      NSUserDefaults.standardUserDefaults().setInteger(currentIndex, forKey: "objectIndex")
+
+    }
+  }
+  
   var list = [SKProduct]()
   var p = SKProduct()
-  var audio = OALSimpleAudio.sharedInstance()
+  let audio = OALSimpleAudio.sharedInstance()
   var screenWidth = UIScreen.mainScreen().bounds.width
   var screenHeight = UIScreen.mainScreen().bounds.height
+  
   func showInterstitial() {
     if FlurryAds.adReadyForSpace("WatchForCoins") {
       FlurryAds.displayAdForSpace("WatchForCoins", onView: CCDirector.sharedDirector().view, viewControllerForPresentation: CCDirector.sharedDirector().parentViewController!)
     }
   }
+  
   func adInterstitialVideoDidFinish(interstitialAd: FlurryAdInterstitial!) {
     var coins = NSUserDefaults.standardUserDefaults().integerForKey("Coins") + 50
     NSUserDefaults.standardUserDefaults().setInteger(coins, forKey: "Coins")
   }
+  
   func presentInterstitial(){
     //logic so they aren't bombarded with ads every time
     if adInterstitial.ready {
@@ -62,16 +85,18 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
     FlurryAds.setAdDelegate(nil)
   }
   
-  
   func spaceShouldDisplay(adSpace: NSString, interstitial: Bool) -> Bool{
     if (interstitial) { //pause state
       // [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
       CCDirector.sharedDirector().pause()
     }
+    
     // Continue ad display
     return true
   }
+  
   func didLoadFromCCB() {
+    
     iAdHandler.sharedInstance.loadAds(bannerPosition: .Top)
     
     GameCenterHelper.sharedInstance.authenticationCheck()
@@ -86,10 +111,13 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
     objects.append(object5)
     whichObject = .RollingPin
     userInteractionEnabled = true
+    
+    currentIndex = NSUserDefaults.standardUserDefaults().integerForKey("objectIndex")
+    println("\(currentIndex)")
+    moveSpritesToPosition()
+    
   }
-  func watchForCoins() {
-    presentInterstitial()
-  }
+  
   override func onEnter() {
     super.onEnter()
     // Set IAPS
@@ -105,43 +133,40 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
     } else {
       println("please enable IAPS")
     }
-    
+  }
+  
+  func watchForCoins() {
+    presentInterstitial()
   }
   
   func right() {
     audio.playEffect("8bits/coin2.wav")
-    if whichObject != .Gun {
-      for object in objects {
-        var move = CCActionMoveTo(duration: 0.2, position: ccp(object.position.x - 1, object.position.y))
-        object.runAction(move)
-      }
-    }
+    currentIndex++
   }
+  
   func left() {
     audio.playEffect("8bits/coin2.wav")
-    if whichObject != .RollingPin {
-      for object in objects {
-        var move = CCActionMoveTo(duration: 0.2, position: ccp(object.position.x + 1, object.position.y))
-        object.runAction(move)
-      }
-    }
+    currentIndex--
   }
-  func moveObjects(orginalPostion: CGPoint) {
+  
+  func moveSpritesToPosition(){
+    if objectsInPosition{
+      for index in 0..<objects.count{
+        var object = objects[index]
+        var xPos = (0.5 + Float(index - currentIndex))
+        var moveObject = CCActionMoveTo(duration: 0.1, position: CGPointMake(CGFloat(xPos), object.position.y))
+        object.runAction(moveObject)
+      }
+      
+      objectsInPosition = false
+      var delay = CCActionDelay(duration: 0.1)
+      var resetBool = CCActionCallBlock(block: {self.objectsInPosition = true})
+      runAction(CCActionSequence(array: [delay, resetBool]))
+      
+    }
     
-    while object1.position.x < -orginalPostion.x {
-      for object in objects {
-        object.position.x--
-      }
-    }
   }
-  func delay(delay:Double, closure:()->()) {
-    dispatch_after(
-      dispatch_time(
-        DISPATCH_TIME_NOW,
-        Int64(delay * Double(NSEC_PER_SEC))
-      ),
-      dispatch_get_main_queue(), closure)
-  }
+  
   func iads() {
     for product in list {
       var prodID = product.productIdentifier
@@ -161,6 +186,7 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
       }
     }
   }
+  
   func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
     if buttonIndex == 1 {
       buyProduct()
@@ -170,15 +196,19 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
     
   }
   
-  
   func play() {
     audio.playEffect("8bits/coin2.wav")
     animationManager.runAnimationsForSequenceNamed("ButtonPress Timeline")
-    delay(1.5) {
-      var playScene = CCBReader.loadAsScene("MainScene")
-      CCDirector.sharedDirector().replaceScene(playScene)
-    }
+    
+    userInteractionEnabled = false
+    
+    var playScene = CCBReader.loadAsScene("MainScene")
+    
+    var delay = CCActionDelay(duration: 1.5)
+    var presentScene = CCActionCallBlock(block: {CCDirector.sharedDirector().replaceScene(playScene)})
+    runAction(CCActionSequence(array: [delay, presentScene]))
   }
+  
   func stats() {
     audio.playEffect("8bits/coin2.wav")
     animationManager.runAnimationsForSequenceNamed("Stats Timeline")
@@ -198,73 +228,15 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
   }
   func info() {
     audio.playEffect("8bits/coin2.wav")
-    
-  }
-  override func update(delta: CCTime) {
-    
-    for object in objects {
-      
-      if object1.position.x == 0.5{
-        whichObject = .RollingPin
-        if hand1.animationManager.runningSequenceName != "GoAway Timeline" && hand1.animationManager.runningSequenceName != "Done Timeline"{
-          hand1.animationManager.runAnimationsForSequenceNamed("GoAway Timeline")
-        }
-        if hand2.animationManager.runningSequenceName != "ComeBack Timeline" && hand2.animationManager.runningSequenceName != "Default Timeline"{
-          hand2.animationManager.runAnimationsForSequenceNamed("Default Timeline")
-        }
-        
-      } else if object2.position.x == 0.5 {
-        if hand1.animationManager.runningSequenceName != "ComeBack Timeline" && hand1.animationManager.runningSequenceName != "Default Timeline"{
-          hand1.animationManager.runAnimationsForSequenceNamed("Default Timeline")
-        }
-        
-        if hand2.animationManager.runningSequenceName != "ComeBack Timeline" && hand2.animationManager.runningSequenceName != "Default Timeline"{
-          hand2.animationManager.runAnimationsForSequenceNamed("Default Timeline")
-        }
-        whichObject = .Plate
-      } else if object3.position.x == 0.5 {
-        if hand1.animationManager.runningSequenceName != "ComeBack Timeline" && hand1.animationManager.runningSequenceName != "Default Timeline"{
-          hand1.animationManager.runAnimationsForSequenceNamed("Default Timeline")
-        }
-        
-        if hand2.animationManager.runningSequenceName != "ComeBack Timeline" && hand2.animationManager.runningSequenceName != "Default Timeline"{
-          hand2.animationManager.runAnimationsForSequenceNamed("Default Timeline")
-        }
-        whichObject = .Pan
-        
-      }else if object4.position.x == 0.5 {
-        if hand1.animationManager.runningSequenceName != "ComeBack Timeline" && hand1.animationManager.runningSequenceName != "Default Timeline"{
-          hand1.animationManager.runAnimationsForSequenceNamed("Default Timeline")
-        }
-        
-        if hand2.animationManager.runningSequenceName != "ComeBack Timeline" && hand2.animationManager.runningSequenceName != "Default Timeline"{
-          hand2.animationManager.runAnimationsForSequenceNamed("Default Timeline")
-        }
-        whichObject = .Sword
-      }else if object5.position.x == 0.5 {
-        if hand1.animationManager.runningSequenceName != "ComeBack Timeline" && hand1.animationManager.runningSequenceName != "Default Timeline"{
-          hand1.animationManager.runAnimationsForSequenceNamed("Default Timeline")
-        }
-        if hand2.animationManager.runningSequenceName != "GoAway Timeline" && hand2.animationManager.runningSequenceName != "Done Timeline"{
-          hand2.animationManager.runAnimationsForSequenceNamed("GoAway Timeline")
-        }
-        whichObject = .Gun
-      }
-      
-      
-    }
   }
 }
+
 extension StartScene: FlurryAdInterstitialDelegate {
-  
-  
-  
   
 }
 
 // Mark: StoreKit
 extension StartScene: SKProductsRequestDelegate, SKPaymentTransactionObserver {
-  
   
   // 2
   func buyProduct() {
@@ -272,7 +244,6 @@ extension StartScene: SKProductsRequestDelegate, SKPaymentTransactionObserver {
     var pay = SKPayment(product: p)
     SKPaymentQueue.defaultQueue().addTransactionObserver(self)
     SKPaymentQueue.defaultQueue().addPayment(pay as SKPayment)
-    
     
   }
   
@@ -363,8 +334,9 @@ extension StartScene: SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
   }
 }
-// MARK: Game Center Handling
 
+
+// MARK: Game Center Handling
 extension StartScene: GKGameCenterControllerDelegate {
   
   func showLeaderboard() {
