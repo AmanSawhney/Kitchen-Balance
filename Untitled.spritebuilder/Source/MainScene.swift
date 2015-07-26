@@ -14,7 +14,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   
   let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
   var interstitialAdView: UIViewController = UIViewController()
-  let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad");
+  let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad")
   weak var currentScore: CCLabelTTF!
   weak var highScore: CCLabelTTF!
   weak var scoreNode: ScoreNode!
@@ -23,14 +23,16 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   weak var object: CCSprite!
   weak var gamePhysicsNode: CCPhysicsNode!
   weak var scoreLabel: CCLabelTTF!
-  weak var levelUpLabel: CCLabelTTF!
-  var complements = ["Much Wow", "Such Skill", "You're \n Beautiful", "So balance!", "Lookin' Good", "Chicken fries \n are back \n :D", "You Make \n Aman Proud", "Strong finger!", "Soft touch"]
+  weak var levelLabel: LevelLabelNode!
   var currentTouchLocation: CGPoint!
   var pivot: CCPhysicsJoint!
   var score: Double = 0
   var audio = OALSimpleAudio.sharedInstance()
   let scorePerUpdate = 1.0
-  var level = 0
+  
+  var level = 1
+  let scorePerLevel = 5000
+  
   var done = false
   
   func spaceDidDismiss(adSpace: NSString, interstitial: Bool) {
@@ -49,7 +51,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   
   func spaceShouldDisplay(adSpace: NSString, interstitial: Bool) -> Bool{
     if (interstitial) { //pause state
-      // [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
       CCDirector.sharedDirector().pause()
     }
     // Continue ad display
@@ -63,18 +64,15 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     
     //hand.visible = true
     //gamePhysicsNode.debugDraw = true
-    streakMultiplierSorce = 1
-    levelUp()
     gamePhysicsNode.collisionDelegate = self
     userInteractionEnabled = true
-    schedule("levelUp", interval: 10)
-    schedule("compliement", interval: 5)
     schedule("spawnCoin", interval: 8, repeat: UInt(100000), delay: 2)
   }
+  
   func adInterstitialVideoDidFinish(interstitialAd: FlurryAdInterstitial!) {
     
-    
   }
+  
   func showInterstitial() {
     if FlurryAds.adReadyForSpace("FullScreen Ad") {
       FlurryAds.displayAdForSpace("FullScreen Ad", onView: CCDirector.sharedDirector().view, viewControllerForPresentation: CCDirector.sharedDirector().parentViewController!)
@@ -109,25 +107,15 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     
     gamePhysicsNode.addChild(hand)
     gamePhysicsNode.addChild(object)
-    if whichObject != .Gun {
-      pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(object.contentSize.width/2 * CGFloat(object.scaleX), 0))
-    } else {
-      pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(object.position.x/2, 0))
-    }
+    
+    pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(object.contentSize.width/2 * CGFloat(object.scaleX), 0))
     pivot.collideBodies = false
     
     var randomRotation = Double(arc4random_uniform(2)) + 1.0
     object.rotation = Float(arc4random_uniform(2) == 1 ? randomRotation : -randomRotation)
     
   }
-//  func delay(delay:Double, closure:()->()) {
-//    dispatch_after(
-//      dispatch_time(
-//        DISPATCH_TIME_NOW,
-//        Int64(delay * Double(NSEC_PER_SEC))
-//      ),
-//      dispatch_get_main_queue(), closure)
-//  }
+
   func retry() {
     audio.playEffect("8bits/coin2.wav")
     animationManager.runAnimationsForSequenceNamed("ButtonPress Timeline")
@@ -191,13 +179,11 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     
     
   
-  override func update(delta: CCTime) {
-    
-    
+  override func update(delta: CCTime) {    
     hand.position.y = 0 //DO NOT DELETE THIS LINE. It makes hand a kinematic body and keeps pivot joint in line
     
     if !done{
-      score += scoreNode.state.rawValue * scorePerUpdate * Double(streakMultiplierSorce)
+      score += scoreNode.balanceValue * scorePerUpdate * Double(scoreNode.multiplier)
       scoreNode.displayRotation(object.rotation)
       scoreNode.updateScore(score)
     }
@@ -206,28 +192,26 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
         gameOver()
     }
     
-  }
-  
-  func compliement() {
-    var random = Int(arc4random_uniform(UInt32(complements.count - 1)))
-    levelUpLabel.string = "\(complements[random])"
-    self.animationManager.runAnimationsForSequenceNamed("LevelUp Timeline")
+    if Int(score) > level * scorePerLevel{
+      levelUp()
+    }
     
   }
   
   func levelUp() {
+    object.physicsBody.applyAngularImpulse(10)//knock the object loose if at rest
     level++
-    if level != 1 {
-      gamePhysicsNode.gravity.y -= CGFloat(300)
-    }
-    levelUpLabel.string = "Level \(level)"
-    self.animationManager.runAnimationsForSequenceNamed("LevelUp Timeline")
-    
+    gamePhysicsNode.gravity.y -= CGFloat(100)
+    levelLabel.level = level
+    levelLabel.animationManager.runAnimationsForSequenceNamed("LevelUp")
   }
+  
   func adInterstitial(interstitialAd: FlurryAdInterstitial!, adError: FlurryAdError, errorDescription: NSError!) {
     println(errorDescription)
   }
   func gameOver(){
+    
+    OALSimpleAudio.sharedInstance().stopAllEffects()
     
     done = true
     presentInterstitial()
@@ -261,7 +245,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     coin.position = ccp(coinPositionX, coinPositionY)
     gamePhysicsNode.addChild(coin)
   }
-  
   
   func restart(){
     var playScene = CCBReader.loadAsScene("MainScene")
@@ -300,12 +283,10 @@ extension MainScene{
 extension MainScene: GKGameCenterControllerDelegate {
   
   func showLeaderboard() {
-    
     var viewController = CCDirector.sharedDirector().parentViewController!
     var gameCenterViewController = GKGameCenterViewController()
     gameCenterViewController.gameCenterDelegate = self
     viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
-    
   }
   
   // Delegate methods

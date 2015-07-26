@@ -74,7 +74,6 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
   
   func spaceDidDismiss(adSpace: NSString, interstitial: Bool) {
     if (interstitial) { // Resume app state
-      // [[SimpleAudioEngine sharedEngine] resume];
       CCDirector.sharedDirector().resume()
     }
     
@@ -87,7 +86,6 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
   
   func spaceShouldDisplay(adSpace: NSString, interstitial: Bool) -> Bool{
     if (interstitial) { //pause state
-      // [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
       CCDirector.sharedDirector().pause()
     }
     
