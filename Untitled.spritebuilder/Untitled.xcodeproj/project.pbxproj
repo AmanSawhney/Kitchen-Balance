@@ -262,7 +262,6 @@
 		0442D44C1B5FDA2F007A2272 /* Iads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D44B1B5FDA2E007A2272 /* Iads.swift */; };
 		0442D4521B5FE4E0007A2272 /* close.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 0442D4511B5FE4E0007A2272 /* close.PNG */; };
 		049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEA1B586CAD0020C07D /* StartScene.swift */; };
-		049BDBEF1B586D910020C07D /* DifficultLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEE1B586D910020C07D /* DifficultLevel.swift */; };
 		5B121030197484FA004C1E1D /* UntitledActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* UntitledActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A046D7519E84C36004C4763 /* MainScene.swift */; };
@@ -681,7 +680,6 @@
 		0442D44B1B5FDA2E007A2272 /* Iads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Iads.swift; sourceTree = "<group>"; };
 		0442D4511B5FE4E0007A2272 /* close.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.PNG; sourceTree = "<group>"; };
 		049BDBEA1B586CAD0020C07D /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
-		049BDBEE1B586D910020C07D /* DifficultLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultLevel.swift; sourceTree = "<group>"; };
 		072036191B5E0DBC0048C6CC /* Mixpanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -1341,7 +1339,6 @@
 				CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */,
 				049BDBEA1B586CAD0020C07D /* StartScene.swift */,
 				CC9E07D51B65410A007A1733 /* LevelLabelNode.swift */,
-				049BDBEE1B586D910020C07D /* DifficultLevel.swift */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 				072036191B5E0DBC0048C6CC /* Mixpanel.h */,
@@ -2002,7 +1999,6 @@
 				CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */,
 				0442D44C1B5FDA2F007A2272 /* Iads.swift in Sources */,
 				CC9E07D61B65410A007A1733 /* LevelLabelNode.swift in Sources */,
-				049BDBEF1B586D910020C07D /* DifficultLevel.swift in Sources */,
 				CCD645081B5C3EE100F06596 /* iAdHelper.m in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
