@@ -3,11 +3,6 @@ import Foundation
 import GameKit
 import StoreKit
 
-enum typeOfObject {
-  case RollingPin, Pan, Plate, Sword, Gun
-}
-
-var whichObject: typeOfObject!
 var streakMultiplierSorce = 1
 
 class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegate  {
