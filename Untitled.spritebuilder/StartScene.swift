@@ -95,7 +95,7 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
   
   func didLoadFromCCB() {
     
-    iAdHandler.sharedInstance.loadAds(bannerPosition: .Top)
+//    iAdHandler.sharedInstance.loadAds(bannerPosition: .Top)
     
     GameCenterHelper.sharedInstance.authenticationCheck()
     
@@ -107,11 +107,9 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
     objects.append(object3)
     objects.append(object4)
     objects.append(object5)
-    whichObject = .RollingPin
     userInteractionEnabled = true
     
     currentIndex = NSUserDefaults.standardUserDefaults().integerForKey("objectIndex")
-    println("\(currentIndex)")
     moveSpritesToPosition()
     
   }

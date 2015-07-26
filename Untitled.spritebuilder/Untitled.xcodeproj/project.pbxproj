@@ -348,7 +348,7 @@
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		CC60D9FB1B5EA93A00D375CE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC60D9FA1B5EA93A00D375CE /* AudioToolbox.framework */; };
 		CC9E07D61B65410A007A1733 /* LevelLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9E07D51B65410A007A1733 /* LevelLabelNode.swift */; };
-		CCD645081B5C3EE100F06596 /* iAdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD645071B5C3EE100F06596 /* iAdHelper.m */; };
+		CC9E07D91B654D9F007A1733 /* iAdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E07D81B654D9F007A1733 /* iAdHelper.m */; };
 		CCD6450C1B5C461A00F06596 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD6450B1B5C461A00F06596 /* GameKit.framework */; };
 		CCD6450E1B5C46E500F06596 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD6450D1B5C46E500F06596 /* StoreKit.framework */; };
 		CCD645111B5C526100F06596 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD645101B5C526100F06596 /* GameCenterHelper.swift */; };
@@ -744,8 +744,8 @@
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
 		CC60D9FA1B5EA93A00D375CE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CC9E07D51B65410A007A1733 /* LevelLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelLabelNode.swift; sourceTree = "<group>"; };
-		CCD645061B5C3EE100F06596 /* iAdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iAdHelper.h; path = Source/iAdHelper.h; sourceTree = "<group>"; };
-		CCD645071B5C3EE100F06596 /* iAdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iAdHelper.m; path = Source/iAdHelper.m; sourceTree = "<group>"; };
+		CC9E07D71B654D9F007A1733 /* iAdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAdHelper.h; sourceTree = "<group>"; };
+		CC9E07D81B654D9F007A1733 /* iAdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iAdHelper.m; sourceTree = "<group>"; };
 		CCD6450B1B5C461A00F06596 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		CCD6450D1B5C46E500F06596 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CCD645101B5C526100F06596 /* GameCenterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
@@ -1456,10 +1456,10 @@
 		CCD645001B5C3A7B00F06596 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CC9E07D71B654D9F007A1733 /* iAdHelper.h */,
+				CC9E07D81B654D9F007A1733 /* iAdHelper.m */,
 				040646E71B602B0700638C61 /* Flurry-iOS-6.5.0 */,
 				CCD645101B5C526100F06596 /* GameCenterHelper.swift */,
-				CCD645061B5C3EE100F06596 /* iAdHelper.h */,
-				CCD645071B5C3EE100F06596 /* iAdHelper.m */,
 				04023BCA1B5D920B008328A8 /* Share.swift */,
 				0442D44B1B5FDA2E007A2272 /* Iads.swift */,
 			);
@@ -1999,9 +1999,9 @@
 				CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */,
 				0442D44C1B5FDA2F007A2272 /* Iads.swift in Sources */,
 				CC9E07D61B65410A007A1733 /* LevelLabelNode.swift in Sources */,
-				CCD645081B5C3EE100F06596 /* iAdHelper.m in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				CC9E07D91B654D9F007A1733 /* iAdHelper.m in Sources */,
 				049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */,
 				04023BCB1B5D920B008328A8 /* Share.swift in Sources */,
 				CCF74B351B5AF1BB002267E2 /* Coin.swift in Sources */,

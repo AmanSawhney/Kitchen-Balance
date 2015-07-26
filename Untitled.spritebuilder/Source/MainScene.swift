@@ -28,6 +28,9 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   var level = 1
   let scorePerLevel = 5000
   
+  weak var streak1: CCParticleSystem!
+  weak var streak2: CCParticleSystem!
+  
   var done = false
   
   func spaceDidDismiss(adSpace: NSString, interstitial: Bool) {
@@ -56,6 +59,10 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   var screenHeight = UIScreen.mainScreen().bounds.height
   
   func didLoadFromCCB() {
+    
+    stopStreak()
+    
+    scoreNode.delegate = self
     
     //hand.visible = true
     //gamePhysicsNode.debugDraw = true
@@ -178,7 +185,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     hand.position.y = 0 //DO NOT DELETE THIS LINE. It makes hand a kinematic body and keeps pivot joint in line
     
     if !done{
-      score += scoreNode.balanceValue * scorePerUpdate * Double(scoreNode.multiplier)
+      score += scoreNode.state.rawValue * scorePerUpdate
       scoreNode.displayRotation(object.rotation)
       scoreNode.updateScore(score)
     }
@@ -290,3 +297,21 @@ extension MainScene: GKGameCenterControllerDelegate {
   }
   
 }
+
+extension MainScene: StreakDelegate{
+  func startStreak() {
+    streak1.resetSystem()
+    streak2.resetSystem()
+  }
+  
+  func stopStreak() {
+    streak1.stopSystem()
+    streak2.stopSystem()
+  }
+}
+
+
+
+
+
+
