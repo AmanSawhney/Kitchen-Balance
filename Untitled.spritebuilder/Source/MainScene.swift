@@ -9,7 +9,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   
   let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
   var interstitialAdView: UIViewController = UIViewController()
-  let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad")
+  let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad Babay Balance")
   weak var currentScore: CCLabelTTF!
   weak var highScore: CCLabelTTF!
   weak var scoreNode: ScoreNode!
@@ -76,8 +76,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   }
   
   func showInterstitial() {
-    if FlurryAds.adReadyForSpace("FullScreen Ad") {
-      FlurryAds.displayAdForSpace("FullScreen Ad", onView: CCDirector.sharedDirector().view, viewControllerForPresentation: CCDirector.sharedDirector().parentViewController!)
+    if FlurryAds.adReadyForSpace("FullScreen Ad Babay Balance") {
+      FlurryAds.displayAdForSpace("FullScreen Ad Babay Balance", onView: CCDirector.sharedDirector().view, viewControllerForPresentation: CCDirector.sharedDirector().parentViewController!)
     }
   }
   
@@ -262,6 +262,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
 
 //This should go in a singleton, but will go here for now because it's easiest. This is the function which sets the correct object string based upon the index
 extension MainScene{
+  
   func objectString() -> String{
     var saveString : String
     switch NSUserDefaults.standardUserDefaults().integerForKey("objectIndex"){
@@ -280,6 +281,7 @@ extension MainScene{
     }
     return saveString
   }
+  
 }
 
 extension MainScene: GKGameCenterControllerDelegate {
@@ -299,6 +301,7 @@ extension MainScene: GKGameCenterControllerDelegate {
 }
 
 extension MainScene: StreakDelegate{
+  
   func startStreak() {
     streak1.resetSystem()
     streak2.resetSystem()
@@ -308,6 +311,7 @@ extension MainScene: StreakDelegate{
     streak1.stopSystem()
     streak2.stopSystem()
   }
+  
 }
 
 
