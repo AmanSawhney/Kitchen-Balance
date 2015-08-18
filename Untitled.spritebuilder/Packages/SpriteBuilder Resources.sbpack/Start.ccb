@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>1</integer>
+	<integer>3</integer>
 	<key>docDimensionsType</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -1297,7 +1297,7 @@
 											<integer>3</integer>
 											<key>value</key>
 											<array>
-												<real>0.5</real>
+												<real>0.50999999046325684</real>
 												<real>0.75</real>
 											</array>
 										</dict>
@@ -1315,7 +1315,7 @@
 											<integer>3</integer>
 											<key>value</key>
 											<array>
-												<real>0.5</real>
+												<real>0.50999999046325684</real>
 												<real>0.89999997615814209</real>
 											</array>
 										</dict>
@@ -1333,7 +1333,7 @@
 											<integer>3</integer>
 											<key>value</key>
 											<array>
-												<real>0.5</real>
+												<real>0.50999999046325684</real>
 												<real>0.87000000476837158</real>
 											</array>
 										</dict>
@@ -1404,7 +1404,7 @@
 											<integer>3</integer>
 											<key>value</key>
 											<array>
-												<real>0.5</real>
+												<real>0.50999999046325684</real>
 												<real>0.87000000476837158</real>
 											</array>
 										</dict>
@@ -1422,7 +1422,7 @@
 											<integer>3</integer>
 											<key>value</key>
 											<array>
-												<real>0.5</real>
+												<real>0.50999999046325684</real>
 												<real>0.89999997615814209</real>
 											</array>
 										</dict>
@@ -1440,7 +1440,7 @@
 											<integer>3</integer>
 											<key>value</key>
 											<array>
-												<real>0.5</real>
+												<real>0.50999999046325684</real>
 												<real>0.75</real>
 											</array>
 										</dict>
@@ -1477,7 +1477,7 @@
 							<dict>
 								<key>baseValue</key>
 								<array>
-									<real>0.5</real>
+									<real>0.50999999046325684</real>
 									<real>0.87000000476837158</real>
 								</array>
 								<key>name</key>
@@ -1486,7 +1486,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>0.5</real>
+									<real>0.50999999046325684</real>
 									<real>0.87000000476837158</real>
 									<integer>0</integer>
 									<integer>2</integer>
@@ -1670,6 +1670,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 						<key>seqExpanded</key>
 						<true/>
 					</dict>
@@ -4114,8 +4116,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -5639,8 +5639,8 @@
 										<string>ScaleLock</string>
 										<key>value</key>
 										<array>
-											<real>0.14000000059604645</real>
 											<real>-0.14000000059604645</real>
+											<real>0.14000000059604645</real>
 											<false/>
 											<integer>0</integer>
 										</array>
@@ -5653,7 +5653,7 @@
 										<key>type</key>
 										<string>Degrees</string>
 										<key>value</key>
-										<real>-180</real>
+										<real>0.0</real>
 									</dict>
 									<dict>
 										<key>name</key>
@@ -7038,7 +7038,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.89999997615814209</real>
+			<real>0.43333333730697632</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
@@ -7074,7 +7074,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.3333333432674408</real>
+			<real>0.43333333730697632</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

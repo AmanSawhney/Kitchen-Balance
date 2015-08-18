@@ -353,6 +353,7 @@
 		CCD6450E1B5C46E500F06596 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD6450D1B5C46E500F06596 /* StoreKit.framework */; };
 		CCD645111B5C526100F06596 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD645101B5C526100F06596 /* GameCenterHelper.swift */; };
 		CCD645131B5C630400F06596 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCD645121B5C630300F06596 /* Images.xcassets */; };
+		CCEBD1061B829AB100679EFA /* ObjectSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEBD1051B829AB100679EFA /* ObjectSingleton.swift */; };
 		CCF74B351B5AF1BB002267E2 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B341B5AF1BB002267E2 /* Coin.swift */; };
 		CCF74B391B5AF70E002267E2 /* CoinLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */; };
 		CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */; };
@@ -750,6 +751,7 @@
 		CCD6450D1B5C46E500F06596 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CCD645101B5C526100F06596 /* GameCenterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		CCD645121B5C630300F06596 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Source/libs/cocos2d-iphone/external/SSZipArchive/Images.xcassets"; sourceTree = "<group>"; };
+		CCEBD1051B829AB100679EFA /* ObjectSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectSingleton.swift; sourceTree = "<group>"; };
 		CCF74B341B5AF1BB002267E2 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinLabelNode.swift; sourceTree = "<group>"; };
 		CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreNode.swift; sourceTree = "<group>"; };
@@ -1335,6 +1337,7 @@
 				CCD645001B5C3A7B00F06596 /* Helpers */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				CCF74B3A1B5B0787002267E2 /* ScoreNode.swift */,
+				CCEBD1051B829AB100679EFA /* ObjectSingleton.swift */,
 				CCF74B341B5AF1BB002267E2 /* Coin.swift */,
 				CCF74B381B5AF70E002267E2 /* CoinLabelNode.swift */,
 				049BDBEA1B586CAD0020C07D /* StartScene.swift */,
@@ -1998,6 +2001,7 @@
 				B73789871807631A0076A88C /* main.m in Sources */,
 				CCF74B3B1B5B0787002267E2 /* ScoreNode.swift in Sources */,
 				0442D44C1B5FDA2F007A2272 /* Iads.swift in Sources */,
+				CCEBD1061B829AB100679EFA /* ObjectSingleton.swift in Sources */,
 				CC9E07D61B65410A007A1733 /* LevelLabelNode.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
