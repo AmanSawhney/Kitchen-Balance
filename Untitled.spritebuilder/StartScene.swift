@@ -18,33 +18,20 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
   let adInterstitial = FlurryAdInterstitial(space:"WatchForCoins")
   var ads = false
   
-  weak var currentScore: CCLabelTTF!
+  weak var statsNode: CCNode!
+  weak var highScore: CCLabelTTF!
+  weak var numDrops: CCLabelTTF!
+  weak var buyNode: CCNode!
+  weak var cost: CCLabelTTF!
+  weak var buyButton: CCButton!
   
-  weak var object1: CCSprite!
-  weak var object2: CCSprite!
-  weak var object3: CCSprite!
-  weak var object4: CCSprite!
-  weak var object5: CCSprite!
-  var objects: [CCSprite] = []
+  weak var objectSpriteFrame: CCSprite!
   var objectsInPosition = true
 
-  weak var hand1: CCButton!
-  weak var hand2: CCButton!
-  
-  var currentIndex : Int = 0 {
-    didSet{
-      if currentIndex >= objects.count{
-        currentIndex = objects.count - 1
-      } else if currentIndex < 0{
-        currentIndex = 0
-      }
-      
-      moveSpritesToPosition()
-      
-      NSUserDefaults.standardUserDefaults().setInteger(currentIndex, forKey: "objectIndex")
-
-    }
-  }
+  weak var leftArrow: CCSprite!
+  weak var leftButton: CCButton!
+  weak var rightArrow: CCSprite!
+  weak var rightButton: CCButton!
   
   var list = [SKProduct]()
   var p = SKProduct()
@@ -102,15 +89,9 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
     iAdHelper.sharedHelper()
     iAdHelper.setBannerPosition(TOP)
     
-    objects.append(object1)
-    objects.append(object2)
-    objects.append(object3)
-    objects.append(object4)
-    objects.append(object5)
     userInteractionEnabled = true
     
-    currentIndex = NSUserDefaults.standardUserDefaults().integerForKey("objectIndex")
-    moveSpritesToPosition()
+    setObjectStats()
     
   }
   
@@ -135,32 +116,56 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
     presentInterstitial()
   }
   
+  func buy(){
+    var currentObject = ObjectSingleton.sharedInstance.getCurrentObject()
+    var coins = NSUserDefaults.standardUserDefaults().integerForKey("Coins")
+    if coins >= currentObject.cost{
+      NSUserDefaults.standardUserDefaults().setInteger(coins - currentObject.cost, forKey: "Coins")
+      ObjectSingleton.sharedInstance.purchaseCurrentItem()
+      buyNode.visible = false
+      statsNode.visible = true
+    }
+  }
+  
   func right() {
     audio.playEffect("8bits/coin2.wav")
-    currentIndex++
+    if ObjectSingleton.sharedInstance.nextItem(){
+      rightArrow.visible = false
+      rightButton.enabled = false
+    }
+    leftArrow.visible = true
+    leftButton.enabled = true
+
+    setObjectStats()
   }
   
   func left() {
     audio.playEffect("8bits/coin2.wav")
-    currentIndex--
+    if ObjectSingleton.sharedInstance.prevItem(){
+      leftArrow.visible = false
+      leftButton.enabled = false
+    }
+    rightArrow.visible = true
+    rightButton.enabled = true
+
+    setObjectStats()
   }
   
-  func moveSpritesToPosition(){
-    if objectsInPosition{
-      for index in 0..<objects.count{
-        var object = objects[index]
-        var xPos = (0.5 + Float(index - currentIndex))
-        var moveObject = CCActionMoveTo(duration: 0.1, position: CGPointMake(CGFloat(xPos), object.position.y))
-        object.runAction(moveObject)
-      }
-      
-      objectsInPosition = false
-      var delay = CCActionDelay(duration: 0.1)
-      var resetBool = CCActionCallBlock(block: {self.objectsInPosition = true})
-      runAction(CCActionSequence(array: [delay, resetBool]))
-      
+  func setObjectStats(){
+    var currentObject = ObjectSingleton.sharedInstance.getCurrentObject()
+    if currentObject.hasBeenPurchased {
+      statsNode.visible = true
+      buyNode.visible = false
+      buyButton.enabled = false
+    } else {
+      statsNode.visible = false
+      buyNode.visible = true
+      buyButton.enabled = true
     }
-    
+    objectSpriteFrame.spriteFrame = CCSpriteFrame(imageNamed: currentObject.imagePath)
+    highScore.string = "\(Int(currentObject.highScore))"
+    numDrops.string = "\(currentObject.drops)"
+    cost.string = "\(currentObject.cost)"
   }
   
   func iads() {

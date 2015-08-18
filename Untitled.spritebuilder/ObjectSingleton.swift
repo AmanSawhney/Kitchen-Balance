@@ -11,38 +11,39 @@ import Foundation
 class Object {
   var id: String
   var cost: Int
-  var spritePath: String
+  var ccbPath: String
   var imagePath: String
   var hasBeenPurchased: Bool
   var drops: Int{
     didSet{
-      NSUserDefaults.standardUserDefaults().setInteger(self.drops, forKey: "\(self.id)")
+      NSUserDefaults.standardUserDefaults().setInteger(self.drops, forKey: "\(self.id)Drops")
     }
   }
   var highScore: Double{
     didSet{
-      NSUserDefaults.standardUserDefaults().setDouble(self.highScore, forKey: "\(self.id)")
+      NSUserDefaults.standardUserDefaults().setDouble(self.highScore, forKey: "\(self.id)Highscore")
     }
   }
   
   init(id: String, cost: Int){
+    
     self.id = id
     self.cost = cost
-    self.spritePath = "\(id)"
-    self.imagePath = "\(id)"
-    self.hasBeenPurchased = NSUserDefaults.standardUserDefaults().boolForKey("\(id)")
-    self.drops = NSUserDefaults.standardUserDefaults().integerForKey("\(id)")
-    self.highScore = NSUserDefaults.standardUserDefaults().doubleForKey("\(id)")
+    self.ccbPath = "Objects/\(id)"
+    self.imagePath = "Art/Objects/\(id).png"
+    self.hasBeenPurchased = NSUserDefaults.standardUserDefaults().boolForKey("\(id)Purchased")
+    self.drops = NSUserDefaults.standardUserDefaults().integerForKey("\(id)Drops")
+    self.highScore = NSUserDefaults.standardUserDefaults().doubleForKey("\(id)Highscore")
   }
   
   func purchase(){
-    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "\(id)")
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "\(id)Purchased")
   }
   
   func recordScore(score: Double) -> Bool{
     if score > highScore {
       self.highScore = score
-      return true
+      return true 
     }
     return false
   }
@@ -50,7 +51,7 @@ class Object {
 }
 
 class ObjectSingleton{
-  
+    
   static let sharedInstance = ObjectSingleton()
   
   var currentIndex = NSUserDefaults.standardUserDefaults().integerForKey("objectIndex"){
@@ -59,10 +60,14 @@ class ObjectSingleton{
     }
   }
   
+  init(){
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "RollingPinPurchased")
+  }
+  
   private var objectArray = [
-  Object(id: "rollingPin", cost: 0),
-  Object(id: "knife", cost: 100),
-  Object(id: "gun", cost: 250)
+  Object(id: "RollingPin", cost: 0),
+  Object(id: "Knife", cost: 100),
+  Object(id: "Gun", cost: 250)
   ]
 
   func getCurrentObject() -> Object{
@@ -78,13 +83,13 @@ class ObjectSingleton{
     if currentIndex < objectArray.count - 1{
       currentIndex++
     }
-    return currentIndex < objectArray.count - 1
+    return currentIndex == objectArray.count - 1
   }
   func prevItem() -> Bool{
     if currentIndex > 0{
       currentIndex--
     }
-    return currentIndex > 0
+    return currentIndex == 0
   }
   
 
