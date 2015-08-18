@@ -41,6 +41,7 @@ class Object {
   }
   
   func recordScore(score: Double) -> Bool{
+    drops++
     if score > highScore {
       self.highScore = score
       return true 

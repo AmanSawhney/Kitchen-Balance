@@ -97,7 +97,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     FlurryAds.setAdDelegate(self)
     FlurryAds.fetchAdForSpace("FullScreen Ad", frame: CGRectMake((self.contentSize.width/2),(self.contentSize.height/2), self.contentSize.width, self.contentSize.height), size: FULLSCREEN )
     
-    object = CCBReader.load("Objects/\(objectString())") as! CCSprite
+    object = CCBReader.load(ObjectSingleton.sharedInstance.getCurrentObject().ccbPath) as! CCSprite
     
     hand = CCBReader.load("Objects/Hand")
     hand.scale = 0.6
@@ -228,9 +228,9 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     runAction(shakeSequence)
     self.animationManager.runAnimationsForSequenceNamed("GameOver Timeline")
     
-    let defaults = NSUserDefaults.standardUserDefaults()
-    var highScoreNumber = Int(defaults.doubleForKey("highscore"))
-    highScore.string = "\(highScoreNumber)"
+    ObjectSingleton.sharedInstance.recordDrop(score)
+    
+    highScore.string = "\(Int(ObjectSingleton.sharedInstance.getCurrentObject().highScore))"
     currentScore.string = "\(Int(score))"
     hand.visible = false
     
@@ -256,30 +256,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   func home(){
     var playScene = CCBReader.loadAsScene("Start")
     CCDirector.sharedDirector().replaceScene(playScene)
-  }
-  
-}
-
-//This should go in a singleton, but will go here for now because it's easiest. This is the function which sets the correct object string based upon the index
-extension MainScene{
-  
-  func objectString() -> String{
-    var saveString : String
-    switch NSUserDefaults.standardUserDefaults().integerForKey("objectIndex"){
-    case 0:
-      saveString = "RollingPin"
-    case 1:
-      saveString = "Pan"
-    case 2:
-      saveString = "Plate"
-    case 3:
-      saveString = "Sword"
-    case 4:
-      saveString = "Gun"
-    default:
-      saveString = "RollingPin"
-    }
-    return saveString
   }
   
 }
