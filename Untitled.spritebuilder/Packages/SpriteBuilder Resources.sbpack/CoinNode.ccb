@@ -227,7 +227,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>PixTall.ttf</string>
+						<string>BULKYPIX.TTF</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -236,7 +236,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>25</real>
+							<real>22</real>
 							<integer>0</integer>
 						</array>
 					</dict>

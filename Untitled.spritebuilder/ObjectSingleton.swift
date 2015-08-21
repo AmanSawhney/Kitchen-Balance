@@ -67,8 +67,8 @@ class ObjectSingleton{
   
   private var objectArray = [
   Object(id: "RollingPin", cost: 0),
-  Object(id: "Knife", cost: 100),
-  Object(id: "Gun", cost: 250)
+  Object(id: "Knife", cost: 10),
+  Object(id: "Gun", cost: 25)
   ]
 
   func getCurrentObject() -> Object{

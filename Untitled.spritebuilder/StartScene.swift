@@ -97,6 +97,10 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
   
   override func onEnter() {
     super.onEnter()
+    
+    OALSimpleAudio.sharedInstance().bgVolume = 0.7
+//    OALSimpleAudio.sharedInstance().playBg("greatLoop.wav", loop: true)
+    
     // Set IAPS
     adInterstitial.fetchAd()
     FlurryAds.setAdDelegate(self)

@@ -1844,8 +1844,6 @@
 						<string></string>
 						<key>displayName</key>
 						<string>ScoreValue</string>
-						<key>locked</key>
-						<true/>
 						<key>memberVarAssignmentName</key>
 						<string>currentScore</string>
 						<key>memberVarAssignmentType</key>
@@ -1867,8 +1865,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>0.80000001192092896</real>
-									<real>0.72500002384185791</real>
+									<real>0.89999997615814209</real>
+									<real>0.57999998331069946</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -1915,7 +1913,7 @@
 								<key>type</key>
 								<string>FontTTF</string>
 								<key>value</key>
-								<string>PixTall.ttf</string>
+								<string>BULKYPIX.TTF</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1924,7 +1922,7 @@
 								<string>FloatScale</string>
 								<key>value</key>
 								<array>
-									<real>40</real>
+									<real>30</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2064,6 +2062,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>seqExpanded</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -2862,8 +2862,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>0.20000000298023224</real>
-									<real>0.64999997615814209</real>
+									<real>0.10000000149011612</real>
+									<real>0.47999998927116394</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -2910,7 +2910,7 @@
 								<key>type</key>
 								<string>FontTTF</string>
 								<key>value</key>
-								<string>PixTall.ttf</string>
+								<string>BULKYPIX.TTF</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2919,7 +2919,7 @@
 								<string>FloatScale</string>
 								<key>value</key>
 								<array>
-									<real>45</real>
+									<real>30</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -3237,8 +3237,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>0.20000000298023224</real>
-									<real>0.72500002384185791</real>
+									<real>0.10000000149011612</real>
+									<real>0.57999998331069946</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -3285,7 +3285,7 @@
 								<key>type</key>
 								<string>FontTTF</string>
 								<key>value</key>
-								<string>PixTall.ttf</string>
+								<string>BULKYPIX.TTF</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3294,7 +3294,7 @@
 								<string>FloatScale</string>
 								<key>value</key>
 								<array>
-									<real>45</real>
+									<real>30</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -3434,6 +3434,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -3590,7 +3592,7 @@
 						<key>customClass</key>
 						<string></string>
 						<key>displayName</key>
-						<string>CCLabelTTF</string>
+						<string>GameOver</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -3613,7 +3615,7 @@
 								<key>value</key>
 								<array>
 									<real>0.52625000476837158</real>
-									<real>0.82183104753494263</real>
+									<real>0.89999997615814209</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -3627,7 +3629,7 @@
 								<key>value</key>
 								<array>
 									<real>0.5</real>
-									<real>0.5</real>
+									<real>1</real>
 								</array>
 							</dict>
 							<dict>
@@ -3650,7 +3652,8 @@
 								<string>Text</string>
 								<key>value</key>
 								<array>
-									<string>GAME OVER</string>
+									<string>GAME
+OVER</string>
 									<false/>
 								</array>
 							</dict>
@@ -3660,7 +3663,7 @@
 								<key>type</key>
 								<string>FontTTF</string>
 								<key>value</key>
-								<string>PixTall.ttf</string>
+								<string>BULKYPIX.TTF</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3669,7 +3672,7 @@
 								<string>FloatScale</string>
 								<key>value</key>
 								<array>
-									<real>80</real>
+									<real>60</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -3710,7 +3713,7 @@
 								<key>type</key>
 								<string>IntegerLabeled</string>
 								<key>value</key>
-								<integer>0</integer>
+								<integer>1</integer>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3718,7 +3721,7 @@
 								<key>type</key>
 								<string>IntegerLabeled</string>
 								<key>value</key>
-								<integer>0</integer>
+								<integer>1</integer>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3974,8 +3977,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>0.80000001192092896</real>
-									<real>0.64999997615814209</real>
+									<real>0.89999997615814209</real>
+									<real>0.47999998927116394</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -4012,7 +4015,7 @@
 								<string>Text</string>
 								<key>value</key>
 								<array>
-									<string>623</string>
+									<string>62390</string>
 									<false/>
 								</array>
 							</dict>
@@ -4022,7 +4025,7 @@
 								<key>type</key>
 								<string>FontTTF</string>
 								<key>value</key>
-								<string>PixTall.ttf</string>
+								<string>BULKYPIX.TTF</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4031,7 +4034,7 @@
 								<string>FloatScale</string>
 								<key>value</key>
 								<array>
-									<real>40</real>
+									<real>30</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -5768,8 +5771,6 @@
 										</array>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 						</array>
 						<key>customClass</key>

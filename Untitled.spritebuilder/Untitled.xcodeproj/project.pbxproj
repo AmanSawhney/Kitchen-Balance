@@ -349,6 +349,14 @@
 		CC60D9FB1B5EA93A00D375CE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC60D9FA1B5EA93A00D375CE /* AudioToolbox.framework */; };
 		CC9E07D61B65410A007A1733 /* LevelLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9E07D51B65410A007A1733 /* LevelLabelNode.swift */; };
 		CC9E07D91B654D9F007A1733 /* iAdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E07D81B654D9F007A1733 /* iAdHelper.m */; };
+		CCAA75101B8505BD00275D24 /* achievement.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCAA75081B8505BD00275D24 /* achievement.wav */; };
+		CCAA75111B8505BD00275D24 /* drums.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCAA75091B8505BD00275D24 /* drums.wav */; };
+		CCAA75121B8505BD00275D24 /* greatLoop.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCAA750A1B8505BD00275D24 /* greatLoop.wav */; };
+		CCAA75131B8505BD00275D24 /* highPitched.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCAA750B1B8505BD00275D24 /* highPitched.wav */; };
+		CCAA75141B8505BD00275D24 /* itemDrop.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCAA750C1B8505BD00275D24 /* itemDrop.wav */; };
+		CCAA75151B8505BD00275D24 /* levelUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCAA750D1B8505BD00275D24 /* levelUp.wav */; };
+		CCAA75161B8505BD00275D24 /* lowLevelUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCAA750E1B8505BD00275D24 /* lowLevelUp.wav */; };
+		CCAA75171B8505BD00275D24 /* scoreMoving.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCAA750F1B8505BD00275D24 /* scoreMoving.wav */; };
 		CCD6450C1B5C461A00F06596 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD6450B1B5C461A00F06596 /* GameKit.framework */; };
 		CCD6450E1B5C46E500F06596 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD6450D1B5C46E500F06596 /* StoreKit.framework */; };
 		CCD645111B5C526100F06596 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD645101B5C526100F06596 /* GameCenterHelper.swift */; };
@@ -747,6 +755,14 @@
 		CC9E07D51B65410A007A1733 /* LevelLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelLabelNode.swift; sourceTree = "<group>"; };
 		CC9E07D71B654D9F007A1733 /* iAdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAdHelper.h; sourceTree = "<group>"; };
 		CC9E07D81B654D9F007A1733 /* iAdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iAdHelper.m; sourceTree = "<group>"; };
+		CCAA75081B8505BD00275D24 /* achievement.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = achievement.wav; sourceTree = "<group>"; };
+		CCAA75091B8505BD00275D24 /* drums.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drums.wav; sourceTree = "<group>"; };
+		CCAA750A1B8505BD00275D24 /* greatLoop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = greatLoop.wav; sourceTree = "<group>"; };
+		CCAA750B1B8505BD00275D24 /* highPitched.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = highPitched.wav; sourceTree = "<group>"; };
+		CCAA750C1B8505BD00275D24 /* itemDrop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = itemDrop.wav; sourceTree = "<group>"; };
+		CCAA750D1B8505BD00275D24 /* levelUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = levelUp.wav; sourceTree = "<group>"; };
+		CCAA750E1B8505BD00275D24 /* lowLevelUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lowLevelUp.wav; sourceTree = "<group>"; };
+		CCAA750F1B8505BD00275D24 /* scoreMoving.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = scoreMoving.wav; sourceTree = "<group>"; };
 		CCD6450B1B5C461A00F06596 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		CCD6450D1B5C46E500F06596 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CCD645101B5C526100F06596 /* GameCenterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
@@ -1333,6 +1349,7 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CCAA75071B8505BD00275D24 /* NewSoundEffects */,
 				04023BE11B5DA44A008328A8 /* 8bits */,
 				CCD645001B5C3A7B00F06596 /* Helpers */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
@@ -1454,6 +1471,21 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CCAA75071B8505BD00275D24 /* NewSoundEffects */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA75081B8505BD00275D24 /* achievement.wav */,
+				CCAA75091B8505BD00275D24 /* drums.wav */,
+				CCAA750A1B8505BD00275D24 /* greatLoop.wav */,
+				CCAA750B1B8505BD00275D24 /* highPitched.wav */,
+				CCAA750C1B8505BD00275D24 /* itemDrop.wav */,
+				CCAA750D1B8505BD00275D24 /* levelUp.wav */,
+				CCAA750E1B8505BD00275D24 /* lowLevelUp.wav */,
+				CCAA750F1B8505BD00275D24 /* scoreMoving.wav */,
+			);
+			path = NewSoundEffects;
 			sourceTree = "<group>";
 		};
 		CCD645001B5C3A7B00F06596 /* Helpers */ = {
@@ -1689,6 +1721,7 @@
 				040648231B602B0700638C61 /* dir_e3471f450a7424b7a83ed4c0073d790c.html in Resources */,
 				0406481D1B602B0700638C61 /* dir_71e2fd775f31eeb7b121219fe6e7ea7d.html in Resources */,
 				040648981B602B0700638C61 /* functions_63.html in Resources */,
+				CCAA75101B8505BD00275D24 /* achievement.wav in Resources */,
 				040648921B602B0700638C61 /* files_66.html in Resources */,
 				040647F71B602B0700638C61 /* _flurry_ad_error_8h.html in Resources */,
 				040648091B602B0700638C61 /* class_flurry_ad_interstitial-members.html in Resources */,
@@ -1699,6 +1732,7 @@
 				040648CE1B602B0700638C61 /* search_r.png in Resources */,
 				040648711B602B0700638C61 /* all_65.html in Resources */,
 				040648551B602B0700638C61 /* navtree.js in Resources */,
+				CCAA75161B8505BD00275D24 /* lowLevelUp.wav in Resources */,
 				0406489C1B602B0700638C61 /* functions_65.html in Resources */,
 				040648801B602B0700638C61 /* all_6e.js in Resources */,
 				0406480B1B602B0700638C61 /* class_flurry_ad_native_asset-members.html in Resources */,
@@ -1716,6 +1750,7 @@
 				0406480C1B602B0700638C61 /* class_flurry_ad_native_style-members.html in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				040648B51B602B0700638C61 /* properties_65.js in Resources */,
+				CCAA75151B8505BD00275D24 /* levelUp.wav in Resources */,
 				CCD645131B5C630400F06596 /* Images.xcassets in Resources */,
 				040648191B602B0700638C61 /* dir_3b0ac77160625333cb3a12f18f9b8dee.html in Resources */,
 				040648311B602B0700638C61 /* ftv2link.png in Resources */,
@@ -1739,6 +1774,7 @@
 				0406488F1B602B0700638C61 /* classes_66.html in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				040648771B602B0700638C61 /* all_68.html in Resources */,
+				CCAA75171B8505BD00275D24 /* scoreMoving.wav in Resources */,
 				040648791B602B0700638C61 /* all_69.html in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
@@ -1842,11 +1878,13 @@
 				04023BE21B5DA44A008328A8 /* 8bits in Resources */,
 				040648011B602B0700638C61 /* _flurry_ads_8h_source.html in Resources */,
 				040647FF1B602B0700638C61 /* _flurry_ad_native_style_8h_source.html in Resources */,
+				CCAA75131B8505BD00275D24 /* highPitched.wav in Resources */,
 				040648201B602B0700638C61 /* dir_779b5de2718fe184cf6be7ef5de3adbd.js in Resources */,
 				0406487E1B602B0700638C61 /* all_6c.js in Resources */,
 				0406481E1B602B0700638C61 /* dir_71e2fd775f31eeb7b121219fe6e7ea7d.js in Resources */,
 				040648241B602B0700638C61 /* dir_e3471f450a7424b7a83ed4c0073d790c.js in Resources */,
 				040648C31B602B0700638C61 /* properties_74.js in Resources */,
+				CCAA75141B8505BD00275D24 /* itemDrop.wav in Resources */,
 				0406488C1B602B0700638C61 /* all_76.js in Resources */,
 				040647F61B602B0700638C61 /* _flurry_ad_delegate_8h_source.html in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
@@ -1872,6 +1910,7 @@
 				0406485E1B602B0700638C61 /* protocol_flurry_ad_delegate-p.js in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				0406487C1B602B0700638C61 /* all_6b.js in Resources */,
+				CCAA75111B8505BD00275D24 /* drums.wav in Resources */,
 				040648C21B602B0700638C61 /* properties_74.html in Resources */,
 				040648621B602B0700638C61 /* protocol_flurry_ad_native_delegate-p-members.html in Resources */,
 				040647FB1B602B0700638C61 /* _flurry_ad_interstitial_delegate_8h_source.html in Resources */,
@@ -1915,6 +1954,7 @@
 				040648271B602B0700638C61 /* dynsections.js in Resources */,
 				040648381B602B0700638C61 /* ftv2pnode.png in Resources */,
 				040648031B602B0700638C61 /* annotated.html in Resources */,
+				CCAA75121B8505BD00275D24 /* greatLoop.wav in Resources */,
 				040648341B602B0700638C61 /* ftv2mo.png in Resources */,
 				040648061B602B0700638C61 /* bdwn.png in Resources */,
 				040648291B602B0700638C61 /* files.js in Resources */,

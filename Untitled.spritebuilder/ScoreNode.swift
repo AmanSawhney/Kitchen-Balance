@@ -24,36 +24,25 @@ class ScoreNode: CCNode {
       case .Streak:
         delegate?.startStreak()
         color = CCColor(ccColor3b: ccColor3B(r: 104, g: 0, b: 186))
-        OALSimpleAudio.sharedInstance().stopAllEffects()
-        OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", loop: true)
         rotationLabel.string = "Streak x10"
-        break
       case .Perfect:
         delegate?.stopStreak()
         color = CCColor(ccColor3b: ccColor3B(r: 49, g: 203, b: 0))
-        OALSimpleAudio.sharedInstance().stopAllEffects()
-        OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", loop: true)
         rotationLabel.string = "Perfect x5"
         //make the particles invisible
       case .Good:
         delegate?.stopStreak()
         color = CCColor(ccColor3b: ccColor3B(r: 1, g: 23, b: 104))
-        OALSimpleAudio.sharedInstance().stopAllEffects()
-        OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", loop: true)
         rotationLabel.string = "Good x3"
         //make the particles invisible
       case .Fair:
         delegate?.stopStreak()
         color = CCColor(ccColor3b: ccColor3B(r: 0, g: 166, b: 237))
-        OALSimpleAudio.sharedInstance().stopAllEffects()
-        OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", loop: true)
         rotationLabel.string = "Ok x1"
         //make the particles invisible
       case .Poor:
         delegate?.stopStreak()
         color = CCColor(ccColor3b: ccColor3B(r: 246, g: 81, b: 29))
-        OALSimpleAudio.sharedInstance().stopAllEffects()
-        OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", loop: true)
         rotationLabel.string = "Uh-oh! x0.75"
         //make the particles invisible
       }

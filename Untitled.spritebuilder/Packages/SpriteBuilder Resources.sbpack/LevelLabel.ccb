@@ -245,8 +245,8 @@
 									<integer>4</integer>
 									<key>value</key>
 									<array>
-										<real>1.7999999523162842</real>
-										<real>1.7999999523162842</real>
+										<real>1</real>
+										<real>1</real>
 									</array>
 								</dict>
 								<dict>
@@ -263,8 +263,8 @@
 									<integer>4</integer>
 									<key>value</key>
 									<array>
-										<real>1</real>
-										<real>1</real>
+										<real>0.69999998807907104</real>
+										<real>0.69999998807907104</real>
 									</array>
 								</dict>
 							</array>
@@ -334,8 +334,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.7999999523162842</real>
-							<real>1.7999999523162842</real>
+							<real>0.69999998807907104</real>
+							<real>0.69999998807907104</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -357,7 +357,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>PixTall.ttf</string>
+						<string>BULKYPIX.TTF</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -366,7 +366,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>25</real>
+							<real>20</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -670,7 +670,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>0.60000002384185791</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

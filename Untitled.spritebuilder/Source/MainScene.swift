@@ -26,7 +26,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   let scorePerUpdate = 1.0
   
   var level = 1
-  let scorePerLevel = 5000
+  let scorePerLevel = 1000
   
   weak var streak1: CCParticleSystem!
   weak var streak2: CCParticleSystem!
@@ -112,6 +112,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     
     pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(object.contentSize.width/2 * CGFloat(object.scaleX), 0))
     pivot.collideBodies = false
+    
+    OALSimpleAudio.sharedInstance().playEffect("scoreMoving.wav", loop: true)
     
     var randomRotation = Double(arc4random_uniform(2)) + 1.0
     object.rotation = Float(arc4random_uniform(2) == 1 ? randomRotation : -randomRotation)
@@ -201,6 +203,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   }
   
   func levelUp() {
+    OALSimpleAudio.sharedInstance().playEffect("levelUp.wav")
     object.physicsBody.applyAngularImpulse(10)//knock the object loose if at rest
     level++
     gamePhysicsNode.gravity.y -= CGFloat(100)
@@ -211,14 +214,15 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   func adInterstitial(interstitialAd: FlurryAdInterstitial!, adError: FlurryAdError, errorDescription: NSError!) {
     println(errorDescription)
   }
+  
   func gameOver(){
     
     OALSimpleAudio.sharedInstance().stopAllEffects()
+
+    OALSimpleAudio.sharedInstance().playEffect("itemDrop.wav")
     
     done = true
     presentInterstitial()
-    unschedule("levelUp")
-    unschedule("compliement")
     unschedule("spawnCoin")
     
     AudioServicesPlaySystemSound(1352)
@@ -279,6 +283,7 @@ extension MainScene: GKGameCenterControllerDelegate {
 extension MainScene: StreakDelegate{
   
   func startStreak() {
+    OALSimpleAudio.sharedInstance().playEffect("achievement.wav")
     streak1.resetSystem()
     streak2.resetSystem()
   }

@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>4</integer>
+	<integer>2</integer>
 	<key>docDimensionsType</key>
 	<integer>1</integer>
 	<key>fileType</key>
@@ -153,7 +153,7 @@
 							<key>name</key>
 							<string>opacity</string>
 							<key>time</key>
-							<real>0.53333336114883423</real>
+							<real>0.3333333432674408</real>
 							<key>type</key>
 							<integer>10</integer>
 							<key>value</key>
@@ -168,7 +168,7 @@
 							<key>name</key>
 							<string>opacity</string>
 							<key>time</key>
-							<real>1.0333333015441895</real>
+							<real>0.56666666269302368</real>
 							<key>type</key>
 							<integer>10</integer>
 							<key>value</key>
@@ -300,7 +300,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>1</real>
+				<real>0.0</real>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -312,7 +312,7 @@
 					<real>0.79802709817886353</real>
 					<real>0.79802709817886353</real>
 					<real>0.79802709817886353</real>
-					<real>1</real>
+					<real>0.0</real>
 				</array>
 			</dict>
 			<dict>
@@ -449,13 +449,13 @@
 			<key>chainedSequenceId</key>
 			<integer>2</integer>
 			<key>length</key>
-			<real>1.0333333015441895</real>
+			<real>0.73333334922790527</real>
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1.0333333015441895</real>
+			<real>0.73333334922790527</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
