@@ -24,6 +24,7 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
   weak var buyNode: CCNode!
   weak var cost: CCLabelTTF!
   weak var buyButton: CCButton!
+  weak var numCoins: CCLabelTTF!
   
   weak var objectSpriteFrame: CCSprite!
   var objectsInPosition = true
@@ -98,8 +99,19 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
   override func onEnter() {
     super.onEnter()
     
+    var coins = NSUserDefaults.standardUserDefaults().integerForKey("Coins")
+    numCoins.string = "\(coins)"
+    
     OALSimpleAudio.sharedInstance().bgVolume = 0.7
 //    OALSimpleAudio.sharedInstance().playBg("greatLoop.wav", loop: true)
+    
+    if ObjectSingleton.sharedInstance.checkArrows() == 0 {
+      leftArrow.visible = false
+      leftButton.enabled = false
+    } else if ObjectSingleton.sharedInstance.checkArrows() == 2{
+      rightArrow.visible = false
+      rightButton.enabled = false
+    }
     
     // Set IAPS
     adInterstitial.fetchAd()
@@ -128,6 +140,11 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
       ObjectSingleton.sharedInstance.purchaseCurrentItem()
       buyNode.visible = false
       statsNode.visible = true
+    } else {
+      var currentColor = CCColor(ccColor3b: ccColor3B(r: 221, g: 210, b: 0))
+      numCoins.color = CCColor(ccColor3b: ccColor3B(r: 255, g: 0, b: 0))
+      
+      numCoins.runAction(CCActionSequence(array: [CCActionTintTo(duration: 0.2, color: currentColor), CCActionTintTo(duration: 0.05, color: CCColor(ccColor3b: ccColor3B(r: 255, g: 0, b: 0))), CCActionTintTo(duration: 0.2, color: currentColor)]))
     }
   }
   
@@ -202,16 +219,22 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
   }
   
   func play() {
-    audio.playEffect("8bits/coin2.wav")
-    animationManager.runAnimationsForSequenceNamed("ButtonPress Timeline")
     
-    userInteractionEnabled = false
+    if ObjectSingleton.sharedInstance.getCurrentObject().hasBeenPurchased {
+      audio.playEffect("8bits/coin2.wav")
+      animationManager.runAnimationsForSequenceNamed("ButtonPress Timeline")
+      userInteractionEnabled = false
+      var playScene = CCBReader.loadAsScene("MainScene")
+      var delay = CCActionDelay(duration: 1.5)
+      var presentScene = CCActionCallBlock(block: {CCDirector.sharedDirector().replaceScene(playScene)})
+      runAction(CCActionSequence(array: [delay, presentScene]))
+    } else {
+      buyButton.color = CCColor(ccColor3b: ccColor3B(r: 220, g: 0, b: 0))
+      var turnRed = CCActionTintTo(duration: 0.1, color: CCColor(ccColor3b: ccColor3B(r: 220, g: 0, b: 0)))
+      var turnBack = CCActionTintTo(duration: 0.2, color: CCColor(ccColor3b: ccColor3B(r: 255, g: 255, b: 255)))
+      buyButton.runAction(CCActionSequence(array: [turnRed, turnBack, turnRed, turnBack, turnRed, turnBack]))
+    }
     
-    var playScene = CCBReader.loadAsScene("MainScene")
-    
-    var delay = CCActionDelay(duration: 1.5)
-    var presentScene = CCActionCallBlock(block: {CCDirector.sharedDirector().replaceScene(playScene)})
-    runAction(CCActionSequence(array: [delay, presentScene]))
   }
   
   func stats() {

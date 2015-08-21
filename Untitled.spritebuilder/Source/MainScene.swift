@@ -12,6 +12,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad Babay Balance")
   weak var currentScore: CCLabelTTF!
   weak var highScore: CCLabelTTF!
+  weak var newLabel: CCLabelTTF!
   weak var scoreNode: ScoreNode!
   weak var coinNode: CoinLabelNode!
   weak var hand: CCNode!
@@ -92,6 +93,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   
 
   override func onEnter() {
+    newLabel.visible = false
     super.onEnter()
     adInterstitial.fetchAd()
     FlurryAds.setAdDelegate(self)
@@ -232,7 +234,9 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     runAction(shakeSequence)
     self.animationManager.runAnimationsForSequenceNamed("GameOver Timeline")
     
-    ObjectSingleton.sharedInstance.recordDrop(score)
+    if ObjectSingleton.sharedInstance.recordDrop(score){
+      newLabel.visible = true
+    }
     
     highScore.string = "\(Int(ObjectSingleton.sharedInstance.getCurrentObject().highScore))"
     currentScore.string = "\(Int(score))"

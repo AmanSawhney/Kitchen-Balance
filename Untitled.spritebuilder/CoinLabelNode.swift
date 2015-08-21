@@ -14,6 +14,7 @@ class CoinLabelNode: CCNode {
   
   func didLoadFromCCB(){
     cascadeOpacityEnabled = true
+    cascadeColorEnabled = true
     opacity = 0.0
   }
   
@@ -24,4 +25,5 @@ class CoinLabelNode: CCNode {
     var fade = CCActionFadeOut(duration: 0.5)
     runAction(CCActionSequence(array: [delay, fade]))
   }
+  
 }

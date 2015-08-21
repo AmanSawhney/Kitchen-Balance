@@ -30,7 +30,7 @@ class Object {
     self.id = id
     self.cost = cost
     self.ccbPath = "Objects/\(id)"
-    self.imagePath = "Art/Objects/\(id).png"
+    self.imagePath = "Art/MenuObjects/\(id).png"
     self.hasBeenPurchased = NSUserDefaults.standardUserDefaults().boolForKey("\(id)Purchased")
     self.drops = NSUserDefaults.standardUserDefaults().integerForKey("\(id)Drops")
     self.highScore = NSUserDefaults.standardUserDefaults().doubleForKey("\(id)Highscore")
@@ -66,16 +66,16 @@ class ObjectSingleton{
   }
   
   private var objectArray = [
-  Object(id: "RollingPin", cost: 0),
-  Object(id: "Knife", cost: 10),
-  Object(id: "Gun", cost: 25)
+    Object(id: "RollingPin", cost: 0),
+    Object(id: "Knife", cost: 10),
+    Object(id: "Gun", cost: 25)
   ]
 
   func getCurrentObject() -> Object{
     return Object(id: objectArray[currentIndex].id, cost: objectArray[currentIndex].cost)
   }
-  func recordDrop(score: Double){
-    objectArray[currentIndex].recordScore(score)
+  func recordDrop(score: Double) -> Bool{
+    return objectArray[currentIndex].recordScore(score)
   }
   func purchaseCurrentItem(){
     objectArray[currentIndex].purchase()
@@ -91,6 +91,14 @@ class ObjectSingleton{
       currentIndex--
     }
     return currentIndex == 0
+  }
+  func checkArrows() -> Int{
+    if currentIndex == 0{
+      return 0
+    } else if currentIndex == objectArray.count - 1{
+      return 2
+    }
+    return 1
   }
   
 
