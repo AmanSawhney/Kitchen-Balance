@@ -7,6 +7,9 @@ var streakMultiplierSorce = 1
 
 class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegate  {
   
+  var tutorialOn = true
+  weak var tutorialScreen: CCNode!
+  
   let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
   var interstitialAdView: UIViewController = UIViewController()
   let adInterstitial = FlurryAdInterstitial(space:"FullScreen Ad Babay Balance")
@@ -69,7 +72,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     //gamePhysicsNode.debugDraw = true
     gamePhysicsNode.collisionDelegate = self
     userInteractionEnabled = true
-    schedule("spawnCoin", interval: 8, repeat: UInt(100000), delay: 2)
   }
   
   func adInterstitialVideoDidFinish(interstitialAd: FlurryAdInterstitial!) {
@@ -112,13 +114,10 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     gamePhysicsNode.addChild(hand)
     gamePhysicsNode.addChild(object)
     
+    object.physicsBody.allowsRotation = false
+    
     pivot = CCPhysicsJoint(pivotJointWithBodyA: object.physicsBody, bodyB: hand.physicsBody, anchorA: ccp(object.contentSize.width/2 * CGFloat(object.scaleX), 0))
     pivot.collideBodies = false
-    
-    OALSimpleAudio.sharedInstance().playEffect("scoreMoving.wav", loop: true)
-    
-    var randomRotation = Double(arc4random_uniform(2)) + 1.0
-    object.rotation = Float(arc4random_uniform(2) == 1 ? randomRotation : -randomRotation)
     
   }
 
@@ -173,6 +172,22 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
   
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
     currentTouchLocation = touch.locationInWorld()
+    
+    if tutorialOn{
+      tutorialScreen.visible = false
+      tutorialOn = false
+      schedule("randomImpulse", interval: 2)
+      object.physicsBody.allowsRotation = true
+      
+      OALSimpleAudio.sharedInstance().playEffect("scoreMoving.wav", loop: true)
+      
+      schedule("spawnCoin", interval: 8, repeat: UInt(100000), delay: 2)
+      
+      var randomRotation = 1500.0
+      var initialImpulse = CGFloat(arc4random_uniform(2) == 1 ? randomRotation : -randomRotation)
+      println("initial impulse = \(initialImpulse)")
+      object.physicsBody.applyAngularImpulse(initialImpulse)
+    }
   }
   
   override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -183,12 +198,14 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, FlurryAdInterstitialDelegat
     
   }
     
-    
+  func randomImpulse(){
+    object.physicsBody.applyAngularImpulse(10)
+  }
   
   override func update(delta: CCTime) {    
     hand.position.y = 0 //DO NOT DELETE THIS LINE. It makes hand a kinematic body and keeps pivot joint in line
     
-    if !done{
+    if !done && !tutorialOn{
       score += scoreNode.state.rawValue * scorePerUpdate
       scoreNode.displayRotation(object.rotation)
       scoreNode.updateScore(score)

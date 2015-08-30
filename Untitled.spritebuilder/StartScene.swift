@@ -103,7 +103,7 @@ class StartScene: CCScene, FlurryAdInterstitialDelegate  {
     numCoins.string = "\(coins)"
     
     OALSimpleAudio.sharedInstance().bgVolume = 0.7
-//    OALSimpleAudio.sharedInstance().playBg("greatLoop.wav", loop: true)
+    OALSimpleAudio.sharedInstance().playBg("greatLoop.wav", loop: true)
     
     if ObjectSingleton.sharedInstance.checkArrows() == 0 {
       leftArrow.visible = false
