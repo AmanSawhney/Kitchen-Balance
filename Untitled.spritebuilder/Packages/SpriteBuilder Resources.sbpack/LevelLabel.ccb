@@ -334,8 +334,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.5</real>
-							<real>1.5</real>
+							<real>1</real>
+							<real>1</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -503,8 +503,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -668,9 +666,9 @@
 			<key>name</key>
 			<string>LevelUp</string>
 			<key>offset</key>
-			<real>0.0</real>
+			<real>0.01210939884185791</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>0.60000002384185791</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
@@ -682,7 +680,26 @@
 				<key>isExpanded</key>
 				<false/>
 				<key>keyframes</key>
-				<array/>
+				<array>
+					<dict>
+						<key>easing</key>
+						<dict>
+							<key>type</key>
+							<integer>0</integer>
+						</dict>
+						<key>time</key>
+						<real>0.0</real>
+						<key>type</key>
+						<integer>11</integer>
+						<key>value</key>
+						<array>
+							<string>8-bit Retro Game Sound - Level Up Achievement.wav</string>
+							<real>1</real>
+							<real>0.0</real>
+							<real>1</real>
+						</array>
+					</dict>
+				</array>
 				<key>type</key>
 				<integer>11</integer>
 			</dict>
