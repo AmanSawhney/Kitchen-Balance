@@ -16,6 +16,9 @@ class StartScene: CCScene  {
     let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
     var ads = NSUserDefaults.standardUserDefaults().boolForKey("ads")
     weak var playButton: CCButton!
+    weak var rightButton: CCButton!
+    weak var rightSprite: CCSprite!
+    weak var flare: CCParticleSystem!
     weak var currentScore: CCLabelTTF!
     weak var buybutton: CCNode!
     weak var object1: CCSprite!
@@ -103,7 +106,9 @@ class StartScene: CCScene  {
     
     func right() {
         audio.playEffect("8bits/coin2.wav")
-        currentIndex++
+        if NSUserDefaults.standardUserDefaults().integerForKey("owned") + 1 > currentIndex {
+            currentIndex++
+        }
     }
     
     func left() {
@@ -182,25 +187,58 @@ class StartScene: CCScene  {
     func info() {
         audio.playEffect("8bits/coin2.wav")
     }
+    func buy() {
+        if currentIndex > NSUserDefaults.standardUserDefaults().integerForKey("owned") && NSUserDefaults.standardUserDefaults().integerForKey("Coins") >= 100 {
+            NSUserDefaults.standardUserDefaults().setInteger(NSUserDefaults.standardUserDefaults().integerForKey("Coins")-100, forKey: "Coins")
+            NSUserDefaults.standardUserDefaults().setInteger(currentIndex, forKey: "owned")
+            flare.visible = true
+            audio.playEffect("8bits/buy.wav")
+        }
+    }
     override func update(delta: CCTime) {
         if currentIndex > NSUserDefaults.standardUserDefaults().integerForKey("owned") {
             if (buybutton.animationManager.runningSequenceName == "GoAway Nil" || buybutton.animationManager.runningSequenceName == "GoAway") && (buybutton.animationManager.runningSequenceName != "Default Nil" && buybutton.animationManager.runningSequenceName != "Default Timeline"){
                 buybutton.animationManager.runAnimationsForSequenceNamed("Default Timeline")
+                
             }
-            if colorValue > 84 {
+            if colorValue >= 85 {
                 colorValue -= 5
                 playButton.background.colorRGBA = CCColor(ccColor3b: ccColor3B(r: colorValue, g: colorValue, b: colorValue))
                 playButton.state = .Disabled
+                for object in objects {
+                    object.colorRGBA = CCColor(ccColor3b: ccColor3B(r: colorValue-50, g: colorValue-50, b: colorValue-50))
+                }
+                
             }
+            if rightSprite != nil {
+                if Int(colorValue)-155 > 0 {
+                    rightSprite.opacity = CGFloat(Double(Int(colorValue)-155)/100.0)
+                }else {
+                    rightSprite.opacity = 0.0
+                }
+            }
+            rightButton.state = .Disabled
         }else {
             if (buybutton.animationManager.runningSequenceName == "Default Nil" || buybutton.animationManager.runningSequenceName == "Default Timeline") && (buybutton.animationManager.runningSequenceName != "GoAway Nil" && buybutton.animationManager.runningSequenceName != "GoAway"){
                 buybutton.animationManager.runAnimationsForSequenceNamed("GoAway")
             }
-            if colorValue < 255 {
+            if colorValue <= 250 {
                 colorValue += 5
                 playButton.background.colorRGBA = CCColor(ccColor3b: ccColor3B(r: colorValue, g: colorValue, b: colorValue))
                 playButton.state = .Normal
+                for object in objects {
+                    object.colorRGBA = CCColor(ccColor3b: ccColor3B(r: colorValue, g: colorValue, b: colorValue))
+                }
+                
             }
+            if rightSprite != nil {
+                if Int(colorValue)-155 > 0 {
+                    rightSprite.opacity = CGFloat(Double(Int(colorValue)-155)/100.0)
+                }else {
+                    rightSprite.opacity = 0.0
+                }
+            }
+            rightButton.state = .Normal
         }
     }
 }

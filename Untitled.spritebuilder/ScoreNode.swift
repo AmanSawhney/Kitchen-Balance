@@ -102,7 +102,6 @@ class ScoreNode: CCNode {
             }
             streakCounter = 0
         }
-        
     }
     
     func updateScore(score: Double){

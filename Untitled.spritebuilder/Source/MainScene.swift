@@ -151,7 +151,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, object: CCNode!, coin: Coin!) -> Bool {
         if !coin.collected{
-            let coins = NSUserDefaults.standardUserDefaults().integerForKey("Coins") + 1
+            let coins = NSUserDefaults.standardUserDefaults().integerForKey("Coins") + Int(1 * abs(scoreNode.state.rawValue))
             NSUserDefaults.standardUserDefaults().setInteger(coins, forKey: "Coins")
             coinNode.updateLabel(coins)
             coin.collect()
@@ -251,7 +251,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         CCDirector.sharedDirector().replaceScene(playScene)
     }
     func makeCompliment() {
-        let complimentArray = ["almost as good as Aman","amazing","balancing machine", "ur the bombdiggidy", "bang shabang", "ur skill is on fleek", "u dont kno ur beautiful", "this is amazeballs", "razzle dazzling job", "fantastic", "glorious", "bow chica bow wow", "nice as ice", "thats slammin", "hawt dayum", "\n\nSomeone almost got a\n tattoo of your name once,\n but their mom talked\n them out of it.", "great job man", "You are \"the one\nthat got away\".", "Strangers wanna sit\nnext to you on the bus.", "socks + sandals\n+ you = I'm into it.","\nYour principal would call\nyou to the office\njust to look cool.", "Einstein is \"mildly to\nmoderately\" intimidated.", "your photo is the star\nof your parent's mantle."]
+        let complimentArray = ["almost as good as Aman","amazing","balancing machine", "ur the bombdiggidy", "bang shabang", "ur skill is on fleek", "u dont kno ur beautiful", "this is amazeballs", "razzle dazzling job", "fantastic", "glorious", "bow chica bow wow", "nice as ice", "thats slammin", "hawt dayum", "\n\nSomeone almost got a\n tattoo of your name once,\n but their mom talked\n them out of it.", "great job man", "You are \"the one\nthat got away\".", "Strangers wanna sit\nnext to you on the bus.", "socks + sandals\n+ you = I'm into it.","\nYour principal would call\nyou to the office\njust to look cool.", "Einstein is \"mildly to\nmoderately\" intimidated.", "your photo is the star\nof your parent's mantle.","You are freakishly\n good at thumb wars.", "I will name my child\n and/or goldfish after you."]
         let random = Int(arc4random_uniform(UInt32(complimentArray.count)))
         if random == complimentArray.count {
             compliment.string = complimentArray[Int(complimentArray.count-1)]
