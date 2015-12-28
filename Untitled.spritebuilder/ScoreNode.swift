@@ -7,56 +7,61 @@
 //
 
 import Foundation
-
+var soundSrc: ALSoundSource?
+var touched = false
 class ScoreNode: CCNode {
     
     enum displayState: Double{
-        case Streak = 20.0, Perfect = 5.0, Good = 3.0, Fair = 1.0, Poor = 0.75
+        case Streak = 16.0, Perfect = 8.0, Good = 4.0, Fair = 2.0, Poor = 1.0
     }
     
     weak var scoreLabel: CCLabelTTF!
     weak var rotationLabel: CCLabelTTF!
     var delegate: StreakDelegate?
-    var soundSrc: ALSoundSource?
     var booSoundSrc: ALSoundSource?
     var awesome: ALSoundSource?
     var state : displayState = .Perfect {
         didSet{
-            if (soundSrc != nil)
-            {
-                soundSrc!.stop()
+            if touched != true && touched != false {
+                touched = false
             }
-            switch state{
-            case .Streak:
-                delegate?.startStreak()
-                color = CCColor(ccColor3b: ccColor3B(r: 104, g: 0, b: 186))
-                soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", volume: 0.1, pitch: 1.0, pan: 0, loop: true)
-                rotationLabel.string = "Streak x20"
-                break
-            case .Perfect:
-                delegate?.stopStreak()
-                color = CCColor(ccColor3b: ccColor3B(r: 49, g: 203, b: 0))
-                soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", volume: 0.1, pitch: 1.0, pan: 0, loop: true)
-                rotationLabel.string = "Perfect x5"
-                break
-            case .Good:
-                delegate?.stopStreak()
-                color = CCColor(ccColor3b: ccColor3B(r: 1, g: 23, b: 104))
-                soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", volume: 0.1, pitch: 1.0, pan: 0, loop: true)
-                rotationLabel.string = "Good x3"
-                break
-            case .Fair:
-                delegate?.stopStreak()
-                color = CCColor(ccColor3b: ccColor3B(r: 0, g: 166, b: 237))
-                soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", volume: 0.05, pitch: 1.0, pan: 0, loop: true)
-                rotationLabel.string = "Ok x1"
-                break
-            case .Poor:
-                delegate?.stopStreak()
-                color = CCColor(ccColor3b: ccColor3B(r: 246, g: 81, b: 29))
-                soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", volume: 0.05, pitch: 1.0, pan: 0, loop: true)
-                rotationLabel.string = "Uh-oh! x0.75"
-                break
+            if touched {
+                if (soundSrc != nil)
+                {
+                    soundSrc!.stop()
+                }
+                switch state{
+                case .Streak:
+                    delegate?.startStreak()
+                    color = CCColor(ccColor3b: ccColor3B(r: 104, g: 0, b: 186))
+                    soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", volume: 0.1, pitch: 1.0, pan: 0, loop: true)
+                    rotationLabel.string = "Streak x16"
+                    break
+                case .Perfect:
+                    delegate?.stopStreak()
+                    color = CCColor(ccColor3b: ccColor3B(r: 49, g: 203, b: 0))
+                    soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", volume: 0.1, pitch: 1.0, pan: 0, loop: true)
+                    rotationLabel.string = "Perfect x8"
+                    break
+                case .Good:
+                    delegate?.stopStreak()
+                    color = CCColor(ccColor3b: ccColor3B(r: 1, g: 23, b: 104))
+                    soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/goodSound.mp3", volume: 0.1, pitch: 1.0, pan: 0, loop: true)
+                    rotationLabel.string = "Good x4"
+                    break
+                case .Fair:
+                    delegate?.stopStreak()
+                    color = CCColor(ccColor3b: ccColor3B(r: 0, g: 166, b: 237))
+                    soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", volume: 0.05, pitch: 1.0, pan: 0, loop: true)
+                    rotationLabel.string = "Ok x2"
+                    break
+                case .Poor:
+                    delegate?.stopStreak()
+                    color = CCColor(ccColor3b: ccColor3B(r: 246, g: 81, b: 29))
+                    soundSrc = OALSimpleAudio.sharedInstance().playEffect("8bits/Retro Game FX 3.mp3", volume: 0.05, pitch: 1.0, pan: 0, loop: true)
+                    rotationLabel.string = "Uh-oh! x1"
+                    break
+                }
             }
         }
     }
@@ -109,6 +114,15 @@ class ScoreNode: CCNode {
         let defaults = NSUserDefaults.standardUserDefaults()
         if score > defaults.doubleForKey("highscore") {
             defaults.setDouble(score, forKey: "highscore")
+        }
+    }
+    override func update(delta: CCTime) {
+        if !touched {
+            rotationLabel.string = "Get started dude!"
+            if (soundSrc != nil)
+            {
+                soundSrc!.stop()
+            }
         }
     }
     

@@ -26,12 +26,20 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
+#import <Chartboost/Chartboost.h>
+#import "AppDelegate.h"
+#import <CommonCrypto/CommonDigest.h>
+#import <AdSupport/AdSupport.h>
 
 
 @implementation AppController
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Initialize the Chartboost library
+    [Chartboost startWithAppId:@"567f71c9f78982174ea1401b"
+                  appSignature:@"6d0852afbcc114f0e3053ce7cf6c99d84d7e4ebf"
+                      delegate:self];
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
     configPath = [configPath stringByAppendingPathComponent:@"configCocos2d.plist"];
     

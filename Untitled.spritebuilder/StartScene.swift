@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import GameKit
 import StoreKit
-
+var tryAgainScore = 0.0
+var tried = false
 class StartScene: CCScene  {
     var colorValue: GLubyte = 255
     let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
@@ -69,6 +70,7 @@ class StartScene: CCScene  {
     }
     
     func didLoadFromCCB() {
+        audio.effectsVolume = 1.0
         GameCenterHelper.sharedInstance.authenticationCheck()
         if !ads {
             iAdHelper.sharedHelper()

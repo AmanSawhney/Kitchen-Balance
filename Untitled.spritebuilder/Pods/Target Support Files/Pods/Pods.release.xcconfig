@@ -1,0 +1,6 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/ChartboostSDK"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ChartboostSDK"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ChartboostSDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "AVFoundation" -framework "Chartboost" -framework "CoreData" -framework "CoreGraphics" -framework "CoreMedia" -framework "QuartzCore" -framework "StoreKit" -framework "SystemConfiguration" -weak_framework "AdSupport"
+PODS_ROOT = ${SRCROOT}/Pods

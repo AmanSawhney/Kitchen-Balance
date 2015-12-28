@@ -16,6 +16,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     weak var compliment: CCLabelTTF!
     let screenSize = UIScreen.mainScreen().bounds
     let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
+    weak var fakeHand: CCSprite!
     weak var currentScore: CCLabelTTF!
     weak var highScore: CCLabelTTF!
     weak var scoreNode: ScoreNode!
@@ -32,7 +33,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     let scorePerUpdate = 1.0
     
     var level = 1
-    var scorePerLevel = 100
+    var scorePerLevel = 5000
     
     weak var streak1: CCParticleSystem!
     weak var streak2: CCParticleSystem!
@@ -42,14 +43,22 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     
     override func onExit() {
         super.onExit()
+        
     }
     
     
     var screenWidth = UIScreen.mainScreen().bounds.width
     var screenHeight = UIScreen.mainScreen().bounds.height
-    
     func didLoadFromCCB() {
-        
+        if !touched {
+            gamePhysicsNode.gravity = CGPoint(x: 0,y: 0)
+            if soundSrc != nil {
+                soundSrc!.stop()
+            }
+            scoreNode.updateScore(0)
+            scoreNode.displayRotation(100.1)
+        }
+        Chartboost.cacheInterstitial(CBLocationGameOver)
         stopStreak()
         
         scoreNode.delegate = self
@@ -61,12 +70,24 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         schedule("spawnCoin", interval: 8, `repeat`: UInt(100000), delay: 2)
     }
     
-    
+    func reset() {
+        compliment.string = ""
+        
+        if tried {
+            let playScene = CCBReader.loadAsScene("MainScene")
+            CCDirector.sharedDirector().replaceScene(playScene)
+        }else {
+            touched = true
+        }
+    }
     override func onEnter() {
+        
+        Chartboost.cacheRewardedVideo(CBLocationGameOver)
         super.onEnter()
+        animationManager.runAnimationsForSequenceNamed("Untitled Timeline")
         object = CCBReader.load("Objects/\(objectString())") as! CCSprite
         if objectString() == "Sword" {
-            object.scale = 0.25
+            object.scale = 0.5
         }
         
         hand = CCBReader.load("Objects/Hand")
@@ -90,6 +111,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         object.rotation = Float(arc4random_uniform(2) == 1 ? randomRotation : -randomRotation)
         
     }
+    
     
     func retry() {
         audio.playEffect("8bits/coin2.wav")
@@ -160,6 +182,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+        touched = true
+        tried = false
         currentTouchLocation = touch.locationInWorld()
     }
     
@@ -174,40 +198,83 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     
     
     override func update(delta: CCTime) {
-        hand.position.y = 0 //DO NOT DELETE THIS LINE. It makes hand a kinematic body and keeps pivot joint in line
-        
-        if !done{
-            score += scoreNode.state.rawValue * scorePerUpdate
-            scoreNode.displayRotation(object.rotation)
+        if tried{
+            score = tryAgainScore
             scoreNode.updateScore(score)
+        }else {
+            tryAgainScore = 0
         }
-        
-        if abs(object.rotation) > 80 && !done{
-            gameOver()
-        }
-        
-        if Int(score) > level * scorePerLevel{
-            levelUp()
+        fakeHand.position.y = 0
+        hand.position.y = 0 //DO NOT DELETE THIS LINE. It makes hand a kinematic body and keeps pivot joint in line
+        if touched {
+            if !done{
+                score += scoreNode.state.rawValue * scorePerUpdate
+                scoreNode.displayRotation(object.rotation)
+                scoreNode.updateScore(score)
+                if score % 2 == 1 {
+                    if arc4random_uniform(10) + 1 > 5 {
+                        object.physicsBody.applyImpulse(ccp(CGFloat(level * 5 * -1),0))
+                    }else {
+                        object.physicsBody.applyImpulse(ccp(CGFloat(level * 5 * 1),0))
+                    }
+                }
+            }
             
-            scorePerLevel = scorePerLevel * (level/2)
+            if abs(object.rotation) > 80 && !done{
+                gameOver()
+            }
+            
+            if Int(score) > level * scorePerLevel{
+                levelUp()
+            }
+        }
+        if !touched {
+            gamePhysicsNode.gravity = CGPoint(x: 0,y: 0)
+            if (soundSrc != nil)
+            {
+                soundSrc!.stop()
+            }
+            if score < 1{
+                scoreNode.updateScore(0)
+            }
+        }else {
+            gamePhysicsNode.gravity = CGPoint(x: 0,y: -800)
         }
         
-        
+    }
+    func tryAgain() {
+        tryAgainScore = score
+        tried = true
+        Chartboost.showRewardedVideo(CBLocationGameOver)
+        if tryAgainScore != 0.0 && score != 0{
+            let playScene = CCBReader.loadAsScene("MainScene")
+            CCDirector.sharedDirector().replaceScene(playScene)
+        }
+    }
+    
+    func no() {
+        actualGameOver()
     }
     
     func levelUp() {
         audio.playEffect("8bits/levelUp", volume: 1.0, pitch: 1.0, pan: 0, loop: false)
-        object.physicsBody.applyAngularImpulse(10)//knock the object loose if at rest
+        if arc4random_uniform(10) + 1 > 5 {
+            object.physicsBody.applyImpulse(ccp(CGFloat(200 * -1),0))
+        }else {
+            object.physicsBody.applyImpulse(ccp(CGFloat(200 * 1),0))
+        }
         level++
-        gamePhysicsNode.gravity.y -= CGFloat(100)
+        gamePhysicsNode.gravity.y -= CGFloat(Double(gamePhysicsNode.gravity.y) * pow(2.0, Double(level)))
         levelLabel.level = level
         levelLabel.animationManager.runAnimationsForSequenceNamed("LevelUp")
     }
-    
-    
-    func gameOver(){
+    func actualGameOver() {
+        touched = false
+        if !NSUserDefaults.standardUserDefaults().boolForKey("ads") && CCRANDOM_0_1() <= 0.3 {
+            Chartboost.showInterstitial(CBLocationGameOver)
+        }
         compliment.string = ""
-        OALSimpleAudio.sharedInstance().stopAllEffects()
+        audio.stopAllEffects()
         audio.playEffect("8bits/Death.wav", volume: 0.1, pitch: 1.0, pan: 0, loop: false)
         done = true
         unschedule("levelUp")
@@ -231,14 +298,58 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         GameCenterHelper.sharedInstance.saveHighScore(score)
     }
     
-    func spawnCoin(){
-        let coin = CCBReader.load("Coin")
-        let coinPositionXOffset = CGFloat(arc4random_uniform(UInt32(screenWidth / 4)) + UInt32(screenWidth/5))
-        let coinPositionX = CGFloat(arc4random_uniform(UInt32(screenWidth/2 + coinPositionXOffset)) + UInt32(screenWidth/2 - coinPositionXOffset))
-        let coinPositionY = CGFloat(arc4random_uniform(UInt32(screenHeight * 0.55)) + UInt32(screenHeight * 0.18))
+    func gameOver() -> Double{
+        if CCRANDOM_0_1() < 0.3 && Chartboost.hasRewardedVideo(CBLocationGameOver) {
+            gamePhysicsNode.gravity = ccp(0,0)
+            object.physicsBody.velocity = ccp(0,0)
+            object.physicsBody.allowsRotation = false
+            object.physicsBody.angularVelocity = 0
+            object.physicsBody.force = ccp(0,0)
+            object.physicsBody.torque = 0
+            touched = false
+            animationManager.runAnimationsForSequenceNamed("TryAgain Timeline")
+            return 0.0
+        }
+        touched = false
+        if !NSUserDefaults.standardUserDefaults().boolForKey("ads") && CCRANDOM_0_1() <= 0.3 {
+            Chartboost.showInterstitial(CBLocationGameOver)
+        }
+        compliment.string = ""
+        audio.stopAllEffects()
+        audio.playEffect("8bits/Death.wav", volume: 0.1, pitch: 1.0, pan: 0, loop: false)
+        done = true
+        unschedule("levelUp")
+        unschedule("compliement")
+        unschedule("spawnCoin")
         
-        coin.position = ccp(coinPositionX, coinPositionY)
-        gamePhysicsNode.addChild(coin)
+        AudioServicesPlaySystemSound(1352)
+        let move = CCActionEaseBounceOut(action: CCActionMoveBy(duration: 0.2, position: ccp(0, 12)))
+        let moveBack = CCActionEaseBounceOut(action: move.reverse())
+        let shakeSequence = CCActionSequence(array: [move, moveBack])
+        runAction(shakeSequence)
+        self.animationManager.runAnimationsForSequenceNamed("GameOver Timeline")
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let highScoreNumber = Int(defaults.doubleForKey("highscore"))
+        highScore.string = "\(highScoreNumber)"
+        currentScore.string = "\(Int(score))"
+        hand.visible = false
+        
+        pivot.invalidate()
+        GameCenterHelper.sharedInstance.saveHighScore(score)
+        return 0.0
+    }
+    
+    func spawnCoin(){
+        if touched {
+            let coin = CCBReader.load("Coin")
+            let coinPositionXOffset = CGFloat(arc4random_uniform(UInt32(screenWidth / 4)) + UInt32(screenWidth/5))
+            let coinPositionX = CGFloat(arc4random_uniform(UInt32(screenWidth/2 + coinPositionXOffset)) + UInt32(screenWidth/2 - coinPositionXOffset))
+            let coinPositionY = CGFloat(arc4random_uniform(UInt32(screenHeight * 0.55)) + UInt32(screenHeight * 0.18))
+            
+            coin.position = ccp(coinPositionX, coinPositionY)
+            gamePhysicsNode.addChild(coin)
+        }
     }
     
     func restart(){
@@ -324,6 +435,7 @@ extension MainScene: StreakDelegate{
     }
     
 }
+
 
 
 

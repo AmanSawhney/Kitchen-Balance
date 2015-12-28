@@ -17,6 +17,11 @@
 #import "iAdHelper.h"
 #import "AudioToolbox/AudioServices.h"
 #import "CCActionInterval.h"
+//Charboost
+#import <Chartboost/Chartboost.h>
+#import "AppDelegate.h"
+#import <CommonCrypto/CommonDigest.h>
+#import <AdSupport/AdSupport.h>
 
 
 
