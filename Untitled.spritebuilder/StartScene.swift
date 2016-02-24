@@ -26,6 +26,7 @@ class StartScene: CCScene  {
     weak var object2: CCSprite!
     weak var object3: CCSprite!
     weak var object4: CCSprite!
+    var startAppBanner: STABannerView?
     weak var object5: CCSprite!
     var objects: [CCSprite] = []
     var objectsInPosition = true
@@ -73,9 +74,10 @@ class StartScene: CCScene  {
         audio.effectsVolume = 1.0
         GameCenterHelper.sharedInstance.authenticationCheck()
         if !ads {
-            iAdHelper.sharedHelper()
-            iAdHelper.setBannerPosition(TOP)
-            iAdHelper.load()
+            if (startAppBanner == nil) {
+                startAppBanner = STABannerView(size: STA_AutoAdSize, autoOrigin: STAAdOrigin_Top, withView: view.view, withDelegate: nil);
+                view.view.addSubview(startAppBanner!)
+            }
         }
         objects.append(object1)
         objects.append(object2)

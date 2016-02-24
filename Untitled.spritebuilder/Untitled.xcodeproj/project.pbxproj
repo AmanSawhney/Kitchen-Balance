@@ -13,6 +13,11 @@
 		040646CA1B60264A00638C61 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040646C91B60264A00638C61 /* MediaPlayer.framework */; };
 		040646CC1B60265400638C61 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040646CB1B60265400638C61 /* Security.framework */; };
 		040646CE1B60266B00638C61 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040646CD1B60266B00638C61 /* SystemConfiguration.framework */; };
+		0412EBD91C7D3F200053CAC0 /* StartApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0412EBD71C7D3F200053CAC0 /* StartApp.bundle */; };
+		0412EBDA1C7D3F200053CAC0 /* StartApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0412EBD81C7D3F200053CAC0 /* StartApp.framework */; };
+		0412EBDE1C7D3F680053CAC0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0412EBDD1C7D3F680053CAC0 /* libz.tbd */; };
+		0412EBE01C7D3F730053CAC0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0412EBDF1C7D3F730053CAC0 /* CoreTelephony.framework */; };
+		0412EBE21C7D3FA20053CAC0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0412EBE11C7D3FA20053CAC0 /* CoreMedia.framework */; };
 		0442D4521B5FE4E0007A2272 /* close.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 0442D4511B5FE4E0007A2272 /* close.PNG */; };
 		049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEA1B586CAD0020C07D /* StartScene.swift */; };
 		04B88F6F1C2DF5C3009E99E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B88F6E1C2DF5C3009E99E0 /* Default-568h@2x.png */; };
@@ -166,6 +171,11 @@
 		040646C91B60264A00638C61 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		040646CB1B60265400638C61 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		040646CD1B60266B00638C61 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0412EBD71C7D3F200053CAC0 /* StartApp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = StartApp.bundle; sourceTree = "<group>"; };
+		0412EBD81C7D3F200053CAC0 /* StartApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StartApp.framework; sourceTree = "<group>"; };
+		0412EBDD1C7D3F680053CAC0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0412EBDF1C7D3F730053CAC0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0412EBE11C7D3FA20053CAC0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0442D4511B5FE4E0007A2272 /* close.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.PNG; sourceTree = "<group>"; };
 		049BDBEA1B586CAD0020C07D /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		04B88F6E1C2DF5C3009E99E0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -287,20 +297,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0412EBE21C7D3FA20053CAC0 /* CoreMedia.framework in Frameworks */,
+				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
+				040646C81B60263A00638C61 /* AdSupport.framework in Frameworks */,
+				CCD6450E1B5C46E500F06596 /* StoreKit.framework in Frameworks */,
+				040646CE1B60266B00638C61 /* SystemConfiguration.framework in Frameworks */,
+				0412EBE01C7D3F730053CAC0 /* CoreTelephony.framework in Frameworks */,
+				0412EBDE1C7D3F680053CAC0 /* libz.tbd in Frameworks */,
 				B77F1B3C17B978D7009739AE /* UIKit.framework in Frameworks */,
+				0412EBDA1C7D3F200053CAC0 /* StartApp.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
-				CCD6450E1B5C46E500F06596 /* StoreKit.framework in Frameworks */,
 				04B88F931C2FAB58009E99E0 /* Chartboost.framework in Frameworks */,
-				040646CE1B60266B00638C61 /* SystemConfiguration.framework in Frameworks */,
 				040646CC1B60265400638C61 /* Security.framework in Frameworks */,
 				040646CA1B60264A00638C61 /* MediaPlayer.framework in Frameworks */,
-				040646C81B60263A00638C61 /* AdSupport.framework in Frameworks */,
 				CC60D9FB1B5EA93A00D375CE /* AudioToolbox.framework in Frameworks */,
 				04023BB11B5D76DB008328A8 /* Social.framework in Frameworks */,
 				7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
-				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				CCD6450C1B5C461A00F06596 /* GameKit.framework in Frameworks */,
 				B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */,
 				B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */,
@@ -523,6 +537,8 @@
 			isa = PBXGroup;
 			children = (
 				04B88F821C2FA9AE009E99E0 /* Podfile */,
+				0412EBD71C7D3F200053CAC0 /* StartApp.bundle */,
+				0412EBD81C7D3F200053CAC0 /* StartApp.framework */,
 				CCD645121B5C630300F06596 /* Images.xcassets */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
@@ -547,6 +563,9 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0412EBE11C7D3FA20053CAC0 /* CoreMedia.framework */,
+				0412EBDF1C7D3F730053CAC0 /* CoreTelephony.framework */,
+				0412EBDD1C7D3F680053CAC0 /* libz.tbd */,
 				04B88F921C2FAB58009E99E0 /* Chartboost.framework */,
 				040646CD1B60266B00638C61 /* SystemConfiguration.framework */,
 				040646CB1B60265400638C61 /* Security.framework */,
@@ -813,6 +832,7 @@
 				0442D4521B5FE4E0007A2272 /* close.PNG in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				CCD645131B5C630400F06596 /* Images.xcassets in Resources */,
+				0412EBD91C7D3F200053CAC0 /* StartApp.bundle in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
@@ -1246,6 +1266,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/ChartboostSDK",
+					"$(PROJECT_DIR)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1289,6 +1310,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/ChartboostSDK",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;

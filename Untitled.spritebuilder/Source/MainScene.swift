@@ -15,7 +15,8 @@ var streakMultiplierSorce = 1
 class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     weak var compliment: CCLabelTTF!
     let screenSize = UIScreen.mainScreen().bounds
-    let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.
+    let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.var startAppAd: STAStartAppAd?
+    var startAppAd: STAStartAppAd?
     weak var fakeHand: CCSprite!
     weak var currentScore: CCLabelTTF!
     weak var highScore: CCLabelTTF!
@@ -50,6 +51,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     var screenWidth = UIScreen.mainScreen().bounds.width
     var screenHeight = UIScreen.mainScreen().bounds.height
     func didLoadFromCCB() {
+        startAppAd = STAStartAppAd()
+        startAppAd!.loadAd()
         if !touched {
             gamePhysicsNode.gravity = CGPoint(x: 0,y: 0)
             if soundSrc != nil {
@@ -58,7 +61,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
             scoreNode.updateScore(0)
             scoreNode.displayRotation(100.1)
         }
-        Chartboost.cacheInterstitial(CBLocationGameOver)
         stopStreak()
         
         scoreNode.delegate = self
@@ -271,7 +273,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     func actualGameOver() {
         touched = false
         if !NSUserDefaults.standardUserDefaults().boolForKey("ads") && CCRANDOM_0_1() <= 0.3 {
-            Chartboost.showInterstitial(CBLocationGameOver)
+            startAppAd!.showAd()
         }
         compliment.string = ""
         audio.stopAllEffects()
@@ -312,7 +314,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         }
         touched = false
         if !NSUserDefaults.standardUserDefaults().boolForKey("ads") && CCRANDOM_0_1() <= 0.3 {
-            Chartboost.showInterstitial(CBLocationGameOver)
+            startAppAd!.showAd()
         }
         compliment.string = ""
         audio.stopAllEffects()

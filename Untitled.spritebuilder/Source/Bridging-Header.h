@@ -22,6 +22,7 @@
 #import "AppDelegate.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <AdSupport/AdSupport.h>
+#import <StartApp/StartApp.h>
 
 
 
