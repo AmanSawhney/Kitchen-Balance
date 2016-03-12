@@ -31,7 +31,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <AdSupport/AdSupport.h>
 #import <StartApp/StartApp.h>
-
+#import <TAPPX/TAPPXUtils.h>
 
 @implementation AppController
 
@@ -39,6 +39,7 @@
 {
     STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
     sdk.appID = @"201038677";
+    [TAPPXUtils trackInstall:@"/120940746/Pub-8986-iOS-1156"];
     // Initialize the Chartboost library
     [Chartboost startWithAppId:@"567f71c9f78982174ea1401b"
                   appSignature:@"6d0852afbcc114f0e3053ce7cf6c99d84d7e4ebf"

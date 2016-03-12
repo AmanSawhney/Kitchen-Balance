@@ -19,6 +19,10 @@
 		0412EBE01C7D3F730053CAC0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0412EBDF1C7D3F730053CAC0 /* CoreTelephony.framework */; };
 		0412EBE21C7D3FA20053CAC0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0412EBE11C7D3FA20053CAC0 /* CoreMedia.framework */; };
 		0442D4521B5FE4E0007A2272 /* close.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 0442D4511B5FE4E0007A2272 /* close.PNG */; };
+		0496EE451C8FE11E00AA60B1 /* loading.html in Resources */ = {isa = PBXBuildFile; fileRef = 0496EE441C8FE11E00AA60B1 /* loading.html */; };
+		0496EE491C8FE12E00AA60B1 /* TAPPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496EE481C8FE12E00AA60B1 /* TAPPX.framework */; };
+		0496EE4B1C8FE13600AA60B1 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496EE4A1C8FE13600AA60B1 /* GoogleMobileAds.framework */; };
+		0496EE541C8FE14000AA60B1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0496EE531C8FE14000AA60B1 /* README.txt */; };
 		049BDBEB1B586CAD0020C07D /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BDBEA1B586CAD0020C07D /* StartScene.swift */; };
 		04B88F6F1C2DF5C3009E99E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B88F6E1C2DF5C3009E99E0 /* Default-568h@2x.png */; };
 		04B88F711C2DF5CA009E99E0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B88F701C2DF5CA009E99E0 /* Default@2x.png */; };
@@ -177,6 +181,16 @@
 		0412EBDF1C7D3F730053CAC0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0412EBE11C7D3FA20053CAC0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0442D4511B5FE4E0007A2272 /* close.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.PNG; sourceTree = "<group>"; };
+		0496EE441C8FE11E00AA60B1 /* loading.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = loading.html; path = StartApp.bundle/loading.html; sourceTree = "<group>"; };
+		0496EE481C8FE12E00AA60B1 /* TAPPX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TAPPX.framework; sourceTree = "<group>"; };
+		0496EE4A1C8FE13600AA60B1 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		0496EE4D1C8FE14000AA60B1 /* GADMAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		0496EE4E1C8FE14000AA60B1 /* GADMAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		0496EE4F1C8FE14000AA60B1 /* GADMediationAdRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMediationAdRequest.h; sourceTree = "<group>"; };
+		0496EE501C8FE14000AA60B1 /* GADMEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMEnums.h; sourceTree = "<group>"; };
+		0496EE511C8FE14000AA60B1 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		0496EE521C8FE14000AA60B1 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		0496EE531C8FE14000AA60B1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		049BDBEA1B586CAD0020C07D /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		04B88F6E1C2DF5C3009E99E0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		04B88F701C2DF5CA009E99E0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -297,6 +311,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0496EE491C8FE12E00AA60B1 /* TAPPX.framework in Frameworks */,
+				0496EE4B1C8FE13600AA60B1 /* GoogleMobileAds.framework in Frameworks */,
 				0412EBE21C7D3FA20053CAC0 /* CoreMedia.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				040646C81B60263A00638C61 /* AdSupport.framework in Frameworks */,
@@ -327,6 +343,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0496EE4C1C8FE14000AA60B1 /* Mediation Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				0496EE4D1C8FE14000AA60B1 /* GADMAdNetworkAdapterProtocol.h */,
+				0496EE4E1C8FE14000AA60B1 /* GADMAdNetworkConnectorProtocol.h */,
+				0496EE4F1C8FE14000AA60B1 /* GADMediationAdRequest.h */,
+				0496EE501C8FE14000AA60B1 /* GADMEnums.h */,
+				0496EE511C8FE14000AA60B1 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */,
+				0496EE521C8FE14000AA60B1 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */,
+				0496EE531C8FE14000AA60B1 /* README.txt */,
+			);
+			path = "Mediation Adapters";
+			sourceTree = "<group>";
+		};
 		5B12100D197483EE004C1E1D /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,7 +566,11 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
+				0496EE4C1C8FE14000AA60B1 /* Mediation Adapters */,
+				0496EE4A1C8FE13600AA60B1 /* GoogleMobileAds.framework */,
+				0496EE481C8FE12E00AA60B1 /* TAPPX.framework */,
 				04B88F821C2FA9AE009E99E0 /* Podfile */,
+				0496EE441C8FE11E00AA60B1 /* loading.html */,
 				0412EBD71C7D3F200053CAC0 /* StartApp.bundle */,
 				0412EBD81C7D3F200053CAC0 /* StartApp.framework */,
 				CCD645121B5C630300F06596 /* Images.xcassets */,
@@ -842,11 +876,13 @@
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
+				0496EE451C8FE11E00AA60B1 /* loading.html in Resources */,
 				04B88F711C2DF5CA009E99E0 /* Default@2x.png in Resources */,
 				04023BE21B5DA44A008328A8 /* 8bits in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
+				0496EE541C8FE14000AA60B1 /* README.txt in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1263,6 +1299,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/ChartboostSDK",
@@ -1307,6 +1344,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/ChartboostSDK",

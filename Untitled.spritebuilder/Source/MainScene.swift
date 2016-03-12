@@ -12,11 +12,13 @@ import StoreKit
 
 var streakMultiplierSorce = 1
 
-class MainScene: CCNode, CCPhysicsCollisionDelegate  {
+class MainScene: CCNode, CCPhysicsCollisionDelegate, TAPPXInterstitialDelegate  {
+    let defaults = NSUserDefaults.standardUserDefaults()
     weak var compliment: CCLabelTTF!
     let screenSize = UIScreen.mainScreen().bounds
     let view: UIViewController = CCDirector.sharedDirector().parentViewController! // Returns a UIView of the cocos2d view controller.var startAppAd: STAStartAppAd?
     var startAppAd: STAStartAppAd?
+    var interstitial : TAPPXInterstitialView?
     weak var fakeHand: CCSprite!
     weak var currentScore: CCLabelTTF!
     weak var highScore: CCLabelTTF!
@@ -33,8 +35,12 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     var audio = OALSimpleAudio.sharedInstance()
     let scorePerUpdate = 1.0
     
-    var level = 1
-    var scorePerLevel = 5000
+    var level = 1 {
+        didSet {
+            scorePerLevel = 2^level * 100
+        }
+    }
+    var scorePerLevel = 100
     
     weak var streak1: CCParticleSystem!
     weak var streak2: CCParticleSystem!
@@ -51,6 +57,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     var screenWidth = UIScreen.mainScreen().bounds.width
     var screenHeight = UIScreen.mainScreen().bounds.height
     func didLoadFromCCB() {
+        interstitial = TAPPXInterstitial().createInterstitial(self)
         startAppAd = STAStartAppAd()
         startAppAd!.loadAd()
         if !touched {
@@ -82,8 +89,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
             touched = true
         }
     }
+    func presentViewController() -> UIViewController {return view}
     override func onEnter() {
-        
         Chartboost.cacheRewardedVideo(CBLocationGameOver)
         super.onEnter()
         animationManager.runAnimationsForSequenceNamed("Untitled Timeline")
@@ -175,7 +182,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, object: CCNode!, coin: Coin!) -> Bool {
         if !coin.collected{
-            let coins = NSUserDefaults.standardUserDefaults().integerForKey("Coins") + Int(1 * abs(scoreNode.state.rawValue))
+            let coins = NSUserDefaults.standardUserDefaults().integerForKey("Coins") + 10/level
             NSUserDefaults.standardUserDefaults().setInteger(coins, forKey: "Coins")
             coinNode.updateLabel(coins)
             coin.collect()
@@ -215,9 +222,9 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
                 scoreNode.updateScore(score)
                 if score % 2 == 1 {
                     if arc4random_uniform(10) + 1 > 5 {
-                        object.physicsBody.applyImpulse(ccp(CGFloat(level * 5 * -1),0))
+                        object.physicsBody.applyImpulse(ccp(CGFloat(level * -1),0))
                     }else {
-                        object.physicsBody.applyImpulse(ccp(CGFloat(level * 5 * 1),0))
+                        object.physicsBody.applyImpulse(ccp(CGFloat(level * 1),0))
                     }
                 }
             }
@@ -271,9 +278,10 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         levelLabel.animationManager.runAnimationsForSequenceNamed("LevelUp")
     }
     func actualGameOver() {
+        
         touched = false
         if !NSUserDefaults.standardUserDefaults().boolForKey("ads") && CCRANDOM_0_1() <= 0.3 {
-            startAppAd!.showAd()
+            interstitial?.interstitialShow(interstitial, delegate:self)
         }
         compliment.string = ""
         audio.stopAllEffects()
@@ -290,7 +298,6 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         runAction(shakeSequence)
         self.animationManager.runAnimationsForSequenceNamed("GameOver Timeline")
         
-        let defaults = NSUserDefaults.standardUserDefaults()
         let highScoreNumber = Int(defaults.doubleForKey("highscore"))
         highScore.string = "\(highScoreNumber)"
         currentScore.string = "\(Int(score))"
@@ -301,7 +308,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
     }
     
     func gameOver() -> Double{
-        if CCRANDOM_0_1() < 0.3 && Chartboost.hasRewardedVideo(CBLocationGameOver) {
+
+        if score > NSUserDefaults.standardUserDefaults().doubleForKey("highscore") * 0.667 && Chartboost.hasRewardedVideo(CBLocationGameOver) {
             gamePhysicsNode.gravity = ccp(0,0)
             object.physicsBody.velocity = ccp(0,0)
             object.physicsBody.allowsRotation = false
@@ -314,7 +322,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate  {
         }
         touched = false
         if !NSUserDefaults.standardUserDefaults().boolForKey("ads") && CCRANDOM_0_1() <= 0.3 {
-            startAppAd!.showAd()
+            interstitial?.interstitialShow(interstitial, delegate:self)
         }
         compliment.string = ""
         audio.stopAllEffects()

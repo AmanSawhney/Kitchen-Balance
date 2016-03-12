@@ -23,7 +23,10 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <AdSupport/AdSupport.h>
 #import <StartApp/StartApp.h>
-
+#import <TAPPX/TAPPXUtils.h>
+#import <TAPPX/TAPPXBanner.h>
+#import <TAPPX/TAPPXInterstitial.h>
+#import <TAPPX/TAPPXNativeAds.h>
 
 
 
