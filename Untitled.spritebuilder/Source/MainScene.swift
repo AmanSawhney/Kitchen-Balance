@@ -346,7 +346,18 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate, TAPPXInterstitialDelegate  
         hand.visible = false
         
         pivot.invalidate()
-        GameCenterHelper.sharedInstance.saveHighScore(score)
+        if GKLocalPlayer.localPlayer().authenticated {
+            print("DONE")
+            let scoreReporter = GKScore(leaderboardIdentifier: "KitchenBalanceSinglePlayerLeaderboard")
+            scoreReporter.value = Int64(score)
+            let scoreArray: [GKScore] = [scoreReporter]
+            GKScore.reportScores(scoreArray,withCompletionHandler: ( {
+                (error : NSError?)-> Void in
+                if (error != nil) {
+                    print("Error: " + error!.localizedDescription, terminator: "");
+                }
+            } ) )
+        }
         return 0.0
     }
     
