@@ -1,7 +1,8 @@
 # KitchenBalance
 ##This game is available on the app store right over <a href = "https://itunes.apple.com/app/id1070871741?mt=8">here!</a>
-#####Note: This game was not solely created by Aman Sawhney, it was made in collaboration with Jorrie Brettin of Gun Team Studios.
-#####Also note: This game was made before I knew the value of commiting to github therefore some of the commits are just vular language as I was annoyed to do it and just wanted to keep on programming. 
+####Note: This game was not solely created by Aman Sawhney, it was made in collaboration with Jorrie Brettin of Gun Team Studios.
+####Also note: This game was made before I knew the value of commiting to github therefore some of the commits are just vular language as I was annoyed to do it and just wanted to keep on programming. 
+####The Last Note: qwefghnm was my old account, it has been replaced by this account as that account was hacked and resulted in vulgar things that I would rather not be associated with 
 ##Screenshots
 ![alt tag](https://lh3.googleusercontent.com/SxYhYvVcEul-Hbj5dbrFQ8dXrSuYLJul-c9yoT0A-GlZJgVjiIan_3PNR1OvHyznP_91pe9JzLeoq_GZ6-EXoDzTW9JdhA)
 ![alt tag](https://lh3.googleusercontent.com/6kJ9HKJRZBQarHm113dSFf0rqFjK4mH3Ow4wa3EdpaRxpbbZhS5y350NWVmUQdgMoy2HVxa6Q-CHselBf68BKVdh4f0zdg)
